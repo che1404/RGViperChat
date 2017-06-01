@@ -45,6 +45,8 @@ class ChatListAPIDataManager: ChatListAPIDataManagerInputProtocol {
                 dispatchGroup.notify(queue: .main, execute: {
                     completion(.success(chats))
                 })
+            } else {
+                completion(.success([]))
             }
         })
     }
