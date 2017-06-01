@@ -1,0 +1,1314 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8B2DDC712A3FBC12C795E49E /* Pods_RGViperChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A71D29EC5409F3C484FC0F86 /* Pods_RGViperChatTests.framework */; };
+		C3DB3EC9542785DFD36377A4 /* Pods_RGViperChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B91B5E8135202D018090A1 /* Pods_RGViperChat.framework */; };
+		D004EEF31ED4BD8500BA0D4C /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D004EEF21ED4BD8500BA0D4C /* GeneratedMocks.swift */; };
+		D004EF221ED4BFB100BA0D4C /* ChatListAPIDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D004EF131ED4BFB100BA0D4C /* ChatListAPIDataManager.swift */; };
+		D004EF231ED4BFB100BA0D4C /* ChatListLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D004EF151ED4BFB100BA0D4C /* ChatListLocalDataManager.swift */; };
+		D004EF241ED4BFB100BA0D4C /* ChatListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D004EF171ED4BFB100BA0D4C /* ChatListInteractor.swift */; };
+		D004EF261ED4BFB100BA0D4C /* ChatListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D004EF1A1ED4BFB100BA0D4C /* ChatListPresenter.swift */; };
+		D004EF281ED4BFB100BA0D4C /* ChatListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D004EF1D1ED4BFB100BA0D4C /* ChatListProtocols.swift */; };
+		D004EF291ED4BFB100BA0D4C /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D004EF1F1ED4BFB100BA0D4C /* ChatListView.swift */; };
+		D004EF2A1ED4BFB100BA0D4C /* ChatListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D004EF211ED4BFB100BA0D4C /* ChatListWireframe.swift */; };
+		D004EF2B1ED4BFBB00BA0D4C /* ChatListInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D004EF181ED4BFB100BA0D4C /* ChatListInteractorSpec.swift */; };
+		D004EF2C1ED4BFC600BA0D4C /* ChatListPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D004EF1B1ED4BFB100BA0D4C /* ChatListPresenterSpec.swift */; };
+		D004EF301ED4CE7800BA0D4C /* ChatListView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D004EF2F1ED4CE7800BA0D4C /* ChatListView.storyboard */; };
+		D004EF331ED4D1BA00BA0D4C /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = D004EF321ED4D1BA00BA0D4C /* Result.swift */; };
+		D004EF381ED4D35300BA0D4C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D004EF371ED4D35300BA0D4C /* GoogleService-Info.plist */; };
+		D027E3A81ED772FA00AD01B0 /* SignupAPIDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027E3991ED772FA00AD01B0 /* SignupAPIDataManager.swift */; };
+		D027E3A91ED772FA00AD01B0 /* SignupLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027E39B1ED772FA00AD01B0 /* SignupLocalDataManager.swift */; };
+		D027E3AA1ED772FA00AD01B0 /* SignupInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027E39D1ED772FA00AD01B0 /* SignupInteractor.swift */; };
+		D027E3AC1ED772FA00AD01B0 /* SignupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027E3A01ED772FA00AD01B0 /* SignupPresenter.swift */; };
+		D027E3AE1ED772FA00AD01B0 /* SignupProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027E3A31ED772FA00AD01B0 /* SignupProtocols.swift */; };
+		D027E3AF1ED772FA00AD01B0 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027E3A51ED772FA00AD01B0 /* SignupView.swift */; };
+		D027E3B01ED772FA00AD01B0 /* SignupWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027E3A71ED772FA00AD01B0 /* SignupWireframe.swift */; };
+		D027E3B11ED7730400AD01B0 /* SignupInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027E39E1ED772FA00AD01B0 /* SignupInteractorSpec.swift */; };
+		D027E3B21ED7734500AD01B0 /* SignupPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027E3A11ED772FA00AD01B0 /* SignupPresenterSpec.swift */; };
+		D027E3B41ED774AA00AD01B0 /* SignupView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D027E3B31ED774AA00AD01B0 /* SignupView.storyboard */; };
+		D03BCDB01ED61ECC00B2BF3B /* AuthorizationAPIDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BCDA11ED61ECC00B2BF3B /* AuthorizationAPIDataManager.swift */; };
+		D03BCDB11ED61ECC00B2BF3B /* AuthorizationLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BCDA31ED61ECC00B2BF3B /* AuthorizationLocalDataManager.swift */; };
+		D03BCDB21ED61ECC00B2BF3B /* AuthorizationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BCDA51ED61ECC00B2BF3B /* AuthorizationInteractor.swift */; };
+		D03BCDB41ED61ECC00B2BF3B /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BCDA81ED61ECC00B2BF3B /* AuthorizationPresenter.swift */; };
+		D03BCDB61ED61ECC00B2BF3B /* AuthorizationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BCDAB1ED61ECC00B2BF3B /* AuthorizationProtocols.swift */; };
+		D03BCDB71ED61ECC00B2BF3B /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BCDAD1ED61ECC00B2BF3B /* AuthorizationView.swift */; };
+		D03BCDB81ED61ECC00B2BF3B /* AuthorizationWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BCDAF1ED61ECC00B2BF3B /* AuthorizationWireframe.swift */; };
+		D03BCDB91ED61ED400B2BF3B /* AuthorizationInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BCDA61ED61ECC00B2BF3B /* AuthorizationInteractorSpec.swift */; };
+		D03BCDBA1ED61EE700B2BF3B /* AuthorizationPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BCDA91ED61ECC00B2BF3B /* AuthorizationPresenterSpec.swift */; };
+		D03BCDBC1ED620B000B2BF3B /* AuthorizationView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D03BCDBB1ED620B000B2BF3B /* AuthorizationView.storyboard */; };
+		D041D3581EDF5AE7004E89D0 /* ChatView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D041D3571EDF5AE7004E89D0 /* ChatView.storyboard */; };
+		D0542DD81EDAAEFC00B3046E /* CreateChatView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0542DD71EDAAEFC00B3046E /* CreateChatView.storyboard */; };
+		D0542DEB1EDAB64A00B3046E /* AppDelegateAPIDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0542DDC1EDAB64A00B3046E /* AppDelegateAPIDataManager.swift */; };
+		D0542DEC1EDAB64A00B3046E /* AppDelegateLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0542DDE1EDAB64A00B3046E /* AppDelegateLocalDataManager.swift */; };
+		D0542DED1EDAB64A00B3046E /* AppDelegateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0542DE01EDAB64A00B3046E /* AppDelegateInteractor.swift */; };
+		D0542DEF1EDAB64A00B3046E /* AppDelegatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0542DE31EDAB64A00B3046E /* AppDelegatePresenter.swift */; };
+		D0542DF11EDAB64A00B3046E /* AppDelegateProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0542DE61EDAB64A00B3046E /* AppDelegateProtocols.swift */; };
+		D0542DF31EDAB64A00B3046E /* AppDelegateWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0542DEA1EDAB64A00B3046E /* AppDelegateWireframe.swift */; };
+		D0542DF41EDAB8A400B3046E /* AppDelegatePresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0542DE41EDAB64A00B3046E /* AppDelegatePresenterSpec.swift */; };
+		D0542DF51EDAB8B000B3046E /* AppDelegateInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0542DE11EDAB64A00B3046E /* AppDelegateInteractorSpec.swift */; };
+		D0542DF71EDACAE300B3046E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0542DF61EDACAE300B3046E /* User.swift */; };
+		D0542DF91EDAD1C900B3046E /* UsersDisplayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0542DF81EDAD1C900B3046E /* UsersDisplayData.swift */; };
+		D0542DFB1EDAD2D800B3046E /* UserDisplayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0542DFA1EDAD2D800B3046E /* UserDisplayItem.swift */; };
+		D0542DFD1EDAD61F00B3046E /* UsersDisplayDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0542DFC1EDAD61F00B3046E /* UsersDisplayDataMapper.swift */; };
+		D0542E001EDADAE200B3046E /* UsersDisplayDataMapperSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0542DFE1EDADADD00B3046E /* UsersDisplayDataMapperSpec.swift */; };
+		D0619DB91ED37EA8006C953A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0619DB81ED37EA8006C953A /* AppDelegate.swift */; };
+		D0619DC01ED37EA8006C953A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0619DBF1ED37EA8006C953A /* Assets.xcassets */; };
+		D0619DC31ED37EA8006C953A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0619DC11ED37EA8006C953A /* LaunchScreen.storyboard */; };
+		D0619DCE1ED37EA8006C953A /* RGViperChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0619DCD1ED37EA8006C953A /* RGViperChatTests.swift */; };
+		D0619DEA1ED37EB9006C953A /* ChatAPIDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0619DDB1ED37EB9006C953A /* ChatAPIDataManager.swift */; };
+		D0619DEB1ED37EB9006C953A /* ChatLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0619DDD1ED37EB9006C953A /* ChatLocalDataManager.swift */; };
+		D0619DEC1ED37EB9006C953A /* ChatInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0619DDF1ED37EB9006C953A /* ChatInteractor.swift */; };
+		D0619DEE1ED37EB9006C953A /* ChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0619DE21ED37EB9006C953A /* ChatPresenter.swift */; };
+		D0619DF01ED37EB9006C953A /* ChatProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0619DE51ED37EB9006C953A /* ChatProtocols.swift */; };
+		D0619DF11ED37EB9006C953A /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0619DE71ED37EB9006C953A /* ChatView.swift */; };
+		D0619DF21ED37EB9006C953A /* ChatWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0619DE91ED37EB9006C953A /* ChatWireframe.swift */; };
+		D0619DF31ED37EC1006C953A /* ChatInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0619DE01ED37EB9006C953A /* ChatInteractorSpec.swift */; };
+		D0619DF41ED37EC3006C953A /* ChatPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0619DE31ED37EB9006C953A /* ChatPresenterSpec.swift */; };
+		D0DAB8621EDCAEF500D3099E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAB8611EDCAEF500D3099E /* Message.swift */; };
+		D0DAB8651EDCBDD800D3099E /* EncryptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAB8641EDCBDD800D3099E /* EncryptionService.swift */; };
+		D0E3672A1ED9DC5C00D7EDFE /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E367291ED9DC5C00D7EDFE /* RootWireframe.swift */; };
+		D0E3672C1ED9EE0800D7EDFE /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3672B1ED9EE0800D7EDFE /* Chat.swift */; };
+		D0E3673F1ED9F73D00D7EDFE /* CreateChatAPIDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E367301ED9F73D00D7EDFE /* CreateChatAPIDataManager.swift */; };
+		D0E367401ED9F73D00D7EDFE /* CreateChatLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E367321ED9F73D00D7EDFE /* CreateChatLocalDataManager.swift */; };
+		D0E367411ED9F73D00D7EDFE /* CreateChatInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E367341ED9F73D00D7EDFE /* CreateChatInteractor.swift */; };
+		D0E367431ED9F73D00D7EDFE /* CreateChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E367371ED9F73D00D7EDFE /* CreateChatPresenter.swift */; };
+		D0E367451ED9F73D00D7EDFE /* CreateChatProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3673A1ED9F73D00D7EDFE /* CreateChatProtocols.swift */; };
+		D0E367461ED9F73D00D7EDFE /* CreateChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3673C1ED9F73D00D7EDFE /* CreateChatView.swift */; };
+		D0E367471ED9F73D00D7EDFE /* CreateChatWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3673E1ED9F73D00D7EDFE /* CreateChatWireframe.swift */; };
+		D0E367481ED9F74A00D7EDFE /* CreateChatInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E367351ED9F73D00D7EDFE /* CreateChatInteractorSpec.swift */; };
+		D0E367491ED9F75000D7EDFE /* CreateChatPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E367381ED9F73D00D7EDFE /* CreateChatPresenterSpec.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D0619DCA1ED37EA8006C953A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D0619DAD1ED37EA8006C953A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0619DB41ED37EA8006C953A;
+			remoteInfo = RGViperChat;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		61CC7FDFF6462BDE9DBBA481 /* Pods-RGViperChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RGViperChatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RGViperChatTests/Pods-RGViperChatTests.release.xcconfig"; sourceTree = "<group>"; };
+		A5AD91C76D18D709ABB0BACC /* Pods-RGViperChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RGViperChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RGViperChatTests/Pods-RGViperChatTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A71D29EC5409F3C484FC0F86 /* Pods_RGViperChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RGViperChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3B91B5E8135202D018090A1 /* Pods_RGViperChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RGViperChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5D76C41EF8E0354A94F810E /* Pods-RGViperChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RGViperChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-RGViperChat/Pods-RGViperChat.release.xcconfig"; sourceTree = "<group>"; };
+		BCEA72FB67755D84EC859928 /* Pods-RGViperChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RGViperChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RGViperChat/Pods-RGViperChat.debug.xcconfig"; sourceTree = "<group>"; };
+		D004EEF21ED4BD8500BA0D4C /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
+		D004EF131ED4BFB100BA0D4C /* ChatListAPIDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListAPIDataManager.swift; sourceTree = "<group>"; };
+		D004EF151ED4BFB100BA0D4C /* ChatListLocalDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListLocalDataManager.swift; sourceTree = "<group>"; };
+		D004EF171ED4BFB100BA0D4C /* ChatListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListInteractor.swift; sourceTree = "<group>"; };
+		D004EF181ED4BFB100BA0D4C /* ChatListInteractorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListInteractorSpec.swift; sourceTree = "<group>"; };
+		D004EF1A1ED4BFB100BA0D4C /* ChatListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListPresenter.swift; sourceTree = "<group>"; };
+		D004EF1B1ED4BFB100BA0D4C /* ChatListPresenterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListPresenterSpec.swift; sourceTree = "<group>"; };
+		D004EF1D1ED4BFB100BA0D4C /* ChatListProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListProtocols.swift; sourceTree = "<group>"; };
+		D004EF1F1ED4BFB100BA0D4C /* ChatListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
+		D004EF211ED4BFB100BA0D4C /* ChatListWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListWireframe.swift; sourceTree = "<group>"; };
+		D004EF2F1ED4CE7800BA0D4C /* ChatListView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChatListView.storyboard; sourceTree = "<group>"; };
+		D004EF321ED4D1BA00BA0D4C /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Common/Result.swift; sourceTree = "<group>"; };
+		D004EF371ED4D35300BA0D4C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D027E3991ED772FA00AD01B0 /* SignupAPIDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupAPIDataManager.swift; sourceTree = "<group>"; };
+		D027E39B1ED772FA00AD01B0 /* SignupLocalDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupLocalDataManager.swift; sourceTree = "<group>"; };
+		D027E39D1ED772FA00AD01B0 /* SignupInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupInteractor.swift; sourceTree = "<group>"; };
+		D027E39E1ED772FA00AD01B0 /* SignupInteractorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupInteractorSpec.swift; sourceTree = "<group>"; };
+		D027E3A01ED772FA00AD01B0 /* SignupPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupPresenter.swift; sourceTree = "<group>"; };
+		D027E3A11ED772FA00AD01B0 /* SignupPresenterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupPresenterSpec.swift; sourceTree = "<group>"; };
+		D027E3A31ED772FA00AD01B0 /* SignupProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupProtocols.swift; sourceTree = "<group>"; };
+		D027E3A51ED772FA00AD01B0 /* SignupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		D027E3A71ED772FA00AD01B0 /* SignupWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupWireframe.swift; sourceTree = "<group>"; };
+		D027E3B31ED774AA00AD01B0 /* SignupView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignupView.storyboard; sourceTree = "<group>"; };
+		D03BCDA11ED61ECC00B2BF3B /* AuthorizationAPIDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationAPIDataManager.swift; sourceTree = "<group>"; };
+		D03BCDA31ED61ECC00B2BF3B /* AuthorizationLocalDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationLocalDataManager.swift; sourceTree = "<group>"; };
+		D03BCDA51ED61ECC00B2BF3B /* AuthorizationInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationInteractor.swift; sourceTree = "<group>"; };
+		D03BCDA61ED61ECC00B2BF3B /* AuthorizationInteractorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationInteractorSpec.swift; sourceTree = "<group>"; };
+		D03BCDA81ED61ECC00B2BF3B /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
+		D03BCDA91ED61ECC00B2BF3B /* AuthorizationPresenterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenterSpec.swift; sourceTree = "<group>"; };
+		D03BCDAB1ED61ECC00B2BF3B /* AuthorizationProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationProtocols.swift; sourceTree = "<group>"; };
+		D03BCDAD1ED61ECC00B2BF3B /* AuthorizationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
+		D03BCDAF1ED61ECC00B2BF3B /* AuthorizationWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationWireframe.swift; sourceTree = "<group>"; };
+		D03BCDBB1ED620B000B2BF3B /* AuthorizationView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AuthorizationView.storyboard; sourceTree = "<group>"; };
+		D041D3571EDF5AE7004E89D0 /* ChatView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChatView.storyboard; sourceTree = "<group>"; };
+		D0542DD71EDAAEFC00B3046E /* CreateChatView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateChatView.storyboard; sourceTree = "<group>"; };
+		D0542DDC1EDAB64A00B3046E /* AppDelegateAPIDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateAPIDataManager.swift; sourceTree = "<group>"; };
+		D0542DDE1EDAB64A00B3046E /* AppDelegateLocalDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateLocalDataManager.swift; sourceTree = "<group>"; };
+		D0542DE01EDAB64A00B3046E /* AppDelegateInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateInteractor.swift; sourceTree = "<group>"; };
+		D0542DE11EDAB64A00B3046E /* AppDelegateInteractorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateInteractorSpec.swift; sourceTree = "<group>"; };
+		D0542DE31EDAB64A00B3046E /* AppDelegatePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegatePresenter.swift; sourceTree = "<group>"; };
+		D0542DE41EDAB64A00B3046E /* AppDelegatePresenterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegatePresenterSpec.swift; sourceTree = "<group>"; };
+		D0542DE61EDAB64A00B3046E /* AppDelegateProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateProtocols.swift; sourceTree = "<group>"; };
+		D0542DEA1EDAB64A00B3046E /* AppDelegateWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateWireframe.swift; sourceTree = "<group>"; };
+		D0542DF61EDACAE300B3046E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Model/User.swift; sourceTree = "<group>"; };
+		D0542DF81EDAD1C900B3046E /* UsersDisplayData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersDisplayData.swift; sourceTree = "<group>"; };
+		D0542DFA1EDAD2D800B3046E /* UserDisplayItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDisplayItem.swift; sourceTree = "<group>"; };
+		D0542DFC1EDAD61F00B3046E /* UsersDisplayDataMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersDisplayDataMapper.swift; sourceTree = "<group>"; };
+		D0542DFE1EDADADD00B3046E /* UsersDisplayDataMapperSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersDisplayDataMapperSpec.swift; sourceTree = "<group>"; };
+		D0619DB51ED37EA8006C953A /* RGViperChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RGViperChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0619DB81ED37EA8006C953A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../AppDelegate.swift; sourceTree = "<group>"; };
+		D0619DBF1ED37EA8006C953A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D0619DC21ED37EA8006C953A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D0619DC41ED37EA8006C953A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0619DC91ED37EA8006C953A /* RGViperChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RGViperChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0619DCD1ED37EA8006C953A /* RGViperChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGViperChatTests.swift; sourceTree = "<group>"; };
+		D0619DCF1ED37EA8006C953A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0619DDB1ED37EB9006C953A /* ChatAPIDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatAPIDataManager.swift; sourceTree = "<group>"; };
+		D0619DDD1ED37EB9006C953A /* ChatLocalDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLocalDataManager.swift; sourceTree = "<group>"; };
+		D0619DDF1ED37EB9006C953A /* ChatInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatInteractor.swift; sourceTree = "<group>"; };
+		D0619DE01ED37EB9006C953A /* ChatInteractorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatInteractorSpec.swift; sourceTree = "<group>"; };
+		D0619DE21ED37EB9006C953A /* ChatPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatPresenter.swift; sourceTree = "<group>"; };
+		D0619DE31ED37EB9006C953A /* ChatPresenterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatPresenterSpec.swift; sourceTree = "<group>"; };
+		D0619DE51ED37EB9006C953A /* ChatProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatProtocols.swift; sourceTree = "<group>"; };
+		D0619DE71ED37EB9006C953A /* ChatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		D0619DE91ED37EB9006C953A /* ChatWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatWireframe.swift; sourceTree = "<group>"; };
+		D0DAB8611EDCAEF500D3099E /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Model/Message.swift; sourceTree = "<group>"; };
+		D0DAB8641EDCBDD800D3099E /* EncryptionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EncryptionService.swift; path = Services/EncryptionService.swift; sourceTree = "<group>"; };
+		D0E367291ED9DC5C00D7EDFE /* RootWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootWireframe.swift; path = Common/RootWireframe.swift; sourceTree = "<group>"; };
+		D0E3672B1ED9EE0800D7EDFE /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Chat.swift; path = Model/Chat.swift; sourceTree = "<group>"; };
+		D0E367301ED9F73D00D7EDFE /* CreateChatAPIDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChatAPIDataManager.swift; sourceTree = "<group>"; };
+		D0E367321ED9F73D00D7EDFE /* CreateChatLocalDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChatLocalDataManager.swift; sourceTree = "<group>"; };
+		D0E367341ED9F73D00D7EDFE /* CreateChatInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChatInteractor.swift; sourceTree = "<group>"; };
+		D0E367351ED9F73D00D7EDFE /* CreateChatInteractorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChatInteractorSpec.swift; sourceTree = "<group>"; };
+		D0E367371ED9F73D00D7EDFE /* CreateChatPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChatPresenter.swift; sourceTree = "<group>"; };
+		D0E367381ED9F73D00D7EDFE /* CreateChatPresenterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChatPresenterSpec.swift; sourceTree = "<group>"; };
+		D0E3673A1ED9F73D00D7EDFE /* CreateChatProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChatProtocols.swift; sourceTree = "<group>"; };
+		D0E3673C1ED9F73D00D7EDFE /* CreateChatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChatView.swift; sourceTree = "<group>"; };
+		D0E3673E1ED9F73D00D7EDFE /* CreateChatWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChatWireframe.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D0619DB21ED37EA8006C953A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3DB3EC9542785DFD36377A4 /* Pods_RGViperChat.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0619DC61ED37EA8006C953A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B2DDC712A3FBC12C795E49E /* Pods_RGViperChatTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8E3DB1545578F919F7FE7CEE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BCEA72FB67755D84EC859928 /* Pods-RGViperChat.debug.xcconfig */,
+				B5D76C41EF8E0354A94F810E /* Pods-RGViperChat.release.xcconfig */,
+				A5AD91C76D18D709ABB0BACC /* Pods-RGViperChatTests.debug.xcconfig */,
+				61CC7FDFF6462BDE9DBBA481 /* Pods-RGViperChatTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8F7671CED294C2553907104E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B3B91B5E8135202D018090A1 /* Pods_RGViperChat.framework */,
+				A71D29EC5409F3C484FC0F86 /* Pods_RGViperChatTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D004EF101ED4BFB100BA0D4C /* ChatList */ = {
+			isa = PBXGroup;
+			children = (
+				D004EF111ED4BFB100BA0D4C /* DataManager */,
+				D004EF161ED4BFB100BA0D4C /* Interactor */,
+				D004EF191ED4BFB100BA0D4C /* Presenter */,
+				D004EF1C1ED4BFB100BA0D4C /* Protocols */,
+				D004EF1E1ED4BFB100BA0D4C /* View */,
+				D004EF201ED4BFB100BA0D4C /* Wireframe */,
+			);
+			path = ChatList;
+			sourceTree = "<group>";
+		};
+		D004EF111ED4BFB100BA0D4C /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				D004EF121ED4BFB100BA0D4C /* API */,
+				D004EF141ED4BFB100BA0D4C /* Local */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		D004EF121ED4BFB100BA0D4C /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D004EF131ED4BFB100BA0D4C /* ChatListAPIDataManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		D004EF141ED4BFB100BA0D4C /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				D004EF151ED4BFB100BA0D4C /* ChatListLocalDataManager.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		D004EF161ED4BFB100BA0D4C /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				D004EF171ED4BFB100BA0D4C /* ChatListInteractor.swift */,
+				D004EF181ED4BFB100BA0D4C /* ChatListInteractorSpec.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		D004EF191ED4BFB100BA0D4C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D004EF1A1ED4BFB100BA0D4C /* ChatListPresenter.swift */,
+				D004EF1B1ED4BFB100BA0D4C /* ChatListPresenterSpec.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D004EF1C1ED4BFB100BA0D4C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D004EF1D1ED4BFB100BA0D4C /* ChatListProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		D004EF1E1ED4BFB100BA0D4C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D004EF1F1ED4BFB100BA0D4C /* ChatListView.swift */,
+				D004EF2F1ED4CE7800BA0D4C /* ChatListView.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D004EF201ED4BFB100BA0D4C /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				D004EF211ED4BFB100BA0D4C /* ChatListWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		D004EF311ED4D1A900BA0D4C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D004EF321ED4D1BA00BA0D4C /* Result.swift */,
+				D0E367291ED9DC5C00D7EDFE /* RootWireframe.swift */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		D004EF341ED4D22500BA0D4C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D0E3672B1ED9EE0800D7EDFE /* Chat.swift */,
+				D0542DF61EDACAE300B3046E /* User.swift */,
+				D0DAB8611EDCAEF500D3099E /* Message.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D027E3961ED772FA00AD01B0 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				D027E3971ED772FA00AD01B0 /* DataManager */,
+				D027E39C1ED772FA00AD01B0 /* Interactor */,
+				D027E39F1ED772FA00AD01B0 /* Presenter */,
+				D027E3A21ED772FA00AD01B0 /* Protocols */,
+				D027E3A41ED772FA00AD01B0 /* View */,
+				D027E3A61ED772FA00AD01B0 /* Wireframe */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		D027E3971ED772FA00AD01B0 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				D027E3981ED772FA00AD01B0 /* API */,
+				D027E39A1ED772FA00AD01B0 /* Local */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		D027E3981ED772FA00AD01B0 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D027E3991ED772FA00AD01B0 /* SignupAPIDataManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		D027E39A1ED772FA00AD01B0 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				D027E39B1ED772FA00AD01B0 /* SignupLocalDataManager.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		D027E39C1ED772FA00AD01B0 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				D027E39D1ED772FA00AD01B0 /* SignupInteractor.swift */,
+				D027E39E1ED772FA00AD01B0 /* SignupInteractorSpec.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		D027E39F1ED772FA00AD01B0 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D027E3A01ED772FA00AD01B0 /* SignupPresenter.swift */,
+				D027E3A11ED772FA00AD01B0 /* SignupPresenterSpec.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D027E3A21ED772FA00AD01B0 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D027E3A31ED772FA00AD01B0 /* SignupProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		D027E3A41ED772FA00AD01B0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D027E3A51ED772FA00AD01B0 /* SignupView.swift */,
+				D027E3B31ED774AA00AD01B0 /* SignupView.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D027E3A61ED772FA00AD01B0 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				D027E3A71ED772FA00AD01B0 /* SignupWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		D03BCD9E1ED61ECC00B2BF3B /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				D03BCD9F1ED61ECC00B2BF3B /* DataManager */,
+				D03BCDA41ED61ECC00B2BF3B /* Interactor */,
+				D03BCDA71ED61ECC00B2BF3B /* Presenter */,
+				D03BCDAA1ED61ECC00B2BF3B /* Protocols */,
+				D03BCDAC1ED61ECC00B2BF3B /* View */,
+				D03BCDAE1ED61ECC00B2BF3B /* Wireframe */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		D03BCD9F1ED61ECC00B2BF3B /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				D03BCDA01ED61ECC00B2BF3B /* API */,
+				D03BCDA21ED61ECC00B2BF3B /* Local */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		D03BCDA01ED61ECC00B2BF3B /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D03BCDA11ED61ECC00B2BF3B /* AuthorizationAPIDataManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		D03BCDA21ED61ECC00B2BF3B /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				D03BCDA31ED61ECC00B2BF3B /* AuthorizationLocalDataManager.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		D03BCDA41ED61ECC00B2BF3B /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				D03BCDA51ED61ECC00B2BF3B /* AuthorizationInteractor.swift */,
+				D03BCDA61ED61ECC00B2BF3B /* AuthorizationInteractorSpec.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		D03BCDA71ED61ECC00B2BF3B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D03BCDA81ED61ECC00B2BF3B /* AuthorizationPresenter.swift */,
+				D03BCDA91ED61ECC00B2BF3B /* AuthorizationPresenterSpec.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D03BCDAA1ED61ECC00B2BF3B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D03BCDAB1ED61ECC00B2BF3B /* AuthorizationProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		D03BCDAC1ED61ECC00B2BF3B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D03BCDAD1ED61ECC00B2BF3B /* AuthorizationView.swift */,
+				D03BCDBB1ED620B000B2BF3B /* AuthorizationView.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D03BCDAE1ED61ECC00B2BF3B /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				D03BCDAF1ED61ECC00B2BF3B /* AuthorizationWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		D0542DD91EDAB64A00B3046E /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				D0542DDA1EDAB64A00B3046E /* DataManager */,
+				D0542DDF1EDAB64A00B3046E /* Interactor */,
+				D0542DE21EDAB64A00B3046E /* Presenter */,
+				D0542DE51EDAB64A00B3046E /* Protocols */,
+				D0542DE71EDAB64A00B3046E /* View */,
+				D0542DE91EDAB64A00B3046E /* Wireframe */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		D0542DDA1EDAB64A00B3046E /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				D0542DDB1EDAB64A00B3046E /* API */,
+				D0542DDD1EDAB64A00B3046E /* Local */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		D0542DDB1EDAB64A00B3046E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D0542DDC1EDAB64A00B3046E /* AppDelegateAPIDataManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		D0542DDD1EDAB64A00B3046E /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				D0542DDE1EDAB64A00B3046E /* AppDelegateLocalDataManager.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		D0542DDF1EDAB64A00B3046E /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				D0542DE01EDAB64A00B3046E /* AppDelegateInteractor.swift */,
+				D0542DE11EDAB64A00B3046E /* AppDelegateInteractorSpec.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		D0542DE21EDAB64A00B3046E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D0542DE31EDAB64A00B3046E /* AppDelegatePresenter.swift */,
+				D0542DE41EDAB64A00B3046E /* AppDelegatePresenterSpec.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D0542DE51EDAB64A00B3046E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D0542DE61EDAB64A00B3046E /* AppDelegateProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		D0542DE71EDAB64A00B3046E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D0619DB81ED37EA8006C953A /* AppDelegate.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D0542DE91EDAB64A00B3046E /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				D0542DEA1EDAB64A00B3046E /* AppDelegateWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		D0619DAC1ED37EA8006C953A = {
+			isa = PBXGroup;
+			children = (
+				D0619DB71ED37EA8006C953A /* RGViperChat */,
+				D0619DCC1ED37EA8006C953A /* RGViperChatTests */,
+				D0619DB61ED37EA8006C953A /* Products */,
+				8E3DB1545578F919F7FE7CEE /* Pods */,
+				8F7671CED294C2553907104E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D0619DB61ED37EA8006C953A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D0619DB51ED37EA8006C953A /* RGViperChat.app */,
+				D0619DC91ED37EA8006C953A /* RGViperChatTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D0619DB71ED37EA8006C953A /* RGViperChat */ = {
+			isa = PBXGroup;
+			children = (
+				D004EF341ED4D22500BA0D4C /* Model */,
+				D004EF311ED4D1A900BA0D4C /* Common */,
+				D0542DD91EDAB64A00B3046E /* AppDelegate */,
+				D03BCD9E1ED61ECC00B2BF3B /* Authorization */,
+				D027E3961ED772FA00AD01B0 /* Signup */,
+				D004EF101ED4BFB100BA0D4C /* ChatList */,
+				D0E3672D1ED9F73D00D7EDFE /* CreateChat */,
+				D0619DD81ED37EB9006C953A /* Chat */,
+				D0619DBF1ED37EA8006C953A /* Assets.xcassets */,
+				D0619DC11ED37EA8006C953A /* LaunchScreen.storyboard */,
+				D0619DC41ED37EA8006C953A /* Info.plist */,
+				D004EF371ED4D35300BA0D4C /* GoogleService-Info.plist */,
+			);
+			path = RGViperChat;
+			sourceTree = "<group>";
+		};
+		D0619DCC1ED37EA8006C953A /* RGViperChatTests */ = {
+			isa = PBXGroup;
+			children = (
+				D004EEF21ED4BD8500BA0D4C /* GeneratedMocks.swift */,
+				D0619DCD1ED37EA8006C953A /* RGViperChatTests.swift */,
+				D0619DCF1ED37EA8006C953A /* Info.plist */,
+			);
+			path = RGViperChatTests;
+			sourceTree = "<group>";
+		};
+		D0619DD81ED37EB9006C953A /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				D0DAB8631EDCBDC500D3099E /* Services */,
+				D0619DD91ED37EB9006C953A /* DataManager */,
+				D0619DDE1ED37EB9006C953A /* Interactor */,
+				D0619DE11ED37EB9006C953A /* Presenter */,
+				D0619DE41ED37EB9006C953A /* Protocols */,
+				D0619DE61ED37EB9006C953A /* View */,
+				D0619DE81ED37EB9006C953A /* Wireframe */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		D0619DD91ED37EB9006C953A /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				D0619DDA1ED37EB9006C953A /* API */,
+				D0619DDC1ED37EB9006C953A /* Local */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		D0619DDA1ED37EB9006C953A /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D0619DDB1ED37EB9006C953A /* ChatAPIDataManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		D0619DDC1ED37EB9006C953A /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				D0619DDD1ED37EB9006C953A /* ChatLocalDataManager.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		D0619DDE1ED37EB9006C953A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				D0619DDF1ED37EB9006C953A /* ChatInteractor.swift */,
+				D0619DE01ED37EB9006C953A /* ChatInteractorSpec.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		D0619DE11ED37EB9006C953A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D0619DE21ED37EB9006C953A /* ChatPresenter.swift */,
+				D0619DE31ED37EB9006C953A /* ChatPresenterSpec.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D0619DE41ED37EB9006C953A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D0619DE51ED37EB9006C953A /* ChatProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		D0619DE61ED37EB9006C953A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D0619DE71ED37EB9006C953A /* ChatView.swift */,
+				D041D3571EDF5AE7004E89D0 /* ChatView.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D0619DE81ED37EB9006C953A /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				D0619DE91ED37EB9006C953A /* ChatWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		D0DAB8631EDCBDC500D3099E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D0DAB8641EDCBDD800D3099E /* EncryptionService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		D0E3672D1ED9F73D00D7EDFE /* CreateChat */ = {
+			isa = PBXGroup;
+			children = (
+				D0E3672E1ED9F73D00D7EDFE /* DataManager */,
+				D0E367331ED9F73D00D7EDFE /* Interactor */,
+				D0E367361ED9F73D00D7EDFE /* Presenter */,
+				D0E367391ED9F73D00D7EDFE /* Protocols */,
+				D0E3673B1ED9F73D00D7EDFE /* View */,
+				D0E3673D1ED9F73D00D7EDFE /* Wireframe */,
+			);
+			path = CreateChat;
+			sourceTree = "<group>";
+		};
+		D0E3672E1ED9F73D00D7EDFE /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				D0E3672F1ED9F73D00D7EDFE /* API */,
+				D0E367311ED9F73D00D7EDFE /* Local */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		D0E3672F1ED9F73D00D7EDFE /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D0E367301ED9F73D00D7EDFE /* CreateChatAPIDataManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		D0E367311ED9F73D00D7EDFE /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				D0E367321ED9F73D00D7EDFE /* CreateChatLocalDataManager.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		D0E367331ED9F73D00D7EDFE /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				D0E367341ED9F73D00D7EDFE /* CreateChatInteractor.swift */,
+				D0E367351ED9F73D00D7EDFE /* CreateChatInteractorSpec.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		D0E367361ED9F73D00D7EDFE /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D0E367371ED9F73D00D7EDFE /* CreateChatPresenter.swift */,
+				D0E367381ED9F73D00D7EDFE /* CreateChatPresenterSpec.swift */,
+				D0542DFC1EDAD61F00B3046E /* UsersDisplayDataMapper.swift */,
+				D0542DFE1EDADADD00B3046E /* UsersDisplayDataMapperSpec.swift */,
+				D0542DF81EDAD1C900B3046E /* UsersDisplayData.swift */,
+				D0542DFA1EDAD2D800B3046E /* UserDisplayItem.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D0E367391ED9F73D00D7EDFE /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D0E3673A1ED9F73D00D7EDFE /* CreateChatProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		D0E3673B1ED9F73D00D7EDFE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D0E3673C1ED9F73D00D7EDFE /* CreateChatView.swift */,
+				D0542DD71EDAAEFC00B3046E /* CreateChatView.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D0E3673D1ED9F73D00D7EDFE /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				D0E3673E1ED9F73D00D7EDFE /* CreateChatWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D0619DB41ED37EA8006C953A /* RGViperChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0619DD21ED37EA8006C953A /* Build configuration list for PBXNativeTarget "RGViperChat" */;
+			buildPhases = (
+				344A09F31186300E30AE817C /* [CP] Check Pods Manifest.lock */,
+				D0619DB11ED37EA8006C953A /* Sources */,
+				D0619DB21ED37EA8006C953A /* Frameworks */,
+				D0619DB31ED37EA8006C953A /* Resources */,
+				E8616FA1861840B3DD2ABA3A /* [CP] Embed Pods Frameworks */,
+				C752E4BCCED7E91ADC3DB982 /* [CP] Copy Pods Resources */,
+				D004EEF11ED4BCBD00BA0D4C /* ShellScript */,
+				D004EEF41ED4BE7900BA0D4C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RGViperChat;
+			productName = RGViperChat;
+			productReference = D0619DB51ED37EA8006C953A /* RGViperChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D0619DC81ED37EA8006C953A /* RGViperChatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0619DD51ED37EA8006C953A /* Build configuration list for PBXNativeTarget "RGViperChatTests" */;
+			buildPhases = (
+				753EABDDF8BBEB61E4F368DB /* [CP] Check Pods Manifest.lock */,
+				D0619DC51ED37EA8006C953A /* Sources */,
+				D0619DC61ED37EA8006C953A /* Frameworks */,
+				D0619DC71ED37EA8006C953A /* Resources */,
+				BE40347CD20C270EBDF75399 /* [CP] Embed Pods Frameworks */,
+				56AB9F2CE4E0D587D30FE8B8 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D0619DCB1ED37EA8006C953A /* PBXTargetDependency */,
+			);
+			name = RGViperChatTests;
+			productName = RGViperChatTests;
+			productReference = D0619DC91ED37EA8006C953A /* RGViperChatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D0619DAD1ED37EA8006C953A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = robertogarrido.com;
+				TargetAttributes = {
+					D0619DB41ED37EA8006C953A = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 6PBG234246;
+						ProvisioningStyle = Automatic;
+					};
+					D0619DC81ED37EA8006C953A = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 6PBG234246;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D0619DB41ED37EA8006C953A;
+					};
+				};
+			};
+			buildConfigurationList = D0619DB01ED37EA8006C953A /* Build configuration list for PBXProject "RGViperChat" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D0619DAC1ED37EA8006C953A;
+			productRefGroup = D0619DB61ED37EA8006C953A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D0619DB41ED37EA8006C953A /* RGViperChat */,
+				D0619DC81ED37EA8006C953A /* RGViperChatTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D0619DB31ED37EA8006C953A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0619DC31ED37EA8006C953A /* LaunchScreen.storyboard in Resources */,
+				D027E3B41ED774AA00AD01B0 /* SignupView.storyboard in Resources */,
+				D0542DD81EDAAEFC00B3046E /* CreateChatView.storyboard in Resources */,
+				D03BCDBC1ED620B000B2BF3B /* AuthorizationView.storyboard in Resources */,
+				D004EF301ED4CE7800BA0D4C /* ChatListView.storyboard in Resources */,
+				D041D3581EDF5AE7004E89D0 /* ChatView.storyboard in Resources */,
+				D004EF381ED4D35300BA0D4C /* GoogleService-Info.plist in Resources */,
+				D0619DC01ED37EA8006C953A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0619DC71ED37EA8006C953A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		344A09F31186300E30AE817C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		56AB9F2CE4E0D587D30FE8B8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RGViperChatTests/Pods-RGViperChatTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		753EABDDF8BBEB61E4F368DB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BE40347CD20C270EBDF75399 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RGViperChatTests/Pods-RGViperChatTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C752E4BCCED7E91ADC3DB982 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RGViperChat/Pods-RGViperChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D004EEF11ED4BCBD00BA0D4C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Define output file. Change \"$PROJECT_DIR/Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"$PROJECT_DIR/RGViperChatTests/GeneratedMocks.swift\"\necho \"Generated Mocks File = $OUTPUT_FILE\"\n\n# Define input directory. Change \"$PROJECT_DIR\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"$PROJECT_DIR\"\necho \"Mocks Input Directory = $INPUT_DIR\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n${PODS_ROOT}/Cuckoo/run generate --testable \"$PROJECT_NAME\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"$INPUT_DIR/RGViperChat/Chat/Protocols/ChatProtocols.swift\" \\\n\"$INPUT_DIR/RGViperChat/ChatList/Protocols/ChatListProtocols.swift\" \\\n\"$INPUT_DIR/RGViperChat/Authorization/Protocols/AuthorizationProtocols.swift\" \\\n\"$INPUT_DIR/RGViperChat/Signup/Protocols/SignupProtocols.swift\" \\\n\"$INPUT_DIR/RGViperChat/CreateChat/Protocols/CreateChatProtocols.swift\" \\\n\"$INPUT_DIR/RGViperChat/AppDelegate/Protocols/AppDelegateProtocols.swift\" \\\n\"$INPUT_DIR/RGViperChat/CreateChat/Presenter/UsersDisplayDataMapper.swift\"\n# ... and so forth\n\n# After running once, locate `GeneratedMocks.swift` and drag it into your Xcode test target group.";
+		};
+		D004EEF41ED4BE7900BA0D4C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+		};
+		E8616FA1861840B3DD2ABA3A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RGViperChat/Pods-RGViperChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D0619DB11ED37EA8006C953A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0619DF01ED37EB9006C953A /* ChatProtocols.swift in Sources */,
+				D03BCDB81ED61ECC00B2BF3B /* AuthorizationWireframe.swift in Sources */,
+				D004EF241ED4BFB100BA0D4C /* ChatListInteractor.swift in Sources */,
+				D0542DF31EDAB64A00B3046E /* AppDelegateWireframe.swift in Sources */,
+				D0542DFB1EDAD2D800B3046E /* UserDisplayItem.swift in Sources */,
+				D004EF281ED4BFB100BA0D4C /* ChatListProtocols.swift in Sources */,
+				D004EF221ED4BFB100BA0D4C /* ChatListAPIDataManager.swift in Sources */,
+				D0DAB8621EDCAEF500D3099E /* Message.swift in Sources */,
+				D0542DEB1EDAB64A00B3046E /* AppDelegateAPIDataManager.swift in Sources */,
+				D0E3672C1ED9EE0800D7EDFE /* Chat.swift in Sources */,
+				D004EF261ED4BFB100BA0D4C /* ChatListPresenter.swift in Sources */,
+				D0542DF11EDAB64A00B3046E /* AppDelegateProtocols.swift in Sources */,
+				D027E3AF1ED772FA00AD01B0 /* SignupView.swift in Sources */,
+				D0542DEF1EDAB64A00B3046E /* AppDelegatePresenter.swift in Sources */,
+				D0542DED1EDAB64A00B3046E /* AppDelegateInteractor.swift in Sources */,
+				D0542DEC1EDAB64A00B3046E /* AppDelegateLocalDataManager.swift in Sources */,
+				D004EF2A1ED4BFB100BA0D4C /* ChatListWireframe.swift in Sources */,
+				D0542DF91EDAD1C900B3046E /* UsersDisplayData.swift in Sources */,
+				D03BCDB71ED61ECC00B2BF3B /* AuthorizationView.swift in Sources */,
+				D0542DFD1EDAD61F00B3046E /* UsersDisplayDataMapper.swift in Sources */,
+				D027E3AE1ED772FA00AD01B0 /* SignupProtocols.swift in Sources */,
+				D0619DF11ED37EB9006C953A /* ChatView.swift in Sources */,
+				D03BCDB21ED61ECC00B2BF3B /* AuthorizationInteractor.swift in Sources */,
+				D0DAB8651EDCBDD800D3099E /* EncryptionService.swift in Sources */,
+				D0E367451ED9F73D00D7EDFE /* CreateChatProtocols.swift in Sources */,
+				D0619DEB1ED37EB9006C953A /* ChatLocalDataManager.swift in Sources */,
+				D0E3673F1ED9F73D00D7EDFE /* CreateChatAPIDataManager.swift in Sources */,
+				D0542DF71EDACAE300B3046E /* User.swift in Sources */,
+				D004EF231ED4BFB100BA0D4C /* ChatListLocalDataManager.swift in Sources */,
+				D0619DEC1ED37EB9006C953A /* ChatInteractor.swift in Sources */,
+				D03BCDB11ED61ECC00B2BF3B /* AuthorizationLocalDataManager.swift in Sources */,
+				D0E367431ED9F73D00D7EDFE /* CreateChatPresenter.swift in Sources */,
+				D0E367471ED9F73D00D7EDFE /* CreateChatWireframe.swift in Sources */,
+				D027E3AC1ED772FA00AD01B0 /* SignupPresenter.swift in Sources */,
+				D0619DEA1ED37EB9006C953A /* ChatAPIDataManager.swift in Sources */,
+				D0619DB91ED37EA8006C953A /* AppDelegate.swift in Sources */,
+				D027E3A91ED772FA00AD01B0 /* SignupLocalDataManager.swift in Sources */,
+				D0E3672A1ED9DC5C00D7EDFE /* RootWireframe.swift in Sources */,
+				D03BCDB61ED61ECC00B2BF3B /* AuthorizationProtocols.swift in Sources */,
+				D0619DF21ED37EB9006C953A /* ChatWireframe.swift in Sources */,
+				D03BCDB41ED61ECC00B2BF3B /* AuthorizationPresenter.swift in Sources */,
+				D0E367461ED9F73D00D7EDFE /* CreateChatView.swift in Sources */,
+				D0E367411ED9F73D00D7EDFE /* CreateChatInteractor.swift in Sources */,
+				D0E367401ED9F73D00D7EDFE /* CreateChatLocalDataManager.swift in Sources */,
+				D004EF331ED4D1BA00BA0D4C /* Result.swift in Sources */,
+				D027E3B01ED772FA00AD01B0 /* SignupWireframe.swift in Sources */,
+				D0619DEE1ED37EB9006C953A /* ChatPresenter.swift in Sources */,
+				D03BCDB01ED61ECC00B2BF3B /* AuthorizationAPIDataManager.swift in Sources */,
+				D027E3A81ED772FA00AD01B0 /* SignupAPIDataManager.swift in Sources */,
+				D027E3AA1ED772FA00AD01B0 /* SignupInteractor.swift in Sources */,
+				D004EF291ED4BFB100BA0D4C /* ChatListView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0619DC51ED37EA8006C953A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D03BCDB91ED61ED400B2BF3B /* AuthorizationInteractorSpec.swift in Sources */,
+				D0619DCE1ED37EA8006C953A /* RGViperChatTests.swift in Sources */,
+				D0542DF51EDAB8B000B3046E /* AppDelegateInteractorSpec.swift in Sources */,
+				D0E367481ED9F74A00D7EDFE /* CreateChatInteractorSpec.swift in Sources */,
+				D004EF2C1ED4BFC600BA0D4C /* ChatListPresenterSpec.swift in Sources */,
+				D027E3B11ED7730400AD01B0 /* SignupInteractorSpec.swift in Sources */,
+				D0619DF31ED37EC1006C953A /* ChatInteractorSpec.swift in Sources */,
+				D0619DF41ED37EC3006C953A /* ChatPresenterSpec.swift in Sources */,
+				D0E367491ED9F75000D7EDFE /* CreateChatPresenterSpec.swift in Sources */,
+				D0542DF41EDAB8A400B3046E /* AppDelegatePresenterSpec.swift in Sources */,
+				D004EF2B1ED4BFBB00BA0D4C /* ChatListInteractorSpec.swift in Sources */,
+				D0542E001EDADAE200B3046E /* UsersDisplayDataMapperSpec.swift in Sources */,
+				D027E3B21ED7734500AD01B0 /* SignupPresenterSpec.swift in Sources */,
+				D03BCDBA1ED61EE700B2BF3B /* AuthorizationPresenterSpec.swift in Sources */,
+				D004EEF31ED4BD8500BA0D4C /* GeneratedMocks.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D0619DCB1ED37EA8006C953A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0619DB41ED37EA8006C953A /* RGViperChat */;
+			targetProxy = D0619DCA1ED37EA8006C953A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D0619DC11ED37EA8006C953A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0619DC21ED37EA8006C953A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D0619DD01ED37EA8006C953A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D0619DD11ED37EA8006C953A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D0619DD31ED37EA8006C953A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BCEA72FB67755D84EC859928 /* Pods-RGViperChat.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6PBG234246;
+				INFOPLIST_FILE = RGViperChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.robertogarrido.RGViperChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		D0619DD41ED37EA8006C953A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5D76C41EF8E0354A94F810E /* Pods-RGViperChat.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6PBG234246;
+				INFOPLIST_FILE = RGViperChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.robertogarrido.RGViperChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		D0619DD61ED37EA8006C953A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5AD91C76D18D709ABB0BACC /* Pods-RGViperChatTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 6PBG234246;
+				INFOPLIST_FILE = RGViperChatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.robertogarrido.RGViperChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RGViperChat.app/RGViperChat";
+			};
+			name = Debug;
+		};
+		D0619DD71ED37EA8006C953A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61CC7FDFF6462BDE9DBBA481 /* Pods-RGViperChatTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 6PBG234246;
+				INFOPLIST_FILE = RGViperChatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.robertogarrido.RGViperChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RGViperChat.app/RGViperChat";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D0619DB01ED37EA8006C953A /* Build configuration list for PBXProject "RGViperChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0619DD01ED37EA8006C953A /* Debug */,
+				D0619DD11ED37EA8006C953A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0619DD21ED37EA8006C953A /* Build configuration list for PBXNativeTarget "RGViperChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0619DD31ED37EA8006C953A /* Debug */,
+				D0619DD41ED37EA8006C953A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0619DD51ED37EA8006C953A /* Build configuration list for PBXNativeTarget "RGViperChatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0619DD61ED37EA8006C953A /* Debug */,
+				D0619DD71ED37EA8006C953A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D0619DAD1ED37EA8006C953A /* Project object */;
+}

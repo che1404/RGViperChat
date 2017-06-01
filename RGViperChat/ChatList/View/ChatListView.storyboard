@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Chats-->
+        <scene sceneID="NJn-gf-yXV">
+            <objects>
+                <viewController storyboardIdentifier="ChatListView" id="XWT-3b-wCc" customClass="ChatListView" customModule="RGViperChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Csh-HK-ZrM"/>
+                        <viewControllerLayoutGuide type="bottom" id="5yI-AD-sfQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tL4-YR-OXK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="tam-TF-YeW">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tam-TF-YeW" firstAttribute="top" secondItem="Csh-HK-ZrM" secondAttribute="bottom" id="D1w-SD-EqV"/>
+                            <constraint firstAttribute="trailing" secondItem="tam-TF-YeW" secondAttribute="trailing" id="Pnx-UU-f3F"/>
+                            <constraint firstItem="tam-TF-YeW" firstAttribute="leading" secondItem="tL4-YR-OXK" secondAttribute="leading" id="hRT-1G-aP5"/>
+                            <constraint firstItem="5yI-AD-sfQ" firstAttribute="top" secondItem="tam-TF-YeW" secondAttribute="bottom" id="sxm-yi-qWN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Chats" id="yEC-zV-A41">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="IH0-DF-WJu">
+                            <connections>
+                                <action selector="buttonLogoutTapped:" destination="XWT-3b-wCc" id="zoU-DP-qPL"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="OB6-XZ-pJl">
+                            <connections>
+                                <action selector="buttonCreateChatTapped:" destination="XWT-3b-wCc" id="FQZ-XY-hFL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="tam-TF-YeW" id="HhT-gI-RGO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="18h-vB-YrC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1351.2" y="-156.07196401799101"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qon-uS-EFr">
+            <objects>
+                <navigationController storyboardIdentifier="ChatListViewNavigator" automaticallyAdjustsScrollViewInsets="NO" id="oph-Yz-fLY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="rPb-Jx-A9t">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XWT-3b-wCc" kind="relationship" relationship="rootViewController" id="ay3-Ag-o0a"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gCF-ee-2cz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="429.60000000000002" y="-156.07196401799101"/>
+        </scene>
+    </scenes>
+</document>

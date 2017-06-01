@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--RGViperChat Users-->
+        <scene sceneID="zqa-tC-Lzw">
+            <objects>
+                <viewController storyboardIdentifier="CreateChatView" id="HJx-DW-BdD" customClass="CreateChatView" customModule="RGViperChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="T9o-5E-c7p"/>
+                        <viewControllerLayoutGuide type="bottom" id="UU4-ab-S2S"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nLg-4o-LUC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="FeV-Ms-NsH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FeV-Ms-NsH" firstAttribute="leading" secondItem="nLg-4o-LUC" secondAttribute="leading" id="BKE-7Y-vZR"/>
+                            <constraint firstItem="UU4-ab-S2S" firstAttribute="top" secondItem="FeV-Ms-NsH" secondAttribute="bottom" id="GgP-OO-cDb"/>
+                            <constraint firstAttribute="trailing" secondItem="FeV-Ms-NsH" secondAttribute="trailing" id="nfS-x7-pQy"/>
+                            <constraint firstItem="FeV-Ms-NsH" firstAttribute="top" secondItem="nLg-4o-LUC" secondAttribute="top" id="pIx-v4-1Md"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="RGViperChat Users" id="pL1-RT-PBP">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="tfX-RJ-Lyh">
+                            <connections>
+                                <action selector="buttonCancelTapped:" destination="HJx-DW-BdD" id="mlW-vL-iTU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="FeV-Ms-NsH" id="4Up-dC-or7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WaV-qE-N9r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="988" y="199.25037481259372"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="H5i-QG-A5s">
+            <objects>
+                <navigationController storyboardIdentifier="CreateChatViewNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="FN5-Rf-Yb6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="UWo-aS-1YW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HJx-DW-BdD" kind="relationship" relationship="rootViewController" id="UbB-eS-a8X"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mgt-XA-YQ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="48.799999999999997" y="199.25037481259372"/>
+        </scene>
+    </scenes>
+</document>

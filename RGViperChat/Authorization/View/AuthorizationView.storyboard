@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Authorization View-->
+        <scene sceneID="Gpp-f9-MtU">
+            <objects>
+                <viewController storyboardIdentifier="AuthorizationView" id="aip-hC-4tB" customClass="AuthorizationView" customModule="RGViperChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1xx-7n-JyA"/>
+                        <viewControllerLayoutGuide type="bottom" id="fXK-1w-blY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VUT-Ek-HJp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LUK-pa-mVj">
+                                <rect key="frame" x="16" y="158" width="343" height="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X7m-ag-XbC">
+                                <rect key="frame" x="16" y="195" width="343" height="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yjz-8V-RIb">
+                                <rect key="frame" x="16" y="276" width="343" height="33"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="LOGIN">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonLoginTapped:" destination="aip-hC-4tB" eventType="touchUpInside" id="zRw-Q4-eHp"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x9D-4f-mBg">
+                                <rect key="frame" x="16" y="183" width="343" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="QKR-Aq-nFz"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WLd-mA-7Z2">
+                                <rect key="frame" x="16" y="220" width="343" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="4Jd-hD-4Wy"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sxZ-nZ-cMd">
+                                <rect key="frame" x="16" y="317" width="343" height="33"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="SIGN UP!">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonLoginTapped:" destination="aip-hC-4tB" eventType="touchUpInside" id="8R1-Kt-0Jg"/>
+                                    <action selector="buttonSignupTapped:" destination="aip-hC-4tB" eventType="touchUpInside" id="wJ0-YH-1wg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="x9D-4f-mBg" firstAttribute="leading" secondItem="LUK-pa-mVj" secondAttribute="leading" id="6KS-Yu-lXJ"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="LUK-pa-mVj" secondAttribute="leading" id="8lQ-nk-zwP"/>
+                            <constraint firstItem="LUK-pa-mVj" firstAttribute="top" secondItem="1xx-7n-JyA" secondAttribute="bottom" constant="138" id="9Ck-Q4-ZLL"/>
+                            <constraint firstItem="x9D-4f-mBg" firstAttribute="top" secondItem="LUK-pa-mVj" secondAttribute="bottom" constant="8" id="Cwx-Ew-Qr5"/>
+                            <constraint firstItem="Yjz-8V-RIb" firstAttribute="leading" secondItem="VUT-Ek-HJp" secondAttribute="leadingMargin" id="Czj-Lk-dZT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LUK-pa-mVj" secondAttribute="trailing" id="MTr-7Y-qjf"/>
+                            <constraint firstItem="X7m-ag-XbC" firstAttribute="top" secondItem="LUK-pa-mVj" secondAttribute="bottom" constant="20" id="STa-cd-L7b"/>
+                            <constraint firstItem="WLd-mA-7Z2" firstAttribute="trailing" secondItem="X7m-ag-XbC" secondAttribute="trailing" id="Uty-m0-Doz"/>
+                            <constraint firstItem="WLd-mA-7Z2" firstAttribute="leading" secondItem="X7m-ag-XbC" secondAttribute="leading" id="Uyt-uH-z7k"/>
+                            <constraint firstItem="X7m-ag-XbC" firstAttribute="leading" secondItem="LUK-pa-mVj" secondAttribute="leading" id="V4c-Sb-ftA"/>
+                            <constraint firstItem="sxZ-nZ-cMd" firstAttribute="trailing" secondItem="Yjz-8V-RIb" secondAttribute="trailing" id="b8f-yM-gQB"/>
+                            <constraint firstItem="x9D-4f-mBg" firstAttribute="trailing" secondItem="LUK-pa-mVj" secondAttribute="trailing" id="iAx-bg-kth"/>
+                            <constraint firstItem="X7m-ag-XbC" firstAttribute="trailing" secondItem="LUK-pa-mVj" secondAttribute="trailing" id="jVp-zB-QQa"/>
+                            <constraint firstItem="sxZ-nZ-cMd" firstAttribute="top" secondItem="Yjz-8V-RIb" secondAttribute="bottom" constant="8" id="lqB-Ra-Asq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Yjz-8V-RIb" secondAttribute="trailing" id="m6t-NR-D7a"/>
+                            <constraint firstItem="WLd-mA-7Z2" firstAttribute="top" secondItem="X7m-ag-XbC" secondAttribute="bottom" constant="8" id="miI-Ih-ZVv"/>
+                            <constraint firstItem="sxZ-nZ-cMd" firstAttribute="leading" secondItem="Yjz-8V-RIb" secondAttribute="leading" id="sRG-GS-0hb"/>
+                            <constraint firstItem="Yjz-8V-RIb" firstAttribute="top" secondItem="X7m-ag-XbC" secondAttribute="bottom" constant="64" id="u4m-bg-VL8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="buttonLogin" destination="Yjz-8V-RIb" id="Hkx-3D-uWG"/>
+                        <outlet property="buttonSignup" destination="sxZ-nZ-cMd" id="Ebd-1C-Fqs"/>
+                        <outlet property="textFieldEmail" destination="LUK-pa-mVj" id="b9R-WS-DDI"/>
+                        <outlet property="textFieldPassword" destination="X7m-ag-XbC" id="sJO-uC-S1g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="piR-Vr-p2G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="152.80000000000001" y="191.1544227886057"/>
+        </scene>
+    </scenes>
+</document>
