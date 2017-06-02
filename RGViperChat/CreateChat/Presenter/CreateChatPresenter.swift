@@ -10,7 +10,6 @@ class CreateChatPresenter: CreateChatPresenterProtocol, CreateChatInteractorOutp
     var interactor: CreateChatInteractorInputProtocol?
     var wireframe: CreateChatWireframeProtocol?
     var usersDisplayDataMapper: UsersDisplayDataMapper?
-    weak var delegate: CreateChatDelegateProtocol?
 
     init() {
     }
@@ -35,8 +34,6 @@ class CreateChatPresenter: CreateChatPresenterProtocol, CreateChatInteractorOutp
     }
 
     func chatCreated(chat: Chat) {
-        self.wireframe?.dismiss {
-            self.delegate?.chatCreated(chat: chat)
-        }
+        self.wireframe?.dismiss(completion: nil)
     }
 }

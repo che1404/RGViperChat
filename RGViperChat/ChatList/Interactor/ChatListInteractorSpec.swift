@@ -96,6 +96,35 @@ class ChatListInteractorSpec: QuickSpec {
             }
         }
 
+        context("When starts listening for new chats") {
+            beforeEach {
+                stub(self.mockAPIDataManager) { mock in
+                    when(mock).startListeningForNewChats(listener: any()).thenDoNothing()
+                }
+
+                self.interactor.startListeningForNewChats()
+            }
+
+            it("Starts listening for new chats on the API data manager") {
+                verify(self.mockAPIDataManager).startListeningForNewChats(listener: any())
+            }
+        }
+
+        context("When a chat is added") {
+            let chat = Chat(chatID: "a", displayName: "b", senderID: "c", senderDisplayName: "d", receiverID: "e")
+
+            beforeEach {
+                stub(self.mockPresenter) { mock in
+                    when(mock).chatAdded(chat: any()).thenDoNothing()
+                }
+            }
+
+            it("Lets the presenter now about the new chat") {
+                self.interactor.chatAdded(chat: chat)
+                verify(self.mockPresenter).chatAdded(chat: equal(to: chat))
+            }
+        }
+
         afterEach {
             self.interactor = nil
             self.mockPresenter = nil

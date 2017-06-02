@@ -46,7 +46,7 @@ class ChatListWireframe: ChatListWireframeProtocol {
     }
 
     func presentCreateChatModule() {
-        createChatWireframe?.presentCreateChatModule(fromView: chatListViewController, createChatDelegateProtocol: presenter!)
+        createChatWireframe?.presentCreateChatModule(fromView: chatListViewController)
     }
 
     func presentAuthorizationModule() {

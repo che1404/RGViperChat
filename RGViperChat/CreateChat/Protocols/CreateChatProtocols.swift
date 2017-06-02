@@ -14,7 +14,7 @@ protocol CreateChatViewProtocol: class {
 }
 
 protocol CreateChatWireframeProtocol: class {
-    func presentCreateChatModule(fromView view: AnyObject, createChatDelegateProtocol: CreateChatDelegateProtocol)
+    func presentCreateChatModule(fromView view: AnyObject)
     /**
     * Add here your methods for communication PRESENTER -> WIREFRAME
     */
@@ -70,8 +70,4 @@ protocol CreateChatLocalDataManagerInputProtocol: class {
     /**
     * Add here your methods for communication INTERACTOR -> LOCALDATAMANAGER
     */
-}
-
-protocol CreateChatDelegateProtocol: class {
-    func chatCreated(chat: Chat)
 }

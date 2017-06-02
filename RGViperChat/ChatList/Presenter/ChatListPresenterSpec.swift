@@ -30,6 +30,7 @@ class ChatListPresenterSpec: QuickSpec {
             beforeEach {
                 stub(self.mockInteractor) { mock in
                     when(mock).fetchChats().thenDoNothing()
+                    when(mock).startListeningForNewChats().thenDoNothing()
                 }
 
                 self.presenter.viewWasLoaded()
@@ -37,6 +38,10 @@ class ChatListPresenterSpec: QuickSpec {
 
             it("Fetches chat from the interactor") {
                 verify(self.mockInteractor).fetchChats()
+            }
+
+            it("Starts listening for new chats on the interactor") {
+                verify(self.mockInteractor).startListeningForNewChats()
             }
         }
 
@@ -112,20 +117,6 @@ class ChatListPresenterSpec: QuickSpec {
             }
         }
 
-        context("Chat created") {
-            beforeEach {
-                stub(self.mockView) { mock in
-                    when(mock).add(chat: any()).thenDoNothing()
-                }
-
-                self.presenter.chatCreated(chat: Chat(chatID: "chatID", displayName: "chatDisplayName", senderID: "senderID", senderDisplayName: "senderDisplayName", receiverID: "receiverID"))
-            }
-
-            it("Adds the chat to the view") {
-                verify(self.mockView).add(chat: any())
-            }
-        }
-
         context("Chat selected") {
             let chatToBeLaunched = Chat(chatID: "chatID", displayName: "displayName", senderID: "senderID", senderDisplayName: "senderID", receiverID: "receiverID")
 
@@ -141,6 +132,21 @@ class ChatListPresenterSpec: QuickSpec {
                 verify(self.mockWireframe).presentChatModule(chat: equal(to: chatToBeLaunched, equalWhen: { (chat1, chat2) -> Bool in
                     return chat1.chatID == chat2.chatID && chat1.displayName == chat2.displayName
                 }))
+            }
+        }
+
+        context("When a chat is added") {
+            let chat = Chat(chatID: "chatID", displayName: "displayName", senderID: "senderID", senderDisplayName: "senderDisplayName", receiverID: "receiverID")
+
+            beforeEach {
+                stub(self.mockView) { mock in
+                    when(mock).add(chat: any()).thenDoNothing()
+                }
+                self.presenter.chatAdded(chat: chat)
+            }
+
+            it("Adds the chat to the view") {
+                verify(self.mockView).add(chat: equal(to: chat))
             }
         }
 

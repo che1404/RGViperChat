@@ -5,7 +5,7 @@
 
 import Foundation
 
-class ChatListPresenter: ChatListPresenterProtocol, ChatListInteractorOutputProtocol, CreateChatDelegateProtocol {
+class ChatListPresenter: ChatListPresenterProtocol, ChatListInteractorOutputProtocol {
     weak var view: ChatListViewProtocol?
     var interactor: ChatListInteractorInputProtocol?
     var wireframe: ChatListWireframeProtocol?
@@ -15,6 +15,7 @@ class ChatListPresenter: ChatListPresenterProtocol, ChatListInteractorOutputProt
 
     func viewWasLoaded() {
         interactor?.fetchChats()
+        interactor?.startListeningForNewChats()
     }
 
     func chatsFetched(chats: [Chat]) {
@@ -37,8 +38,8 @@ class ChatListPresenter: ChatListPresenterProtocol, ChatListInteractorOutputProt
         }
     }
 
-    func chatCreated(chat: Chat) {
-        self.view?.add(chat: chat)
+    func chatAdded(chat: Chat) {
+        view?.add(chat: chat)
     }
 
     func chatSelected(chat: Chat) {

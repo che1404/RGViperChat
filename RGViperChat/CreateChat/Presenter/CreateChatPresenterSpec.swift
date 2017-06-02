@@ -14,8 +14,6 @@ class CreateChatPresenterSpec: QuickSpec {
     var mockWireframe: MockCreateChatWireframeProtocol!
     var mockInteractor: MockCreateChatInteractorInputProtocol!
     var mockUsersDisplayDataMapper: MockUsersDisplayDataMapper!
-    // swiftlint:disable weak_delegate
-    var mockCreateChatDelegate: MockCreateChatDelegateProtocol!
 
     // swiftlint:disable function_body_length
     override func spec() {
@@ -24,13 +22,11 @@ class CreateChatPresenterSpec: QuickSpec {
             self.mockView = MockCreateChatViewProtocol()
             self.mockWireframe = MockCreateChatWireframeProtocol()
             self.mockUsersDisplayDataMapper = MockUsersDisplayDataMapper()
-            self.mockCreateChatDelegate = MockCreateChatDelegateProtocol()
             self.presenter = CreateChatPresenter()
             self.presenter.view = self.mockView
             self.presenter.wireframe = self.mockWireframe
             self.presenter.interactor = self.mockInteractor
             self.presenter.usersDisplayDataMapper = self.mockUsersDisplayDataMapper
-            self.presenter.delegate = self.mockCreateChatDelegate
         }
 
         context("Cancel") {
@@ -105,31 +101,6 @@ class CreateChatPresenterSpec: QuickSpec {
             }
         }
 
-        context("Chat created") {
-            beforeEach {
-                stub(self.mockCreateChatDelegate) { mock in
-                    when(mock).chatCreated(chat: any()).thenDoNothing()
-                }
-                stub(self.mockWireframe) { mock in
-                    when(mock).dismiss(completion: anyClosure()).then { completion in
-                        completion?()
-                    }
-                }
-                self.presenter.chatCreated(chat: Chat(chatID: "chatID1", displayName: "Roberto1", senderID: "senderID", senderDisplayName: "senderDisplayName", receiverID: "receiverID"))
-            }
-
-            it("Dismisses the module, then let the delegate know about the chat creation") {
-                verify(self.mockWireframe).dismiss(completion: anyClosure())
-            }
-
-            it("Let's the delegate know about the creation of the chat") {
-                let chat = Chat(chatID: "chatID1", displayName: "Roberto1", senderID: "senderID", senderDisplayName: "senderDisplayName", receiverID: "receiverID")
-                verify(self.mockCreateChatDelegate).chatCreated(chat: equal(to: chat, equalWhen: { chat1, chat2 -> Bool in
-                    return chat1.chatID == chat2.chatID && chat1.displayName == chat2.displayName
-                }))
-            }
-        }
-
         afterEach {
             self.mockInteractor = nil
             self.mockView = nil
@@ -137,7 +108,6 @@ class CreateChatPresenterSpec: QuickSpec {
             self.presenter.view = nil
             self.presenter.wireframe = nil
             self.presenter.interactor = nil
-            self.presenter.delegate = nil
             self.presenter.usersDisplayDataMapper = nil
             self.presenter = nil
         }

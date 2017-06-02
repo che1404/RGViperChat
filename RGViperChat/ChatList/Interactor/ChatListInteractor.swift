@@ -5,7 +5,7 @@
 
 import Foundation
 
-class ChatListInteractor: ChatListInteractorInputProtocol {
+class ChatListInteractor: ChatListInteractorInputProtocol, NewChatListenerProtocol {
     weak var presenter: ChatListInteractorOutputProtocol?
     var APIDataManager: ChatListAPIDataManagerInputProtocol?
     var localDataManager: ChatListLocalDataManagerInputProtocol?
@@ -34,5 +34,13 @@ class ChatListInteractor: ChatListInteractorInputProtocol {
         } else {
             return false
         }
+    }
+
+    func startListeningForNewChats() {
+        APIDataManager?.startListeningForNewChats(listener: self)
+    }
+
+    func chatAdded(chat: Chat) {
+        presenter?.chatAdded(chat: chat)
     }
 }

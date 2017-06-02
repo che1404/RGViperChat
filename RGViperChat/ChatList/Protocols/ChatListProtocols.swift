@@ -43,6 +43,7 @@ protocol ChatListInteractorOutputProtocol: class {
     * Add here your methods for communication INTERACTOR -> PRESENTER
     */
     func chatsFetched(chats: [Chat])
+    func chatAdded(chat: Chat)
 }
 
 protocol ChatListInteractorInputProtocol: class {
@@ -54,6 +55,7 @@ protocol ChatListInteractorInputProtocol: class {
     */
     func fetchChats()
     func logout() -> Bool
+    func startListeningForNewChats()
 }
 
 protocol ChatListDataManagerInputProtocol: class {
@@ -68,10 +70,15 @@ protocol ChatListAPIDataManagerInputProtocol: class {
     */
     func fetchChats(completion: @escaping (Result<[Chat]>) -> Void)
     func logout() -> Bool
+    func startListeningForNewChats(listener: NewChatListenerProtocol)
 }
 
 protocol ChatListLocalDataManagerInputProtocol: class {
     /**
     * Add here your methods for communication INTERACTOR -> LOCALDATAMANAGER
     */
+}
+
+protocol NewChatListenerProtocol: class {
+    func chatAdded(chat: Chat)
 }

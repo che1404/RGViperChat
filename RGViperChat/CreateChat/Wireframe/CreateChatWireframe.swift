@@ -9,7 +9,7 @@ class CreateChatWireframe: CreateChatWireframeProtocol {
 
     weak var viewController: UIViewController!
 
-    func presentCreateChatModule(fromView caller: AnyObject, createChatDelegateProtocol: CreateChatDelegateProtocol) {
+    func presentCreateChatModule(fromView caller: AnyObject) {
         // Generating module components
         guard let navigationController = UIStoryboard(name: "CreateChatView", bundle: nil).instantiateViewController(withIdentifier: "CreateChatViewNavigationController") as? UINavigationController else {
             return
@@ -21,7 +21,6 @@ class CreateChatWireframe: CreateChatWireframeProtocol {
         viewController = view
 
         let presenter = CreateChatPresenter()
-        presenter.delegate = createChatDelegateProtocol
         let interactor = CreateChatInteractor()
         let APIDataManager = CreateChatAPIDataManager()
         let localDataManager = CreateChatLocalDataManager()
