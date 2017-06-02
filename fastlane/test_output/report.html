@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test Results | xcpretty</title>
+    <style type="text/css">
+      body { font-family:Avenir Next, Helvetica Neue, sans-serif; color: #4A4A4A; background-color: #F0F3FB; margin:0;}
+      h1 { font-weight: normal; font-size: 24px; margin: 10px 0 0 0;}
+      h3 { font-weight: normal; margin: 2px; font-size: 1.1em;}
+      header { position: fixed;width: 100%;background: rgba(249, 254, 255, 0.9);margin: 0;padding: 10px;}
+      header:before, header:after { content:""; display:table;}
+      header:after { clear:both;}
+      a:link { color: #A1D761;}
+      footer { clear: both;position: relative;z-index: 10;height: 40px;margin-top: -10px; margin-left:30px; font-size:12px;}
+      table { width:100%; border-collapse: collapse;}
+      tr td:first-child { width:7%}
+      .left { float: left; margin-left:30px;}
+      .right { float: right; margin-right: 40px; margin-top: 0; margin-bottom:0;}
+      .test-suite { margin: 0 0 30px 0;}
+      .test-suite > .heading { font-family:Menlo, Monaco, monospace; font-weight: bold; border-color: #A1D761; background-color: #B8E986; border-width: 1px;}
+      .test-suite.failing > .heading { border-color: #C84F5E; background-color: #E58591;}
+      .test-suite > .heading > .title { margin-top: 4px; margin-left: 10px;}
+      .tests { overflow: scroll;margin: 0 30px 0 60px;}
+      .test, .test-suite > .heading { height: 30px; overflow: hidden; margin: 0 30px;}
+      .test, .test-suite > .heading { border-width: 1px; border-collapse: collapse; border-style: solid; }
+      .test { margin-left: 30px; border-top:none;}
+      .test.failing { border-color: #C84F5E; background-color: #F4DDE0;}
+      .test.passing { border-color: #A1D761;}
+      .test.failing { background-color: #E7A1AA;}
+      .test.passing { background-color: #CAF59F;}
+      .test.failing.odd { background-color: #EEC7CC;}
+      .test.passing.odd { background-color: #E5FBCF;}
+      .details { background-color: #F4DDE0; border: 1px solid #C84F5E;}
+      .test .test-detail:last-child { padding-bottom: 8px;}
+      .test .title { float: left; font-size: 0.9em; margin-top: 8px; font-family: Menlo, Monaco, monospace;}
+      .test .time { float: left;margin: 4px 10px 0 20px;}
+      .test-detail { font-family:Menlo, Monaco, monospace; font-size: 0.9em; margin: 5px 0 5px 0px;}
+      .screenshots { height: auto; overflow: hidden; padding: 4px 4px 0 4px; background-color: #B8E986; border: #A1D761; border-width: 0 1px; border-style: solid; }
+      .screenshots.failing { border-color: #C84F5E; background-color: #E58591; }
+      .screenshot { max-height: 60px; float: left; transition: max-height 0.2s; margin: 0 4px 4px 0 }
+      .screenshot.selected { max-height: 568px; }
+      #test-suites { display: inline-block; width: 100%;margin-top:100px;}
+      #segment-bar { margin-top: 10px;margin-left: 14px;float:right;}
+      #segment-bar a:first-child { border-radius: 9px 0 0 9px; border-right: none;}
+      #segment-bar a:last-child { border-radius: 0 9px 9px 0; border-left: none;}
+      #segment-bar > a { color: #565656; border: 2px solid  #7B7B7B; width: 80px; font-weight: bold; display:inline-block;text-align:center; font-weight: normal;}
+      #segment-bar > a.selected { background-color: #979797; color: #F0F3FB;}
+      #counters { float: left;margin: 10px;text-align: right;}
+      #counters h2 { font-size: 16px; font-family: Avenir, sans-serif; font-weight: lighter; display:inline;}
+      #counters .number { font-size: 20px;}
+      #fail-count { color: #D0021B; margin-left:10px;}
+      @media (max-width: 640px) {
+        h1, #counters, #segment-bar { margin: 5px auto; text-align:center;}
+        header, #segment-bar { width: 100%; position: relative; background:none;}
+        .left, .right { float:none; margin:0;}
+        #test-suites { margin-top: 0;}
+        #counters { float:none;}
+      }
+    </style>
+    <script type="text/javascript">
+      var hide = function(element) { element.style.display = 'none';}
+      var show = function(element) { element.style.display = '';}
+      var isHidden = function(element) { return element.style.display == 'none';}
+      var isSelected = function(element) { return element.classList.contains("selected");}
+      var deselect = function(element) { return element.classList.remove("selected");}
+      var select = function(element) { return element.classList.add("selected");}
+      var toggle = function(element) { isHidden(element) ? show(element) : hide(element);};
+      var toggleTests = function(heading) { toggle(heading.parentNode.children[1]);};
+      var toggleDetails = function(detailClass) {
+        var details = document.querySelectorAll('.' + detailClass);
+        for (var i = details.length - 1; i >= 0; i--) { toggle(details[i]);};
+      };
+      var hideAll = function(collection) {
+        for (var i = collection.length - 1; i >= 0; i--) { hide(collection[i]); };
+      }
+      var showAll = function(collection) {
+        for (var i = collection.length - 1; i >= 0; i--) { show(collection[i]); };
+      }
+      var selectSegment = function(segment) {
+        if (isSelected(segment)) return;
+        var segments = document.querySelectorAll('#segment-bar > a');
+        for (var i = segments.length - 1; i >= 0; i--) { deselect(segments[i]);};
+        select(segment);
+        if (segment.id == "all-segment") {
+          showAll(document.querySelectorAll('.test-suite'));
+          showAll(document.querySelectorAll('.test'));
+        } else if (segment.id == "failing-segment") {
+          hideAll(document.querySelectorAll('.test.passing'));
+          showAll(document.querySelectorAll('.test.failing'));
+          hideAll(document.querySelectorAll('.test-suite.passing'));
+          showAll(document.querySelectorAll('.test-suite.failing'));
+        } else if (segment.id == "passing-segment") {
+          hideAll(document.querySelectorAll('.test.failing'));
+          showAll(document.querySelectorAll('.test.passing'));
+          hideAll(document.querySelectorAll('.test-suite.failing'));
+          showAll(document.querySelectorAll('.test-suite.passing'));
+        }
+      }
+      var toggleScreenshot = function(suiteName, index) {
+        var screenshot = document.getElementById("screenshot-" + suiteName + "-" + index);
+        isSelected(screenshot) ? deselect(screenshot) : select(screenshot);
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <section class="left">
+        <h1>Test Results</h1>
+      </section>
+      <section class="right">
+        <section id="counters">
+          <h2 id="test-count"><span class="number">64</span> tests</h2>
+          
+        </section>
+        <section id="segment-bar">
+          <a id="all-segment" onclick="selectSegment(this);" class="selected">All</a><a id="failing-segment" onclick="selectSegment(this);">Failing</a><a id="passing-segment" onclick="selectSegment(this);">Passing</a>
+        </section>
+      </section>
+    </header>
+    <section id="test-suites">
+      
+        
+        <section class="test-suite passing" id="RGViperChatTests.AppDelegateInteractorSpec">
+          <section class="heading" onclick="toggleTests(this);">
+            <h3 class="title">RGViperChatTests.AppDelegateInteractorSpec</h3>
+          </section>
+          <section class="tests">
+            
+            <table>
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('Is_user_logged_in__Asks_the_API_data_manager_if_the_user_is_logged_in');">
+                <td>
+                  
+                    <h3 class="time">0.006s</h3>
+                  
+                </td>
+                <td><h3 class="title">Is_user_logged_in__Asks_the_API_data_manager_if_the_user_is_logged_in</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('Is_user_logged_in__API_data_manager_responds_with_false__Returns_false_if_the_api_data_manager_returns_with_false');">
+                <td>
+                  
+                    <h3 class="time">0.003s</h3>
+                  
+                </td>
+                <td><h3 class="title">Is_user_logged_in__API_data_manager_responds_with_false__Returns_false_if_the_api_data_manager_returns_with_false</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('Is_user_logged_in__API_data_manager_responds_with_true__Returns_false_if_the_api_data_manager_returns_with_false');">
+                <td>
+                  
+                    <h3 class="time">0.002s</h3>
+                  
+                </td>
+                <td><h3 class="title">Is_user_logged_in__API_data_manager_responds_with_true__Returns_false_if_the_api_data_manager_returns_with_false</h3></td>
+              </tr>
+              
+            
+            </table>
+          </section>
+        </section>
+      
+        
+        <section class="test-suite passing" id="RGViperChatTests.AppDelegatePresenterSpec">
+          <section class="heading" onclick="toggleTests(this);">
+            <h3 class="title">RGViperChatTests.AppDelegatePresenterSpec</h3>
+          </section>
+          <section class="tests">
+            
+            <table>
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('App_did_finish_launching_with_options__Asks_whether_the_user_is_logged_in_or_not');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">App_did_finish_launching_with_options__Asks_whether_the_user_is_logged_in_or_not</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('App_did_finish_launching_with_options__User_is_logged_in__Launches_the_ChatList_module');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">App_did_finish_launching_with_options__User_is_logged_in__Launches_the_ChatList_module</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('App_did_finish_launching_with_options__User_is_NOT_logged_in__Launches_the_ChatList_module');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">App_did_finish_launching_with_options__User_is_NOT_logged_in__Launches_the_ChatList_module</h3></td>
+              </tr>
+              
+            
+            </table>
+          </section>
+        </section>
+      
+        
+        <section class="test-suite passing" id="RGViperChatTests.AuthorizationInteractorSpec">
+          <section class="heading" onclick="toggleTests(this);">
+            <h3 class="title">RGViperChatTests.AuthorizationInteractorSpec</h3>
+          </section>
+          <section class="tests">
+            
+            <table>
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('Login__Logs_in_against_the_API_data_manager');">
+                <td>
+                  
+                    <h3 class="time">0.003s</h3>
+                  
+                </td>
+                <td><h3 class="title">Login__Logs_in_against_the_API_data_manager</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('Login__Logs_in_using_the_credentials_of_the_view');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">Login__Logs_in_using_the_credentials_of_the_view</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('Login__Login_was_successful__Responds_the_presenter_with_successful_login');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">Login__Login_was_successful__Responds_the_presenter_with_successful_login</h3></td>
+              </tr>
+              
+            
+            </table>
+          </section>
+        </section>
+      
+        
+        <section class="test-suite passing" id="RGViperChatTests.AuthorizationPresenterSpec">
+          <section class="heading" onclick="toggleTests(this);">
+            <h3 class="title">RGViperChatTests.AuthorizationPresenterSpec</h3>
+          </section>
+          <section class="tests">
+            
+            <table>
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('Signup_button_tapped__Launches_the_Signup_module');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">Signup_button_tapped__Launches_the_Signup_module</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('Login_button_tapped__Selects_the_login_use_case_on_the_interactor');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">Login_button_tapped__Selects_the_login_use_case_on_the_interactor</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('Login_button_tapped__Uses_the_same_credentiales_passed_from_he_view');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">Login_button_tapped__Uses_the_same_credentiales_passed_from_he_view</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('Successful_login__Launches_the_chat_list_module');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">Successful_login__Launches_the_chat_list_module</h3></td>
+              </tr>
+              
+            
+            </table>
+          </section>
+        </section>
+      
+        
+        <section class="test-suite passing" id="RGViperChatTests.ChatInteractorSpec">
+          <section class="heading" onclick="toggleTests(this);">
+            <h3 class="title">RGViperChatTests.ChatInteractorSpec</h3>
+          </section>
+          <section class="tests">
+            
+            <table>
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('Send_message__Encrypts_the_message_using_the_encryption_service');">
+                <td>
+                  
+                    <h3 class="time">0.002s</h3>
+                  
+                </td>
+                <td><h3 class="title">Send_message__Encrypts_the_message_using_the_encryption_service</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('Send_message__Text_was_successfully_encrypted__Sends_the_message_using_the_API_data_manager__and_message_has_the_ecrypted_text');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">Send_message__Text_was_successfully_encrypted__Sends_the_message_using_the_API_data_manager__and_message_has_the_ecrypted_text</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('Send_message__Text_was_successfully_encrypted__When_the_message_was_successfully_sent__Let_s_the_presenter_know_about_a_successful_message_sent');">
+                <td>
+                  
+                    <h3 class="time">0.002s</h3>
+                  
+                </td>
+                <td><h3 class="title">Send_message__Text_was_successfully_encrypted__When_the_message_was_successfully_sent__Let_s_the_presenter_know_about_a_successful_message_sent</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('Start_listening_incomming_messages__Starts_listening_incomming_messages_on_the_API_data_manager');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">Start_listening_incomming_messages__Starts_listening_incomming_messages_on_the_API_data_manager</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('When_receives_a_message__Decrypts_the_message_text');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">When_receives_a_message__Decrypts_the_message_text</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('When_receives_a_message__When_the_text_was_successfully_decrypted__Let_s_the_presenter_know_that_a_message_arrived');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">When_receives_a_message__When_the_text_was_successfully_decrypted__Let_s_the_presenter_know_that_a_message_arrived</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('When_stops_listening_incomming_messages__Stops_listening_incoming_messages_from_the_API_data_manager');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">When_stops_listening_incomming_messages__Stops_listening_incoming_messages_from_the_API_data_manager</h3></td>
+              </tr>
+              
+            
+            </table>
+          </section>
+        </section>
+      
+        
+        <section class="test-suite passing" id="RGViperChatTests.ChatListInteractorSpec">
+          <section class="heading" onclick="toggleTests(this);">
+            <h3 class="title">RGViperChatTests.ChatListInteractorSpec</h3>
+          </section>
+          <section class="tests">
+            
+            <table>
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('Fetch_chats__Fetches_the_users_from_the_API_data_manager');">
+                <td>
+                  
+                    <h3 class="time">0.002s</h3>
+                  
+                </td>
+                <td><h3 class="title">Fetch_chats__Fetches_the_users_from_the_API_data_manager</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('Fetch_chats__Fech_was_correct__Responds_the_presenter_with_the_fetched_chats');">
+                <td>
+                  
+                    <h3 class="time">0.002s</h3>
+                  
+                </td>
+                <td><h3 class="title">Fetch_chats__Fech_was_correct__Responds_the_presenter_with_the_fetched_chats</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('Logout__Logs_out_using_the_API_data_manager');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">Logout__Logs_out_using_the_API_data_manager</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('Logout__User_logged_out_from_API_data_manager__Responds_with_true');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">Logout__User_logged_out_from_API_data_manager__Responds_with_true</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('Logout__User_NOT_logged_out_from_API_data_manager__Responds_with_false');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">Logout__User_NOT_logged_out_from_API_data_manager__Responds_with_false</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('When_starts_listening_for_new_chats__Starts_listening_for_new_chats_on_the_API_data_manager');">
+                <td>
+                  
+                    <h3 class="time">0.002s</h3>
+                  
+                </td>
+                <td><h3 class="title">When_starts_listening_for_new_chats__Starts_listening_for_new_chats_on_the_API_data_manager</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('When_a_chat_is_added__Lets_the_presenter_now_about_the_new_chat');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">When_a_chat_is_added__Lets_the_presenter_now_about_the_new_chat</h3></td>
+              </tr>
+              
+            
+            </table>
+          </section>
+        </section>
+      
+        
+        <section class="test-suite passing" id="RGViperChatTests.ChatListPresenterSpec">
+          <section class="heading" onclick="toggleTests(this);">
+            <h3 class="title">RGViperChatTests.ChatListPresenterSpec</h3>
+          </section>
+          <section class="tests">
+            
+            <table>
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('View_loaded__Fetches_chat_from_the_interactor');">
+                <td>
+                  
+                    <h3 class="time">0.002s</h3>
+                  
+                </td>
+                <td><h3 class="title">View_loaded__Fetches_chat_from_the_interactor</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('View_loaded__Starts_listening_for_new_chats_on_the_interactor');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">View_loaded__Starts_listening_for_new_chats_on_the_interactor</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('Empty_chat_list_fetched__Shows_the_empty_screen');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">Empty_chat_list_fetched__Shows_the_empty_screen</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('Non_empty_chat_list_fetched__Shows_the_chats');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">Non_empty_chat_list_fetched__Shows_the_chats</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('Create_chat__Launches_the_create_chat_module');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">Create_chat__Launches_the_create_chat_module</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('Logout__Selects_the_logout_use_case_on_the_interactor');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">Logout__Selects_the_logout_use_case_on_the_interactor</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('Logout__User_successfully_logged_out__Launches_the_Authorization_module');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">Logout__User_successfully_logged_out__Launches_the_Authorization_module</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('Chat_selected__Launches_the_chat_module');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">Chat_selected__Launches_the_chat_module</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('When_a_chat_is_added__Adds_the_chat_to_the_view');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">When_a_chat_is_added__Adds_the_chat_to_the_view</h3></td>
+              </tr>
+              
+            
+            </table>
+          </section>
+        </section>
+      
+        
+        <section class="test-suite passing" id="RGViperChatTests.ChatPresenterSpec">
+          <section class="heading" onclick="toggleTests(this);">
+            <h3 class="title">RGViperChatTests.ChatPresenterSpec</h3>
+          </section>
+          <section class="tests">
+            
+            <table>
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('Send_message__Sends_a_message_using_the_interactor');">
+                <td>
+                  
+                    <h3 class="time">0.002s</h3>
+                  
+                </td>
+                <td><h3 class="title">Send_message__Sends_a_message_using_the_interactor</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('When_the_view_gets_loaded__Selects_the_start_listening_incoming_messages_use_case_on_the_interactor');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">When_the_view_gets_loaded__Selects_the_start_listening_incoming_messages_use_case_on_the_interactor</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('When_a_message_is_received__Should_add_it_to_the_view');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">When_a_message_is_received__Should_add_it_to_the_view</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('When_the_back_button_is_tapped__Should_stop_listening_for_incoming_messages');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">When_the_back_button_is_tapped__Should_stop_listening_for_incoming_messages</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('When_the_back_button_is_tapped__Should_dismiss_the_module');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">When_the_back_button_is_tapped__Should_dismiss_the_module</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('When_a_message_was_successfully_sent__Finishes_sending_the_message');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">When_a_message_was_successfully_sent__Finishes_sending_the_message</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('When_a_message_was_successfully_sent__Plays_a_sent_sound');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">When_a_message_was_successfully_sent__Plays_a_sent_sound</h3></td>
+              </tr>
+              
+            
+            </table>
+          </section>
+        </section>
+      
+        
+        <section class="test-suite passing" id="RGViperChatTests.CreateChatInteractorSpec">
+          <section class="heading" onclick="toggleTests(this);">
+            <h3 class="title">RGViperChatTests.CreateChatInteractorSpec</h3>
+          </section>
+          <section class="tests">
+            
+            <table>
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('Fetch_users__Fetches_the_users_from_the_API_data_manager');">
+                <td>
+                  
+                    <h3 class="time">0.002s</h3>
+                  
+                </td>
+                <td><h3 class="title">Fetch_users__Fetches_the_users_from_the_API_data_manager</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('Fetch_users__User_fetching_was_OK__Responds_the_presenter_with_the_fetched_users');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">Fetch_users__User_fetching_was_OK__Responds_the_presenter_with_the_fetched_users</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('Create_chat__Creates_the_chat_using_API_data_manager');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">Create_chat__Creates_the_chat_using_API_data_manager</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('Create_chat__Chat_successfully_created__Responds_the_presenter_with_chat_successfully_created');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">Create_chat__Chat_successfully_created__Responds_the_presenter_with_chat_successfully_created</h3></td>
+              </tr>
+              
+            
+            </table>
+          </section>
+        </section>
+      
+        
+        <section class="test-suite passing" id="RGViperChatTests.CreateChatPresenterSpec">
+          <section class="heading" onclick="toggleTests(this);">
+            <h3 class="title">RGViperChatTests.CreateChatPresenterSpec</h3>
+          </section>
+          <section class="tests">
+            
+            <table>
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('Cancel__Dismisses_the_module');">
+                <td>
+                  
+                    <h3 class="time">0.002s</h3>
+                  
+                </td>
+                <td><h3 class="title">Cancel__Dismisses_the_module</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('View_was_loaded__Selects_the_fetchUsers_use_case_on_the_interactor');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">View_was_loaded__Selects_the_fetchUsers_use_case_on_the_interactor</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('Users_fetched_not_empty__Maps_the_users_into_a_UserDisplayData_object');">
+                <td>
+                  
+                    <h3 class="time">0.002s</h3>
+                  
+                </td>
+                <td><h3 class="title">Users_fetched_not_empty__Maps_the_users_into_a_UserDisplayData_object</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('Users_fetched_not_empty__Asks_the_view_to_show_the_users_display_data');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">Users_fetched_not_empty__Asks_the_view_to_show_the_users_display_data</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('User_selected__Selects_the_create_chat_use_case_on_the_interactor_with_a_user_of_type_User');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">User_selected__Selects_the_create_chat_use_case_on_the_interactor_with_a_user_of_type_User</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('User_selected__The_username_of_the_user_is_the_same_as_taken_from_the_view');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">User_selected__The_username_of_the_user_is_the_same_as_taken_from_the_view</h3></td>
+              </tr>
+              
+            
+            </table>
+          </section>
+        </section>
+      
+        
+        <section class="test-suite passing" id="RGViperChatTests.RGViperChatTests">
+          <section class="heading" onclick="toggleTests(this);">
+            <h3 class="title">RGViperChatTests.RGViperChatTests</h3>
+          </section>
+          <section class="tests">
+            
+            <table>
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('testExample');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">testExample</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('testPerformanceExample');">
+                <td>
+                  
+                    <h3 class="time">0.326s</h3>
+                  
+                </td>
+                <td><h3 class="title">testPerformanceExample</h3></td>
+              </tr>
+              
+            
+            </table>
+          </section>
+        </section>
+      
+        
+        <section class="test-suite passing" id="RGViperChatTests.SignupInteractorSpec">
+          <section class="heading" onclick="toggleTests(this);">
+            <h3 class="title">RGViperChatTests.SignupInteractorSpec</h3>
+          </section>
+          <section class="tests">
+            
+            <table>
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('Sign_up__Calls_the_sigup_method_on_the_API_data_manager');">
+                <td>
+                  
+                    <h3 class="time">0.002s</h3>
+                  
+                </td>
+                <td><h3 class="title">Sign_up__Calls_the_sigup_method_on_the_API_data_manager</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('Sign_up__Sign_up_was_OK__Responds_the_presenter_with_successful_signup');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">Sign_up__Sign_up_was_OK__Responds_the_presenter_with_successful_signup</h3></td>
+              </tr>
+              
+            
+            </table>
+          </section>
+        </section>
+      
+        
+        <section class="test-suite passing" id="RGViperChatTests.SignupPresenterSpec">
+          <section class="heading" onclick="toggleTests(this);">
+            <h3 class="title">RGViperChatTests.SignupPresenterSpec</h3>
+          </section>
+          <section class="tests">
+            
+            <table>
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('User_signup__Selects_the_signup_use_case_on_the_interactor');">
+                <td>
+                  
+                    <h3 class="time">0.002s</h3>
+                  
+                </td>
+                <td><h3 class="title">User_signup__Selects_the_signup_use_case_on_the_interactor</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('User_signup__Signs_up_with_the_credentials_received_from_the_view');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">User_signup__Signs_up_with_the_credentials_received_from_the_view</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('User_signup__User_signup_successfully__Dismisses_current_module');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">User_signup__User_signup_successfully__Dismisses_current_module</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('User_signup__User_signup_successfully__Launches_the_chat_list_module_when_the_module_is_dismissed');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">User_signup__User_signup_successfully__Launches_the_chat_list_module_when_the_module_is_dismissed</h3></td>
+              </tr>
+              
+            
+            </table>
+          </section>
+        </section>
+      
+        
+        <section class="test-suite passing" id="RGViperChatTests.UsersDisplayDataMapperSpec">
+          <section class="heading" onclick="toggleTests(this);">
+            <h3 class="title">RGViperChatTests.UsersDisplayDataMapperSpec</h3>
+          </section>
+          <section class="tests">
+            
+            <table>
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('Map_users_into_users_display_data__Generates_2_user_data_items');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">Map_users_into_users_display_data__Generates_2_user_data_items</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing odd"  onclick="toggleDetails('Map_users_into_users_display_data__Contains_a_user_data_item_with_username_Roberto1');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">Map_users_into_users_display_data__Contains_a_user_data_item_with_username_Roberto1</h3></td>
+              </tr>
+              
+            
+              
+              <tr class="test passing "  onclick="toggleDetails('Map_users_into_users_display_data__Contains_a_user_data_item_with_username_Roberto2');">
+                <td>
+                  
+                    <h3 class="time">0.001s</h3>
+                  
+                </td>
+                <td><h3 class="title">Map_users_into_users_display_data__Contains_a_user_data_item_with_username_Roberto2</h3></td>
+              </tr>
+              
+            
+            </table>
+          </section>
+        </section>
+      
+    </section>
+    <footer>Report generated with <a href="https://github.com/supermarin/xcpretty">xcpretty</a></footer>
+  </body>
+</html>

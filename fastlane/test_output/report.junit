@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='RGViperChatTests.xctest' tests='64' failures='0'>
+  <testsuite name='RGViperChatTests.AppDelegateInteractorSpec' tests='3' failures='0'>
+    <testcase classname='RGViperChatTests.AppDelegateInteractorSpec' name='Is_user_logged_in__Asks_the_API_data_manager_if_the_user_is_logged_in' time='0.006'/>
+    <testcase classname='RGViperChatTests.AppDelegateInteractorSpec' name='Is_user_logged_in__API_data_manager_responds_with_false__Returns_false_if_the_api_data_manager_returns_with_false' time='0.003'/>
+    <testcase classname='RGViperChatTests.AppDelegateInteractorSpec' name='Is_user_logged_in__API_data_manager_responds_with_true__Returns_false_if_the_api_data_manager_returns_with_false' time='0.002'/>
+  </testsuite>
+  <testsuite name='RGViperChatTests.AppDelegatePresenterSpec' tests='3' failures='0'>
+    <testcase classname='RGViperChatTests.AppDelegatePresenterSpec' name='App_did_finish_launching_with_options__Asks_whether_the_user_is_logged_in_or_not' time='0.001'/>
+    <testcase classname='RGViperChatTests.AppDelegatePresenterSpec' name='App_did_finish_launching_with_options__User_is_logged_in__Launches_the_ChatList_module' time='0.001'/>
+    <testcase classname='RGViperChatTests.AppDelegatePresenterSpec' name='App_did_finish_launching_with_options__User_is_NOT_logged_in__Launches_the_ChatList_module' time='0.001'/>
+  </testsuite>
+  <testsuite name='RGViperChatTests.AuthorizationInteractorSpec' tests='3' failures='0'>
+    <testcase classname='RGViperChatTests.AuthorizationInteractorSpec' name='Login__Logs_in_against_the_API_data_manager' time='0.003'/>
+    <testcase classname='RGViperChatTests.AuthorizationInteractorSpec' name='Login__Logs_in_using_the_credentials_of_the_view' time='0.001'/>
+    <testcase classname='RGViperChatTests.AuthorizationInteractorSpec' name='Login__Login_was_successful__Responds_the_presenter_with_successful_login' time='0.001'/>
+  </testsuite>
+  <testsuite name='RGViperChatTests.AuthorizationPresenterSpec' tests='4' failures='0'>
+    <testcase classname='RGViperChatTests.AuthorizationPresenterSpec' name='Signup_button_tapped__Launches_the_Signup_module' time='0.001'/>
+    <testcase classname='RGViperChatTests.AuthorizationPresenterSpec' name='Login_button_tapped__Selects_the_login_use_case_on_the_interactor' time='0.001'/>
+    <testcase classname='RGViperChatTests.AuthorizationPresenterSpec' name='Login_button_tapped__Uses_the_same_credentiales_passed_from_he_view' time='0.001'/>
+    <testcase classname='RGViperChatTests.AuthorizationPresenterSpec' name='Successful_login__Launches_the_chat_list_module' time='0.001'/>
+  </testsuite>
+  <testsuite name='RGViperChatTests.ChatInteractorSpec' tests='7' failures='0'>
+    <testcase classname='RGViperChatTests.ChatInteractorSpec' name='Send_message__Encrypts_the_message_using_the_encryption_service' time='0.002'/>
+    <testcase classname='RGViperChatTests.ChatInteractorSpec' name='Send_message__Text_was_successfully_encrypted__Sends_the_message_using_the_API_data_manager__and_message_has_the_ecrypted_text' time='0.001'/>
+    <testcase classname='RGViperChatTests.ChatInteractorSpec' name='Send_message__Text_was_successfully_encrypted__When_the_message_was_successfully_sent__Let_s_the_presenter_know_about_a_successful_message_sent' time='0.002'/>
+    <testcase classname='RGViperChatTests.ChatInteractorSpec' name='Start_listening_incomming_messages__Starts_listening_incomming_messages_on_the_API_data_manager' time='0.001'/>
+    <testcase classname='RGViperChatTests.ChatInteractorSpec' name='When_receives_a_message__Decrypts_the_message_text' time='0.001'/>
+    <testcase classname='RGViperChatTests.ChatInteractorSpec' name='When_receives_a_message__When_the_text_was_successfully_decrypted__Let_s_the_presenter_know_that_a_message_arrived' time='0.001'/>
+    <testcase classname='RGViperChatTests.ChatInteractorSpec' name='When_stops_listening_incomming_messages__Stops_listening_incoming_messages_from_the_API_data_manager' time='0.001'/>
+  </testsuite>
+  <testsuite name='RGViperChatTests.ChatListInteractorSpec' tests='7' failures='0'>
+    <testcase classname='RGViperChatTests.ChatListInteractorSpec' name='Fetch_chats__Fetches_the_users_from_the_API_data_manager' time='0.002'/>
+    <testcase classname='RGViperChatTests.ChatListInteractorSpec' name='Fetch_chats__Fech_was_correct__Responds_the_presenter_with_the_fetched_chats' time='0.002'/>
+    <testcase classname='RGViperChatTests.ChatListInteractorSpec' name='Logout__Logs_out_using_the_API_data_manager' time='0.001'/>
+    <testcase classname='RGViperChatTests.ChatListInteractorSpec' name='Logout__User_logged_out_from_API_data_manager__Responds_with_true' time='0.001'/>
+    <testcase classname='RGViperChatTests.ChatListInteractorSpec' name='Logout__User_NOT_logged_out_from_API_data_manager__Responds_with_false' time='0.001'/>
+    <testcase classname='RGViperChatTests.ChatListInteractorSpec' name='When_starts_listening_for_new_chats__Starts_listening_for_new_chats_on_the_API_data_manager' time='0.002'/>
+    <testcase classname='RGViperChatTests.ChatListInteractorSpec' name='When_a_chat_is_added__Lets_the_presenter_now_about_the_new_chat' time='0.001'/>
+  </testsuite>
+  <testsuite name='RGViperChatTests.ChatListPresenterSpec' tests='9' failures='0'>
+    <testcase classname='RGViperChatTests.ChatListPresenterSpec' name='View_loaded__Fetches_chat_from_the_interactor' time='0.002'/>
+    <testcase classname='RGViperChatTests.ChatListPresenterSpec' name='View_loaded__Starts_listening_for_new_chats_on_the_interactor' time='0.001'/>
+    <testcase classname='RGViperChatTests.ChatListPresenterSpec' name='Empty_chat_list_fetched__Shows_the_empty_screen' time='0.001'/>
+    <testcase classname='RGViperChatTests.ChatListPresenterSpec' name='Non_empty_chat_list_fetched__Shows_the_chats' time='0.001'/>
+    <testcase classname='RGViperChatTests.ChatListPresenterSpec' name='Create_chat__Launches_the_create_chat_module' time='0.001'/>
+    <testcase classname='RGViperChatTests.ChatListPresenterSpec' name='Logout__Selects_the_logout_use_case_on_the_interactor' time='0.001'/>
+    <testcase classname='RGViperChatTests.ChatListPresenterSpec' name='Logout__User_successfully_logged_out__Launches_the_Authorization_module' time='0.001'/>
+    <testcase classname='RGViperChatTests.ChatListPresenterSpec' name='Chat_selected__Launches_the_chat_module' time='0.001'/>
+    <testcase classname='RGViperChatTests.ChatListPresenterSpec' name='When_a_chat_is_added__Adds_the_chat_to_the_view' time='0.001'/>
+  </testsuite>
+  <testsuite name='RGViperChatTests.ChatPresenterSpec' tests='7' failures='0'>
+    <testcase classname='RGViperChatTests.ChatPresenterSpec' name='Send_message__Sends_a_message_using_the_interactor' time='0.002'/>
+    <testcase classname='RGViperChatTests.ChatPresenterSpec' name='When_the_view_gets_loaded__Selects_the_start_listening_incoming_messages_use_case_on_the_interactor' time='0.001'/>
+    <testcase classname='RGViperChatTests.ChatPresenterSpec' name='When_a_message_is_received__Should_add_it_to_the_view' time='0.001'/>
+    <testcase classname='RGViperChatTests.ChatPresenterSpec' name='When_the_back_button_is_tapped__Should_stop_listening_for_incoming_messages' time='0.001'/>
+    <testcase classname='RGViperChatTests.ChatPresenterSpec' name='When_the_back_button_is_tapped__Should_dismiss_the_module' time='0.001'/>
+    <testcase classname='RGViperChatTests.ChatPresenterSpec' name='When_a_message_was_successfully_sent__Finishes_sending_the_message' time='0.001'/>
+    <testcase classname='RGViperChatTests.ChatPresenterSpec' name='When_a_message_was_successfully_sent__Plays_a_sent_sound' time='0.001'/>
+  </testsuite>
+  <testsuite name='RGViperChatTests.CreateChatInteractorSpec' tests='4' failures='0'>
+    <testcase classname='RGViperChatTests.CreateChatInteractorSpec' name='Fetch_users__Fetches_the_users_from_the_API_data_manager' time='0.002'/>
+    <testcase classname='RGViperChatTests.CreateChatInteractorSpec' name='Fetch_users__User_fetching_was_OK__Responds_the_presenter_with_the_fetched_users' time='0.001'/>
+    <testcase classname='RGViperChatTests.CreateChatInteractorSpec' name='Create_chat__Creates_the_chat_using_API_data_manager' time='0.001'/>
+    <testcase classname='RGViperChatTests.CreateChatInteractorSpec' name='Create_chat__Chat_successfully_created__Responds_the_presenter_with_chat_successfully_created' time='0.001'/>
+  </testsuite>
+  <testsuite name='RGViperChatTests.CreateChatPresenterSpec' tests='6' failures='0'>
+    <testcase classname='RGViperChatTests.CreateChatPresenterSpec' name='Cancel__Dismisses_the_module' time='0.002'/>
+    <testcase classname='RGViperChatTests.CreateChatPresenterSpec' name='View_was_loaded__Selects_the_fetchUsers_use_case_on_the_interactor' time='0.001'/>
+    <testcase classname='RGViperChatTests.CreateChatPresenterSpec' name='Users_fetched_not_empty__Maps_the_users_into_a_UserDisplayData_object' time='0.002'/>
+    <testcase classname='RGViperChatTests.CreateChatPresenterSpec' name='Users_fetched_not_empty__Asks_the_view_to_show_the_users_display_data' time='0.001'/>
+    <testcase classname='RGViperChatTests.CreateChatPresenterSpec' name='User_selected__Selects_the_create_chat_use_case_on_the_interactor_with_a_user_of_type_User' time='0.001'/>
+    <testcase classname='RGViperChatTests.CreateChatPresenterSpec' name='User_selected__The_username_of_the_user_is_the_same_as_taken_from_the_view' time='0.001'/>
+  </testsuite>
+  <testsuite name='RGViperChatTests.RGViperChatTests' tests='2' failures='0'>
+    <testcase classname='RGViperChatTests.RGViperChatTests' name='testExample' time='0.001'/>
+    <testcase classname='RGViperChatTests.RGViperChatTests' name='testPerformanceExample' time='0.326'/>
+  </testsuite>
+  <testsuite name='RGViperChatTests.SignupInteractorSpec' tests='2' failures='0'>
+    <testcase classname='RGViperChatTests.SignupInteractorSpec' name='Sign_up__Calls_the_sigup_method_on_the_API_data_manager' time='0.002'/>
+    <testcase classname='RGViperChatTests.SignupInteractorSpec' name='Sign_up__Sign_up_was_OK__Responds_the_presenter_with_successful_signup' time='0.001'/>
+  </testsuite>
+  <testsuite name='RGViperChatTests.SignupPresenterSpec' tests='4' failures='0'>
+    <testcase classname='RGViperChatTests.SignupPresenterSpec' name='User_signup__Selects_the_signup_use_case_on_the_interactor' time='0.002'/>
+    <testcase classname='RGViperChatTests.SignupPresenterSpec' name='User_signup__Signs_up_with_the_credentials_received_from_the_view' time='0.001'/>
+    <testcase classname='RGViperChatTests.SignupPresenterSpec' name='User_signup__User_signup_successfully__Dismisses_current_module' time='0.001'/>
+    <testcase classname='RGViperChatTests.SignupPresenterSpec' name='User_signup__User_signup_successfully__Launches_the_chat_list_module_when_the_module_is_dismissed' time='0.001'/>
+  </testsuite>
+  <testsuite name='RGViperChatTests.UsersDisplayDataMapperSpec' tests='3' failures='0'>
+    <testcase classname='RGViperChatTests.UsersDisplayDataMapperSpec' name='Map_users_into_users_display_data__Generates_2_user_data_items' time='0.001'/>
+    <testcase classname='RGViperChatTests.UsersDisplayDataMapperSpec' name='Map_users_into_users_display_data__Contains_a_user_data_item_with_username_Roberto1' time='0.001'/>
+    <testcase classname='RGViperChatTests.UsersDisplayDataMapperSpec' name='Map_users_into_users_display_data__Contains_a_user_data_item_with_username_Roberto2' time='0.001'/>
+  </testsuite>
+</testsuites>
