@@ -9,6 +9,7 @@ cache:
 before_install:
   - gem install xcov --no-ri --no-rdoc --no-document
   - gem update fastlane --no-ri --no-rdoc --no-document
+  - pod update
 
 script: travis/script.sh
 after_success: 
