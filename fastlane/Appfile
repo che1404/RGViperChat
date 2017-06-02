@@ -2,6 +2,8 @@ app_identifier "com.robertogarrido.rgviperchat" # The bundle identifier of your 
 apple_id "robertogarridomartin@gmail.com" # Your Apple email address
 
 team_id "6PBG234246" # Developer Portal Team ID
+itc_team_name "Roberto Garrido"
+itc_team_id "10583574" # iTunes Connect Team ID
 
 # you can even provide different app identifiers, Apple IDs and team names per lane:
 # More information: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Appfile.md
