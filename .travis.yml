@@ -6,4 +6,4 @@ xcode_sdk: iphonesimulator10.3
 before_install:
   - pod repo update
 script:
-    - xcodebuild clean build -sdk iphonesimulator -workspace RGViperChat.xcworkspace -scheme RGViperChat CODE_SIGNING_REQUIRED=NO  
+    - xcodebuild clean build -sdk iphonesimulator -workspace RGViperChatTests.xcworkspace -scheme RGViperChatTests CODE_SIGNING_REQUIRED=NO  
