@@ -13,4 +13,4 @@ before_install:
 script: travis/script.sh
 after_success: 
   - travis/after_success_script.sh
-  - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash) -t 02187938-55a8-481c-8828-f4cd4d91b2b2 -J 'RGViperChat'
