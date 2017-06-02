@@ -8,12 +8,12 @@ import FirebaseDatabase
 import FirebaseAuth
 
 class ChatListAPIDataManager: ChatListAPIDataManagerInputProtocol {
-    let rootRef = FIRDatabase.database().reference()
+    let rootRef = Database.database().reference()
     weak var newChatListener: NewChatListenerProtocol?
     var newChatsObserverHandler: UInt = 0
 
     func fetchChats(completion: @escaping (Result<[Chat]>) -> Void) {
-        guard let firebaseUser = FIRAuth.auth()!.currentUser else {
+        guard let firebaseUser = Auth.auth().currentUser else {
             completion(.failure(NSError(domain: "fetchChats", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])))
             return
         }
@@ -55,7 +55,7 @@ class ChatListAPIDataManager: ChatListAPIDataManagerInputProtocol {
 
     func logout() -> Bool {
         do {
-            try FIRAuth.auth()!.signOut()
+            try Auth.auth().signOut()
             return true
         } catch (let error) {
             print(error.localizedDescription)
@@ -66,7 +66,7 @@ class ChatListAPIDataManager: ChatListAPIDataManagerInputProtocol {
     func startListeningForNewChats(listener: NewChatListenerProtocol) {
         newChatListener = listener
 
-        guard let firebaseUser = FIRAuth.auth()!.currentUser else {
+        guard let firebaseUser = Auth.auth().currentUser else {
             return
         }
 

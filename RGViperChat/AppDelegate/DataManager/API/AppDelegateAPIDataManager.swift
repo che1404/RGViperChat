@@ -10,7 +10,7 @@ class AppDelegateAPIDataManager: AppDelegateAPIDataManagerInputProtocol {
     init() {}
 
     func isUserLoggedIn() -> Bool {
-        if FIRAuth.auth()!.currentUser != nil {
+        if Auth.auth().currentUser != nil {
             return true
         } else {
             return false

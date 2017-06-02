@@ -8,7 +8,7 @@ import FirebaseDatabase
 
 class ChatAPIDataManager: ChatAPIDataManagerInputProtocol {
 
-    let root = FIRDatabase.database().reference()
+    let root = Database.database().reference()
 
     weak var incommingMessagesListener: IncommingMessagesListenerProtocol?
 

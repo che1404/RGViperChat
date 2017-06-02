@@ -8,12 +8,12 @@ import FirebaseAuth
 import FirebaseDatabase
 
 class SignupAPIDataManager: SignupAPIDataManagerInputProtocol {
-    let root = FIRDatabase.database().reference()
+    let root = Database.database().reference()
 
     init() {}
 
     func signup(withUsername username: String, email: String, password: String, completion: @escaping (Bool) -> Void) {
-        FIRAuth.auth()!.createUser(withEmail: email, password: password) { user, error in
+        Auth.auth().createUser(withEmail: email, password: password) { user, error in
             if error != nil {
                 completion(false)
                 return

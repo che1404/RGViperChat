@@ -10,7 +10,7 @@ class AuthorizationAPIDataManager: AuthorizationAPIDataManagerInputProtocol {
     init() {}
 
     func login(withEmail email: String, password: String, completion: @escaping (Bool) -> Void) {
-        FIRAuth.auth()!.signIn(withEmail: email, password: password) { user, error in
+        Auth.auth().signIn(withEmail: email, password: password) { user, error in
             if error == nil && user != nil {
                 completion(true)
             } else {

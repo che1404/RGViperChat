@@ -8,7 +8,7 @@ import FirebaseDatabase
 import FirebaseAuth
 
 class CreateChatAPIDataManager: CreateChatAPIDataManagerInputProtocol {
-    let root = FIRDatabase.database().reference()
+    let root = Database.database().reference()
 
     init() {}
 
@@ -32,7 +32,7 @@ class CreateChatAPIDataManager: CreateChatAPIDataManagerInputProtocol {
     }
 
     func createChat(withUser user: User, completion: @escaping (Result<Chat>) -> Void) {
-        guard let currentUser = FIRAuth.auth()!.currentUser else {
+        guard let currentUser = Auth.auth().currentUser else {
             completion(.failure(NSError(domain: "createChat", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])))
             return
         }
