@@ -1,0 +1,5 @@
+language: objective-c
+osx_image: xcode8.3
+xcode_project: RGViperChat.xcodeproj
+xcode_scheme: RGViperChat
+xcode_sdk: iphonesimulator10.3
