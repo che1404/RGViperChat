@@ -10,3 +10,7 @@ ignore:
   - **/*LocalDataManager.swift
   - **/*Wireframe.swift
   - **/*Protocols.swift
+  - Pods/
+  - fastlane/
+  - RGViperChatTests/
+  - travis/
