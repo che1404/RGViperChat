@@ -31,7 +31,8 @@ class ChatView: JSQMessagesViewController, ChatViewProtocol {
         collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
 
         // Back button appearance
-        barButtonItemBack.image = UIImage.fontAwesomeIcon(name: .arrowLeft, textColor: UIColor.blue, size: CGSize(width: 20, height: 20))
+        barButtonItemBack.image = UIImage.fontAwesomeIcon(name: .arrowLeft, textColor: UIColor.white, size: CGSize(width: 20, height: 20))
+        barButtonItemBack.tintColor = UIColor.white
 
         // Hide the attachment accessory button
         inputToolbar.contentView.leftBarButtonItem = nil

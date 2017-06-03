@@ -24,11 +24,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Chats" id="yEC-zV-A41">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="IH0-DF-WJu">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="buttonLogoutTapped:" destination="XWT-3b-wCc" id="zoU-DP-qPL"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="OB6-XZ-pJl">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="buttonCreateChatTapped:" destination="XWT-3b-wCc" id="FQZ-XY-hFL"/>
                             </connections>
@@ -47,6 +49,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="rPb-Jx-A9t">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

@@ -13,10 +13,15 @@ class CreateChatAPIDataManager: CreateChatAPIDataManagerInputProtocol {
     init() {}
 
     func fetchUsers(completion: @escaping (Result<[User]>) -> Void) {
+        guard let currentUser = Auth.auth().currentUser else {
+            completion(.failure(NSError(domain: "createChat", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])))
+            return
+        }
+
         root.child("User").observeSingleEvent(of: .value, with: { snapshot in
             if let userDictionaries = snapshot.value as? [String: Any] {
                 var users: [User] = []
-                for userDictionaryWithKey in userDictionaries {
+                for userDictionaryWithKey in userDictionaries where currentUser.uid != userDictionaryWithKey.key {
                     if let userDictionary = userDictionaryWithKey.value as? [String: Any] {
                         if let username = userDictionary["name"] as? String {
                             let user = User(username: username, userID: userDictionaryWithKey.key)

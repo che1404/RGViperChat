@@ -36,6 +36,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="RGViperChat Users" id="pL1-RT-PBP">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="tfX-RJ-Lyh">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="buttonCancelTapped:" destination="HJx-DW-BdD" id="mlW-vL-iTU"/>
                             </connections>
@@ -57,6 +58,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="UWo-aS-1YW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
