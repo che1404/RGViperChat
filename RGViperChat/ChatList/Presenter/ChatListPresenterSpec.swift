@@ -29,7 +29,7 @@ class ChatListPresenterSpec: QuickSpec {
         context("When the view is loaded") {
             beforeEach {
                 stub(self.mockInteractor) { mock in
-                    when(mock).startListeningForNewChats().thenDoNothing()
+                    when(mock).fetchChats().thenDoNothing()
                 }
                 stub(self.mockView) { mock in
                     when(mock).showLoadingScreen().thenDoNothing()
@@ -42,36 +42,55 @@ class ChatListPresenterSpec: QuickSpec {
                 verify(self.mockView).showLoadingScreen()
             }
 
-            it("Starts listening for new chats on the interactor") {
-                verify(self.mockInteractor).startListeningForNewChats()
+            it("Fetches chats from the interactor") {
+                verify(self.mockInteractor).fetchChats()
             }
         }
 
-        context("When an empty chat list fetched") {
+        context("When the chats are fetched") {
             beforeEach {
+                stub(self.mockInteractor) { mock in
+                    when(mock).startListeningForNewChats().thenDoNothing()
+                }
                 stub(self.mockView) { mock in
                     when(mock).showEmptyScreen().thenDoNothing()
                 }
-
+                
                 self.presenter.chatsFetched(chats: [])
             }
 
-            it("Shows the empty screen") {
-                verify(self.mockView).showEmptyScreen()
+            it("Starts listening for new chats on the interactor") {
+                verify(self.mockInteractor).startListeningForNewChats()
             }
-        }
 
-        context("When a non empty chat list fetched") {
-            beforeEach {
-                stub(self.mockView) { mock in
-                    when(mock).show(chats: any()).thenDoNothing()
+            context("When an empty list of chats is fetched") {
+                beforeEach {
+                    reset(self.mockView)
+
+                    stub(self.mockView) { mock in
+                        when(mock).showEmptyScreen().thenDoNothing()
+                    }
+
+                    self.presenter.chatsFetched(chats: [])
                 }
 
-                self.presenter.chatsFetched(chats: [Chat(chatID: "chatID", displayName: "displayName", senderID: "senderID", senderDisplayName: "senderDisplayName", receiverID: "receiverID")])
+                it("Shows the empty screen") {
+                    verify(self.mockView).showEmptyScreen()
+                }
             }
 
-            it("Shows the chats") {
-                verify(self.mockView).show(chats: any())
+            context("When a non empty chat list fetched") {
+                beforeEach {
+                    stub(self.mockView) { mock in
+                        when(mock).show(chats: any()).thenDoNothing()
+                    }
+
+                    self.presenter.chatsFetched(chats: [Chat(chatID: "chatID", displayName: "displayName", senderID: "senderID", senderDisplayName: "senderDisplayName", receiverID: "receiverID")])
+                }
+
+                it("Shows the chats") {
+                    verify(self.mockView).show(chats: any())
+                }
             }
         }
 

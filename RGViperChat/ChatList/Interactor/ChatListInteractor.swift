@@ -13,6 +13,21 @@ class ChatListInteractor: ChatListInteractorInputProtocol, NewChatListenerProtoc
     init() {
     }
 
+    func fetchChats() {
+        self.APIDataManager?.fetchChats { [weak self] result in
+            guard let welf = self else {
+                return
+            }
+
+            switch result {
+            case .success(let chats):
+                welf.presenter?.chatsFetched(chats: chats!)
+            default:
+                break
+            }
+        }
+    }
+
     func logout() -> Bool {
         if let loggedOut = self.APIDataManager?.logout() {
             return loggedOut

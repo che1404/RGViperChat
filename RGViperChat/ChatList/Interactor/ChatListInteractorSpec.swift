@@ -3,6 +3,8 @@
 // Copyright (c) 2017 Roberto Garrido. All rights reserved.
 //
 
+// swiftlint:disable function_body_length
+
 import Quick
 import Nimble
 import Cuckoo
@@ -14,7 +16,6 @@ class ChatListInteractorSpec: QuickSpec {
     var mockAPIDataManager: MockChatListAPIDataManagerInputProtocol!
     var mockLocalDataManager: MockChatListLocalDataManagerInputProtocol!
 
-    // swiftlint:disable function_body_length
     override func spec() {
         beforeEach {
             self.mockPresenter = MockChatListInteractorOutputProtocol()
@@ -59,6 +60,39 @@ class ChatListInteractorSpec: QuickSpec {
 
                 it ("Responds with false") {
                     expect(self.interactor.logout()) == false
+                }
+            }
+        }
+
+        context("When Fetch chats use case is selected") {
+            beforeEach {
+                stub(self.mockAPIDataManager) { mock in
+                    when(mock).fetchChats(completion: anyClosure()).thenDoNothing()
+                }
+
+                self.interactor.fetchChats()
+            }
+
+            it("Fetches the users from the API data manager") {
+                verify(self.mockAPIDataManager).fetchChats(completion: any())
+            }
+
+            context("When fech was correct") {
+                beforeEach {
+                    stub(self.mockAPIDataManager) { mock in
+                        when(mock).fetchChats(completion: anyClosure()).then { completion in
+                            completion(.success([]))
+                        }
+                    }
+                    stub(self.mockPresenter) { mock in
+                        when(mock).chatsFetched(chats: any()).thenDoNothing()
+                    }
+
+                    self.interactor.fetchChats()
+                }
+
+                it("Responds the presenter with the fetched chats") {
+                    verify(self.mockPresenter).chatsFetched(chats: any())
                 }
             }
         }

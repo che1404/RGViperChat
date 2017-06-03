@@ -74,6 +74,26 @@ class ChatListView: UIViewController, ChatListViewProtocol {
     }
 
     // MARK: ChatListViewProtocol implementation
+    func show(chats: [Chat]) {
+        self.chats = chats
+        state = .showingChats
+
+        removeLoadingView()
+        addTableView()
+
+        UIView.animate(withDuration: 0.2, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+
+        tableView.emptyDataSetSource = nil
+        tableView.emptyDataSetDelegate = nil
+
+        tableView.delegate = self
+        tableView.dataSource = self
+
+        tableView.reloadData()
+    }
+
     func showEmptyScreen() {
         if state == .loadingChats {
             removeLoadingView()

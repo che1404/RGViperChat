@@ -15,7 +15,17 @@ class ChatListPresenter: ChatListPresenterProtocol, ChatListInteractorOutputProt
 
     func viewWasLoaded() {
         view?.showLoadingScreen()
+        interactor?.fetchChats()
+    }
+
+    func chatsFetched(chats: [Chat]) {
         interactor?.startListeningForNewChats()
+        
+        if chats.isEmpty {
+            view?.showEmptyScreen()
+        } else {
+            view?.show(chats: chats)
+        }
     }
 
     func buttonCreateChatTapped() {

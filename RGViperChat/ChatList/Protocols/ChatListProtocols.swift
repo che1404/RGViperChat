@@ -12,6 +12,7 @@ protocol ChatListViewProtocol: class {
     */
     func showEmptyScreen()
     func add(chat: Chat)
+    func show(chats: [Chat])
     func showLoadingScreen()
 }
 
@@ -42,6 +43,7 @@ protocol ChatListInteractorOutputProtocol: class {
     /**
     * Add here your methods for communication INTERACTOR -> PRESENTER
     */
+    func chatsFetched(chats: [Chat])
     func chatAdded(chat: Chat)
 }
 
@@ -52,6 +54,7 @@ protocol ChatListInteractorInputProtocol: class {
     /**
     * Add here your methods for communication PRESENTER -> INTERACTOR
     */
+    func fetchChats()
     func logout() -> Bool
     func startListeningForNewChats()
 }
@@ -66,6 +69,7 @@ protocol ChatListAPIDataManagerInputProtocol: class {
     /**
     * Add here your methods for communication INTERACTOR -> APIDATAMANAGER
     */
+    func fetchChats(completion: @escaping (Result<[Chat]>) -> Void)
     func logout() -> Bool
     func startListeningForNewChats(listener: NewChatListenerProtocol)
 }
