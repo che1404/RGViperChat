@@ -53,7 +53,6 @@ protocol ChatListInteractorInputProtocol: class {
     /**
     * Add here your methods for communication PRESENTER -> INTERACTOR
     */
-    func fetchChats()
     func logout() -> Bool
     func startListeningForNewChats()
 }
@@ -68,7 +67,6 @@ protocol ChatListAPIDataManagerInputProtocol: class {
     /**
     * Add here your methods for communication INTERACTOR -> APIDATAMANAGER
     */
-    func fetchChats(completion: @escaping (Result<[Chat]>) -> Void)
     func logout() -> Bool
     func startListeningForNewChats(listener: NewChatListenerProtocol)
 }

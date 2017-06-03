@@ -14,7 +14,6 @@ class ChatListPresenter: ChatListPresenterProtocol, ChatListInteractorOutputProt
     }
 
     func viewWasLoaded() {
-        interactor?.fetchChats()
         interactor?.startListeningForNewChats()
     }
 

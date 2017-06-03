@@ -29,15 +29,10 @@ class ChatListPresenterSpec: QuickSpec {
         context("View loaded") {
             beforeEach {
                 stub(self.mockInteractor) { mock in
-                    when(mock).fetchChats().thenDoNothing()
                     when(mock).startListeningForNewChats().thenDoNothing()
                 }
 
                 self.presenter.viewWasLoaded()
-            }
-
-            it("Fetches chat from the interactor") {
-                verify(self.mockInteractor).fetchChats()
             }
 
             it("Starts listening for new chats on the interactor") {

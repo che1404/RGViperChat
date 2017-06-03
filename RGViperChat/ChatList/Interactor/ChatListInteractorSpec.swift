@@ -26,39 +26,6 @@ class ChatListInteractorSpec: QuickSpec {
             self.interactor.localDataManager = self.mockLocalDataManager
         }
 
-        context("Fetch chats") {
-            beforeEach {
-                stub(self.mockAPIDataManager) { mock in
-                    when(mock).fetchChats(completion: anyClosure()).thenDoNothing()
-                }
-
-                self.interactor.fetchChats()
-            }
-
-            it("Fetches the users from the API data manager") {
-                verify(self.mockAPIDataManager).fetchChats(completion: any())
-            }
-
-            context("Fech was correct") {
-                beforeEach {
-                    stub(self.mockAPIDataManager) { mock in
-                        when(mock).fetchChats(completion: anyClosure()).then { completion in
-                            completion(.success([]))
-                        }
-                    }
-                    stub(self.mockPresenter) { mock in
-                        when(mock).chatsFetched(chats: any()).thenDoNothing()
-                    }
-
-                    self.interactor.fetchChats()
-                }
-
-                it("Responds the presenter with the fetched chats") {
-                    verify(self.mockPresenter).chatsFetched(chats: any())
-                }
-            }
-        }
-
         context("Logout") {
             beforeEach {
                 stub(self.mockAPIDataManager) { mock in
