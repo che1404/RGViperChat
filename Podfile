@@ -14,6 +14,7 @@ target 'RGViperChat' do
   pod 'Firebase/Auth'
   pod 'FontAwesome.swift'
   pod 'DZNEmptyDataSet'
+  pod 'DGActivityIndicatorView'
   
   target 'RGViperChatTests' do
     inherit! :search_paths

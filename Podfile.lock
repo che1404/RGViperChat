@@ -1,5 +1,6 @@
 PODS:
   - Cuckoo (0.9.2)
+  - DGActivityIndicatorView (2.1.1)
   - DZNEmptyDataSet (1.8.1)
   - Firebase (4.0.0):
     - Firebase/Core (= 4.0.0)
@@ -47,6 +48,7 @@ PODS:
 
 DEPENDENCIES:
   - Cuckoo
+  - DGActivityIndicatorView
   - DZNEmptyDataSet
   - Firebase
   - Firebase/Auth
@@ -60,6 +62,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Cuckoo: 66c84083a91164744f96817d3ed61c183021f754
+  DGActivityIndicatorView: ff2c76073d79692f724863c8dd38685866a03cb6
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Firebase: 284eea779b73fdff309791817da7c68bff8dd572
   FirebaseAnalytics: 6f08e746f7d66f5452931bc2e822b5df9c66b64a
@@ -76,6 +79,6 @@ SPEC CHECKSUMS:
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
   SwiftLint: 3537a05b34060e78e7510f04fb7537d738247803
 
-PODFILE CHECKSUM: dcd3464fc25345982423e82c8fc6936c0b915ce8
+PODFILE CHECKSUM: 76e8fa7cc048a37a781315c83a750b1387d85d60
 
 COCOAPODS: 1.2.1

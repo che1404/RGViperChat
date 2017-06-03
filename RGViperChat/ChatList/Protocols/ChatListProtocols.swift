@@ -12,7 +12,7 @@ protocol ChatListViewProtocol: class {
     */
     func showEmptyScreen()
     func add(chat: Chat)
-    func show(chats: [Chat])
+    func showLoadingScreen()
 }
 
 protocol ChatListWireframeProtocol: class {
@@ -42,7 +42,6 @@ protocol ChatListInteractorOutputProtocol: class {
     /**
     * Add here your methods for communication INTERACTOR -> PRESENTER
     */
-    func chatsFetched(chats: [Chat])
     func chatAdded(chat: Chat)
 }
 

@@ -3,6 +3,8 @@
 // Copyright (c) 2017 Roberto Garrido. All rights reserved.
 //
 
+// swiftlint:disable function_body_length
+
 import Quick
 import Nimble
 import Cuckoo
@@ -15,7 +17,6 @@ class CreateChatPresenterSpec: QuickSpec {
     var mockInteractor: MockCreateChatInteractorInputProtocol!
     var mockUsersDisplayDataMapper: MockUsersDisplayDataMapper!
 
-    // swiftlint:disable function_body_length
     override func spec() {
         beforeEach {
             self.mockInteractor = MockCreateChatInteractorInputProtocol()

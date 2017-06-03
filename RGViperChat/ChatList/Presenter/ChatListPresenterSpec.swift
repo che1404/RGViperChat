@@ -31,8 +31,15 @@ class ChatListPresenterSpec: QuickSpec {
                 stub(self.mockInteractor) { mock in
                     when(mock).startListeningForNewChats().thenDoNothing()
                 }
+                stub(self.mockView) { mock in
+                    when(mock).showLoadingScreen().thenDoNothing()
+                }
 
                 self.presenter.viewWasLoaded()
+            }
+
+            it("Shows a loading screen") {
+                verify(self.mockView).showLoadingScreen()
             }
 
             it("Starts listening for new chats on the interactor") {

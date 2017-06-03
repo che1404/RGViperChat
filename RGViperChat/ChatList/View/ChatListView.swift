@@ -7,25 +7,85 @@ import Foundation
 import UIKit
 import DZNEmptyDataSet
 import FontAwesome_swift
+import DGActivityIndicatorView
+
+enum ViewState {
+    case initial
+    case loadingChats
+    case emptyScreen
+    case showingChats
+}
 
 class ChatListView: UIViewController, ChatListViewProtocol {
     var presenter: ChatListPresenterProtocol?
 
-    @IBOutlet weak var tableView: UITableView!
+    var tableView: UITableView!
+
+    var loadingView: UIView!
 
     var chats: [Chat] = []
 
+    var state: ViewState = .loadingChats
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tableView = UITableView(frame: CGRect.zero, style: .grouped)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        loadingView = UIView()
+        loadingView.translatesAutoresizingMaskIntoConstraints = false
 
         presenter?.viewWasLoaded()
 
         tableView.tableFooterView = UIView()
     }
 
-    // MARK: ChatListViewProtocol implementation
+    func addTableView() {
+        view.addSubview(tableView)
+        tableView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    }
 
+    func addLoadingView() {
+        view.addSubview(loadingView)
+        loadingView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        loadingView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        loadingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        guard let activityIndicatorView = DGActivityIndicatorView(type: .cookieTerminator, tintColor: UIColor.orange) else {
+            return
+        }
+        activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+        loadingView.addSubview(activityIndicatorView)
+
+        activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicatorView.topAnchor.constraint(equalTo: loadingView.topAnchor).isActive = true
+        activityIndicatorView.bottomAnchor.constraint(equalTo: loadingView.bottomAnchor).isActive = true
+        activityIndicatorView.leadingAnchor.constraint(equalTo: loadingView.leadingAnchor).isActive = true
+        activityIndicatorView.trailingAnchor.constraint(equalTo: loadingView.trailingAnchor).isActive = true
+
+        activityIndicatorView.startAnimating()
+    }
+
+    func removeLoadingView() {
+        loadingView.removeFromSuperview()
+    }
+
+    // MARK: ChatListViewProtocol implementation
     func showEmptyScreen() {
+        if state == .loadingChats {
+            removeLoadingView()
+            addTableView()
+
+            UIView.animate(withDuration: 0.2, animations: {
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+        }
+
+        state = .emptyScreen
+
         tableView.delegate = nil
         tableView.dataSource = nil
 
@@ -38,6 +98,20 @@ class ChatListView: UIViewController, ChatListViewProtocol {
     }
 
     func add(chat: Chat) {
+        if state == .loadingChats {
+            removeLoadingView()
+            addTableView()
+
+            UIView.animate(withDuration: 0.2, animations: {
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+        }
+
+        state = .showingChats
+
+        UIView.animate(withDuration: 0.2, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
 
         tableView.emptyDataSetSource = nil
         tableView.emptyDataSetDelegate = nil
@@ -45,25 +119,19 @@ class ChatListView: UIViewController, ChatListViewProtocol {
         tableView.delegate = self
         tableView.dataSource = self
 
-        tableView.reloadData()
-
         chats.append(chat)
-
-        tableView.insertRows(at: [IndexPath(row: tableView.numberOfRows(inSection: 0), section: 0)], with: UITableViewRowAnimation.left)
 
         tableView.reloadData()
     }
 
-    func show(chats: [Chat]) {
-        self.chats = chats
+    func showLoadingScreen() {
+        state = .loadingChats
 
-        tableView.emptyDataSetSource = nil
-        tableView.emptyDataSetDelegate = nil
+        addLoadingView()
 
-        tableView.delegate = self
-        tableView.dataSource = self
-
-        tableView.reloadData()
+        UIView.animate(withDuration: 0.2, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
 
     // MARK: User actions
@@ -105,6 +173,21 @@ extension ChatListView: UITableViewDataSource {
         let chat = chats[indexPath.row]
         cell.textLabel?.text = chat.displayName
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+
+        let headerHeight: CGFloat
+
+        switch section {
+        case 0:
+            // hide the header
+            headerHeight = CGFloat.leastNonzeroMagnitude
+        default:
+            headerHeight = 21
+        }
+
+        return headerHeight
     }
 }
 

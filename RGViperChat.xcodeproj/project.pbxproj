@@ -57,6 +57,7 @@
 		D0542DFB1EDAD2D800B3046E /* UserDisplayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0542DFA1EDAD2D800B3046E /* UserDisplayItem.swift */; };
 		D0542DFD1EDAD61F00B3046E /* UsersDisplayDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0542DFC1EDAD61F00B3046E /* UsersDisplayDataMapper.swift */; };
 		D0542E001EDADAE200B3046E /* UsersDisplayDataMapperSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0542DFE1EDADADD00B3046E /* UsersDisplayDataMapperSpec.swift */; };
+		D055FBCC1EE2FFCC007E6964 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D055FBCB1EE2FFCC007E6964 /* LoadingView.xib */; };
 		D0619DB91ED37EA8006C953A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0619DB81ED37EA8006C953A /* AppDelegate.swift */; };
 		D0619DC01ED37EA8006C953A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0619DBF1ED37EA8006C953A /* Assets.xcassets */; };
 		D0619DC31ED37EA8006C953A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0619DC11ED37EA8006C953A /* LaunchScreen.storyboard */; };
@@ -150,6 +151,7 @@
 		D0542DFA1EDAD2D800B3046E /* UserDisplayItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDisplayItem.swift; sourceTree = "<group>"; };
 		D0542DFC1EDAD61F00B3046E /* UsersDisplayDataMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersDisplayDataMapper.swift; sourceTree = "<group>"; };
 		D0542DFE1EDADADD00B3046E /* UsersDisplayDataMapperSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersDisplayDataMapperSpec.swift; sourceTree = "<group>"; };
+		D055FBCB1EE2FFCC007E6964 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		D0619DB51ED37EA8006C953A /* RGViperChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RGViperChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0619DB81ED37EA8006C953A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../AppDelegate.swift; sourceTree = "<group>"; };
 		D0619DBF1ED37EA8006C953A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 			children = (
 				D004EF1F1ED4BFB100BA0D4C /* ChatListView.swift */,
 				D004EF2F1ED4CE7800BA0D4C /* ChatListView.storyboard */,
+				D055FBCB1EE2FFCC007E6964 /* LoadingView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -887,6 +890,7 @@
 				D03BCDBC1ED620B000B2BF3B /* AuthorizationView.storyboard in Resources */,
 				D004EF301ED4CE7800BA0D4C /* ChatListView.storyboard in Resources */,
 				D041D3581EDF5AE7004E89D0 /* ChatView.storyboard in Resources */,
+				D055FBCC1EE2FFCC007E6964 /* LoadingView.xib in Resources */,
 				D004EF381ED4D35300BA0D4C /* GoogleService-Info.plist in Resources */,
 				D0619DC01ED37EA8006C953A /* Assets.xcassets in Resources */,
 			);
