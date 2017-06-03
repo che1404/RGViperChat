@@ -25,7 +25,7 @@ class SignupInteractorSpec: QuickSpec {
             self.interactor.localDataManager = self.mockLocalDataManager
         }
 
-        context("Sign up") {
+        context("When sign up use case is selected") {
             beforeEach {
                 stub(self.mockAPIDataManager) { mock in
                     when(mock).signup(withUsername: anyString(), email: anyString(), password: anyString(), completion: anyClosure()).thenDoNothing()
@@ -38,11 +38,11 @@ class SignupInteractorSpec: QuickSpec {
                 verify(self.mockAPIDataManager).signup(withUsername: anyString(), email: anyString(), password: anyString(), completion: anyClosure())
             }
 
-            context("Sign up was OK") {
+            context("When the sign up was OK") {
                 beforeEach {
                     stub(self.mockAPIDataManager) { mock in
-                        when(mock).signup(withUsername: anyString(), email: anyString(), password: anyString(), completion: anyClosure()).then {
-                            $3(true)
+                        when(mock).signup(withUsername: anyString(), email: anyString(), password: anyString(), completion: anyClosure()).then { _, _, _, completion in
+                            completion(true)
                         }
                     }
                     stub(self.mockPresenter) { mock in

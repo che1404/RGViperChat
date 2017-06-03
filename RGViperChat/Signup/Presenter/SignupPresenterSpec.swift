@@ -25,7 +25,7 @@ class SignupPresenterSpec: QuickSpec {
             self.presenter.interactor = self.mockInteractor
         }
 
-        context("User signup") {
+        context("When the user taps on signup") {
             beforeEach {
                 stub(self.mockInteractor) { mock in
                     when(mock).signup(withUsername: any(), email: any(), password: any()).thenDoNothing()
@@ -41,26 +41,26 @@ class SignupPresenterSpec: QuickSpec {
             it("Signs up with the credentials received from the view") {
                 verify(self.mockInteractor).signup(withUsername: equal(to: "roberto"), email: equal(to: "roberto@robertogarrido.com"), password: "viperchat")
             }
+        }
 
-            context("User signup successfully") {
-                beforeEach {
-                    stub(self.mockWireframe) { mock in
-                        when(mock).dismiss(completion: anyClosure()).then { completion in
-                            completion?()
-                        }
-                        when(mock).presentChatListModule().thenDoNothing()
+        context("When the signup was successfull") {
+            beforeEach {
+                stub(self.mockWireframe) { mock in
+                    when(mock).dismiss(completion: anyClosure()).then { completion in
+                        completion?()
                     }
-
-                    self.presenter.successfulSignup()
+                    when(mock).presentChatListModule().thenDoNothing()
                 }
 
-                it("Dismisses current module") {
-                    verify(self.mockWireframe).dismiss(completion: anyClosure())
-                }
+                self.presenter.successfulSignup()
+            }
 
-                it("Launches the chat list module when the module is dismissed") {
-                    verify(self.mockWireframe).presentChatListModule()
-                }
+            it("Dismisses current module") {
+                verify(self.mockWireframe).dismiss(completion: anyClosure())
+            }
+
+            it("Launches the chat list module when the module is dismissed") {
+                verify(self.mockWireframe).presentChatListModule()
             }
         }
 

@@ -3,6 +3,8 @@
 // Copyright (c) 2017 Roberto Garrido. All rights reserved.
 //
 
+// swiftlint:disable function_body_length
+
 import Quick
 import Nimble
 import Cuckoo
@@ -18,7 +20,6 @@ class ChatInteractorSpec: QuickSpec {
     let message = Message(senderID: "senderID", senderDisplayName: "senderDisplayName", text: "message", date: Date())
     let chat = Chat(chatID: "chatID", displayName: "displayName", senderID: "senderID", senderDisplayName: "senderDisplayName", receiverID: "receiverID")
 
-    // swiftlint:disable function_body_length
     override func spec() {
         beforeEach {
             self.mockPresenter = MockChatInteractorOutputProtocol()
@@ -32,7 +33,7 @@ class ChatInteractorSpec: QuickSpec {
             self.interactor.encryptionService = self.mockEncryptionService
         }
 
-        context("Send message") {
+        context("When the send message use case is selected") {
             beforeEach {
                 stub(self.mockEncryptionService) { mock in
                     when(mock).encrypt(text: any()).thenReturn(Result.success("encryptedText"))
@@ -40,30 +41,34 @@ class ChatInteractorSpec: QuickSpec {
                 stub(self.mockAPIDataManager) { mock in
                     when(mock).send(message: any(), toChat: any(), completion: anyClosure()).thenDoNothing()
                 }
+
+                self.interactor.send(message: self.message, toChat: self.chat)
             }
 
             it("Encrypts the message using the encryption service") {
-                self.interactor.send(message: self.message, toChat: self.chat)
                 verify(self.mockEncryptionService).encrypt(text: equal(to: self.message.text))
             }
 
-            context("Text was successfully encrypted") {
+            context("When the text was successfully encrypted") {
                 let encryptedText = "encryptedText"
+                var encryptedMessage: Message!
 
                 beforeEach {
+                    reset(self.mockAPIDataManager)
+
                     stub(self.mockEncryptionService) { mock in
                         when(mock).encrypt(text: any()).thenReturn(Result.success(encryptedText))
                     }
                     stub(self.mockAPIDataManager) { mock in
                         when(mock).send(message: any(), toChat: any(), completion: anyClosure()).thenDoNothing()
                     }
+
+                    encryptedMessage = self.message
+                    encryptedMessage.text = "encryptedText"
+                    self.interactor.send(message: self.message, toChat: self.chat)
                 }
 
                 it("Sends the message using the API data manager, and message has the ecrypted text") {
-                    var encryptedMessage = self.message
-                    encryptedMessage.text = "encryptedText"
-
-                    self.interactor.send(message: self.message, toChat: self.chat)
                     verify(self.mockAPIDataManager).send(message: equal(to: encryptedMessage), toChat: equal(to: self.chat), completion: anyClosure())
                 }
 
@@ -77,26 +82,28 @@ class ChatInteractorSpec: QuickSpec {
                                 completion(.success(true))
                             }
                         }
+
+                        self.interactor.send(message: self.message, toChat: self.chat)
                     }
 
                     it("Let's the presenter know about a successful message sent") {
-                        self.interactor.send(message: self.message, toChat: self.chat)
                         verify(self.mockPresenter).messageSuccessfullySent()
                     }
                 }
             }
         }
 
-        context("Start listening incomming messages") {
+        context("When start listening incomming messages use case is selected") {
 
             beforeEach {
                 stub(self.mockAPIDataManager) { mock in
                     when(mock).startListeningIncommingMesages(fromChat: any(), incommingMessagesListener: any()).thenDoNothing()
                 }
+
+                self.interactor.startListeningIncomingMessages(fromChat: self.chat)
             }
 
             it("Starts listening incomming messages on the API data manager") {
-                self.interactor.startListeningIncomingMessages(fromChat: self.chat)
                 verify(self.mockAPIDataManager).startListeningIncommingMesages(fromChat: equal(to: self.chat), incommingMessagesListener: any())
             }
         }
@@ -106,14 +113,17 @@ class ChatInteractorSpec: QuickSpec {
                 stub(self.mockEncryptionService) { mock in
                     when(mock).decrypt(text: any()).thenReturn(Result.failure(NSError(domain: "", code: -1, userInfo: nil)))
                 }
+
+                self.interactor.messageReceived(message: self.message)
             }
 
             it("Decrypts the message text") {
-                self.interactor.messageReceived(message: self.message)
                 verify(self.mockEncryptionService).decrypt(text: equal(to: self.message.text))
             }
 
             context("When the text was successfully decrypted") {
+                var decryptedMessage: Message!
+
                 beforeEach {
                     stub(self.mockEncryptionService) { mock in
                         when(mock).decrypt(text: any()).thenReturn(Result.success("decryptedText"))
@@ -121,28 +131,29 @@ class ChatInteractorSpec: QuickSpec {
                     stub(self.mockPresenter) { mock in
                         when(mock).messageReceived(message: any()).thenDoNothing()
                     }
-                }
 
-                it("Let's the presenter know that a message arrived") {
-                    var decryptedMessage = self.message
+                    decryptedMessage = self.message
                     decryptedMessage.text = "decryptedText"
 
                     self.interactor.messageReceived(message: self.message)
+                }
 
+                it("Let's the presenter know that a message arrived") {
                     verify(self.mockPresenter).messageReceived(message: equal(to: decryptedMessage))
                 }
             }
         }
 
-        context("When stops listening incomming messages") {
+        context("When stop listening incomming messages use case is selected") {
             beforeEach {
                 stub(self.mockAPIDataManager) { mock in
                     when(mock).stopListeningIncomingMessages().thenDoNothing()
                 }
-            }
-            it("Stops listening incoming messages from the API data manager") {
-                self.interactor.stopListeningIncomingMessages()
 
+                self.interactor.stopListeningIncomingMessages()
+            }
+
+            it("Stops listening incoming messages from the API data manager") {
                 verify(self.mockAPIDataManager).stopListeningIncomingMessages()
             }
         }

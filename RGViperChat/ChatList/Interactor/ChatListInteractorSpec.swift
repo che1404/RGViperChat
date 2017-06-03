@@ -26,7 +26,7 @@ class ChatListInteractorSpec: QuickSpec {
             self.interactor.localDataManager = self.mockLocalDataManager
         }
 
-        context("Logout") {
+        context("When the Logout use case is selected") {
             beforeEach {
                 stub(self.mockAPIDataManager) { mock in
                     when(mock).logout().thenReturn(true)
@@ -38,7 +38,7 @@ class ChatListInteractorSpec: QuickSpec {
                 verify(self.mockAPIDataManager).logout()
             }
 
-            context("User logged out from API data manager") {
+            context("When the user was successfully logged out") {
                 beforeEach {
                     stub(self.mockAPIDataManager) { mock in
                         when(mock).logout().thenReturn(true)
@@ -50,7 +50,7 @@ class ChatListInteractorSpec: QuickSpec {
                 }
             }
 
-            context("User NOT logged out from API data manager") {
+            context("When the user was not successfully logged out") {
                 beforeEach {
                     stub(self.mockAPIDataManager) { mock in
                         when(mock).logout().thenReturn(false)
@@ -78,17 +78,18 @@ class ChatListInteractorSpec: QuickSpec {
         }
 
         context("When a chat is added") {
-            let chat = Chat(chatID: "a", displayName: "b", senderID: "c", senderDisplayName: "d", receiverID: "e")
+            let chatAdded = Chat(chatID: "a", displayName: "b", senderID: "c", senderDisplayName: "d", receiverID: "e")
 
             beforeEach {
                 stub(self.mockPresenter) { mock in
                     when(mock).chatAdded(chat: any()).thenDoNothing()
                 }
+
+                self.interactor.chatAdded(chat: chatAdded)
             }
 
             it("Lets the presenter now about the new chat") {
-                self.interactor.chatAdded(chat: chat)
-                verify(self.mockPresenter).chatAdded(chat: equal(to: chat))
+                verify(self.mockPresenter).chatAdded(chat: equal(to: chatAdded))
             }
         }
 

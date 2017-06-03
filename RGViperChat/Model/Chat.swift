@@ -6,6 +6,8 @@
 //  Copyright © 2017 robertogarrido.com. All rights reserved.
 //
 
+// swiftlint:disable identifier_name
+
 import Foundation
 
 struct Chat {
@@ -17,7 +19,6 @@ struct Chat {
 }
 
 extension Chat: Equatable {
-    // swiftlint:disable identifier_name
     static func == (lhs: Chat, rhs: Chat) -> Bool {
         return lhs.chatID == rhs.chatID &&
             lhs.displayName == rhs.displayName &&

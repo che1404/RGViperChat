@@ -19,7 +19,7 @@ class UsersDisplayDataMapperSpec: QuickSpec {
             self.usersDisplayDataMapper = UsersDisplayDataMapper()
         }
 
-        context("Map users into users display data") {
+        context("When mapping users into users display data") {
             beforeEach {
                 self.usersDisplayDataMapper.mapUsersIntoUsersDisplayData(withUsers: [User(username: "Roberto1", userID: "userID1"), User(username: "Roberto2", userID: "userID2")])
             }

@@ -3,6 +3,8 @@
 // Copyright (c) 2017 Roberto Garrido. All rights reserved.
 //
 
+// swiftlint:disable function_body_length
+
 import Quick
 import Nimble
 import Cuckoo
@@ -14,7 +16,6 @@ class CreateChatInteractorSpec: QuickSpec {
     var mockAPIDataManager: MockCreateChatAPIDataManagerInputProtocol!
     var mockLocalDataManager: MockCreateChatLocalDataManagerInputProtocol!
 
-    // swiftlint:disable function_body_length
     override func spec() {
         beforeEach {
             self.mockPresenter = MockCreateChatInteractorOutputProtocol()
@@ -26,7 +27,7 @@ class CreateChatInteractorSpec: QuickSpec {
             self.interactor.localDataManager = self.mockLocalDataManager
         }
 
-        context("Fetch users") {
+        context("When fetch users use case is selected") {
             beforeEach {
                 stub(self.mockAPIDataManager) { mock in
                     when(mock).fetchUsers(completion: anyClosure()).then { completion in
@@ -44,24 +45,30 @@ class CreateChatInteractorSpec: QuickSpec {
                 verify(self.mockAPIDataManager).fetchUsers(completion: anyClosure())
             }
 
-            context("User fetching was OK") {
+            context("When the user fetching was OK") {
                 beforeEach {
+                    reset(self.mockPresenter)
+
                     stub(self.mockAPIDataManager) { mock in
                         when(mock).fetchUsers(completion: anyClosure()).then { completion in
                             completion(.success([]))
                         }
                     }
 
+                    stub(self.mockPresenter) { mock in
+                        when(mock).usersFetched(users: any()).thenDoNothing()
+                    }
+
                     self.interactor.fetchUsers()
                 }
 
                 it("Responds the presenter with the fetched users") {
-                    verify(self.mockPresenter, atLeast(1)).usersFetched(users: any())
+                    verify(self.mockPresenter).usersFetched(users: any())
                 }
             }
         }
 
-        context("Create chat") {
+        context("When create chat use case is selected") {
             beforeEach {
                 stub(self.mockAPIDataManager) { mock in
                     when(mock).createChat(withUser: any(), completion: anyClosure()).thenDoNothing()
@@ -73,7 +80,7 @@ class CreateChatInteractorSpec: QuickSpec {
                 verify(self.mockAPIDataManager).createChat(withUser: any(), completion: anyClosure())
             }
 
-            context("Chat successfully created") {
+            context("When the chat was successfully created") {
                 beforeEach {
                     stub(self.mockAPIDataManager) { mock in
                         when(mock).createChat(withUser: any(), completion: anyClosure()).then { _, completion in
@@ -83,6 +90,7 @@ class CreateChatInteractorSpec: QuickSpec {
                     stub(self.mockPresenter) { mock in
                         when(mock).chatCreated(chat: any()).thenDoNothing()
                     }
+
                     self.interactor.createChat(withUser: User(username: "Roberto1", userID: "userDI"))
                 }
 

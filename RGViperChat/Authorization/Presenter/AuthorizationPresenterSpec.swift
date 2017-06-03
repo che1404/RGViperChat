@@ -3,6 +3,8 @@
 // Copyright (c) 2017 Roberto Garrido. All rights reserved.
 //
 
+// swiftlint:disable function_body_length
+
 import Quick
 import Nimble
 import Cuckoo
@@ -29,7 +31,7 @@ class AuthorizationPresenterSpec: QuickSpec {
             }
         }
 
-        context("Signup button tapped") {
+        context("When the signup button is tapped") {
             beforeEach {
                 self.presenter.buttonSignupTapped()
             }
@@ -39,7 +41,7 @@ class AuthorizationPresenterSpec: QuickSpec {
             }
         }
 
-        context("Login button tapped") {
+        context("When the login button is tapped") {
             beforeEach {
                 stub(self.mockInteractor) { mock in
                     when(mock).login(withEmail: anyString(), password: anyString()).thenDoNothing()
@@ -57,7 +59,7 @@ class AuthorizationPresenterSpec: QuickSpec {
             }
         }
 
-        context("Successful login") {
+        context("When there was a successful login") {
             beforeEach {
                 stub(self.mockWireframe) { mock in
                     when(mock).presentChatListModule().thenDoNothing()

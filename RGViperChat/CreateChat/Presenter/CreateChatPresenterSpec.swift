@@ -29,22 +29,7 @@ class CreateChatPresenterSpec: QuickSpec {
             self.presenter.usersDisplayDataMapper = self.mockUsersDisplayDataMapper
         }
 
-        context("Cancel") {
-            beforeEach {
-                stub(self.mockWireframe) { mock in
-                    when(mock).dismiss(completion: any()).then { completion in
-                        completion?()
-                    }
-                }
-                self.presenter.buttonCancelTapped()
-            }
-
-            it("Dismisses the module") {
-                verify(self.mockWireframe).dismiss(completion: any())
-            }
-        }
-
-        context("View was loaded") {
+        context("When the view was loaded") {
             beforeEach {
                 stub(self.mockInteractor) { mock in
                     when(mock).fetchUsers().thenDoNothing()
@@ -58,7 +43,23 @@ class CreateChatPresenterSpec: QuickSpec {
             }
         }
 
-        context("Users fetched not empty") {
+        context("When cancel is tapped") {
+            beforeEach {
+                stub(self.mockWireframe) { mock in
+                    when(mock).dismiss(completion: any()).then { completion in
+                        completion?()
+                    }
+                }
+
+                self.presenter.buttonCancelTapped()
+            }
+
+            it("Dismisses the module") {
+                verify(self.mockWireframe).dismiss(completion: any())
+            }
+        }
+
+        context("When users fetched list is not empty") {
             beforeEach {
                 stub(self.mockUsersDisplayDataMapper) { mock in
                     when(mock).mapUsersIntoUsersDisplayData(withUsers: any()).thenDoNothing()
@@ -80,7 +81,7 @@ class CreateChatPresenterSpec: QuickSpec {
             }
         }
 
-        context("User selected") {
+        context("Whe a user is selected") {
             beforeEach {
                 stub(self.mockInteractor) { mock in
                     when(mock).createChat(withUser: any()).thenDoNothing()
@@ -93,11 +94,9 @@ class CreateChatPresenterSpec: QuickSpec {
                 verify(self.mockInteractor).createChat(withUser: any(User.self))
             }
 
-            it("The username of the user is the same as taken from the view") {
+            it("Selects the create chat user case, and creates the chat with the user taken from the view") {
                 let user = User(username: "Roberto1", userID: "userID1")
-                verify(self.mockInteractor).createChat(withUser: equal(to: user, equalWhen: { user1, user2 -> Bool in
-                    return user1.username == user2.username
-                }))
+                verify(self.mockInteractor).createChat(withUser: equal(to: user))
             }
         }
 

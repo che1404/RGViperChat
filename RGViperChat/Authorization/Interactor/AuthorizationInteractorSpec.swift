@@ -25,10 +25,12 @@ class AuthorizationInteractorSpec: QuickSpec {
             self.interactor.localDataManager = self.mockLocalDataManager
         }
 
-        context("Login") {
+        context("When a login use case is selected") {
             beforeEach {
                 stub(self.mockAPIDataManager) { mock in
-                    when(mock).login(withEmail: anyString(), password: anyString(), completion: anyClosure()).thenDoNothing()
+                    when(mock).login(withEmail: anyString(), password: anyString(), completion: anyClosure()).then { _, _, completion in
+                        completion(false)
+                    }
                 }
 
                 self.interactor.login(withEmail: "roberto@robertogarrido.com", password: "viperchat")
@@ -42,7 +44,7 @@ class AuthorizationInteractorSpec: QuickSpec {
                 verify(self.mockAPIDataManager).login(withEmail: equal(to: "roberto@robertogarrido.com"), password: equal(to: "viperchat"), completion: anyClosure())
             }
 
-            context("Login was successful") {
+            context("When the login was successful") {
                 beforeEach {
                     stub(self.mockAPIDataManager) { mock in
                         when(mock).login(withEmail: anyString(), password: anyString(), completion: anyClosure()).then { _, _, completion in

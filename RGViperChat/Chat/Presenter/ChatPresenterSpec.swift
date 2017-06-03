@@ -3,6 +3,8 @@
 // Copyright (c) 2017 Roberto Garrido. All rights reserved.
 //
 
+// swiftlint:disable function_body_length
+
 import Quick
 import Nimble
 import Cuckoo
@@ -21,7 +23,6 @@ class ChatPresenterSpec: QuickSpec {
 
     var message: Message!
 
-    // swiftlint:disable function_body_length
     override func spec() {
         beforeEach {
             self.mockInteractor = MockChatInteractorInputProtocol()
@@ -37,15 +38,16 @@ class ChatPresenterSpec: QuickSpec {
             self.message = Message(senderID: self.senderID, senderDisplayName: self.senderDisplayName, text: self.messageText, date: self.date)
         }
 
-        context("Send message") {
+        context("When send button was tapped") {
             beforeEach {
                 stub(self.mockInteractor) { mock in
                     when(mock).send(message: any(), toChat: any()).thenDoNothing()
                 }
+
+                self.presenter.didPressSend(withMessageText: self.messageText, date: self.date, senderID: self.senderID, senderDisplayName: self.senderDisplayName)
             }
 
             it("Sends a message using the interactor") {
-                self.presenter.didPressSend(withMessageText: self.messageText, date: self.date, senderID: self.senderID, senderDisplayName: self.senderDisplayName)
                 verify(self.mockInteractor).send(message: equal(to: self.message), toChat: any())
             }
         }
@@ -55,10 +57,11 @@ class ChatPresenterSpec: QuickSpec {
                 stub(self.mockInteractor) { mock in
                     when(mock).startListeningIncomingMessages(fromChat: any()).thenDoNothing()
                 }
+
+                self.presenter.viewWasLoaded()
             }
 
             it("Selects the start listening incoming messages use case on the interactor") {
-                self.presenter.viewWasLoaded()
                 verify(self.mockInteractor).startListeningIncomingMessages(fromChat: equal(to: self.chat))
             }
         }
@@ -68,10 +71,11 @@ class ChatPresenterSpec: QuickSpec {
                 stub(self.mockView) { mock in
                     when(mock).add(message: any()).thenDoNothing()
                 }
+
+                self.presenter.messageReceived(message: self.message)
             }
 
-            it("Should add it to the view") {
-                self.presenter.messageReceived(message: self.message)
+            it("Add it to the view") {
                 verify(self.mockView).add(message: equal(to: self.message))
             }
         }
@@ -84,15 +88,15 @@ class ChatPresenterSpec: QuickSpec {
                 stub(self.mockWireframe) { mock in
                     when(mock).dismissChatModule().thenDoNothing()
                 }
+
+                self.presenter.backButtonTapped()
             }
 
-            it("Should stop listening for incoming messages") {
-                self.presenter.backButtonTapped()
+            it("Stops listening for incoming messages") {
                 verify(self.mockInteractor).stopListeningIncomingMessages()
             }
 
-            it("Should dismiss the module") {
-                self.presenter.backButtonTapped()
+            it("Dismisses the module") {
                 verify(self.mockWireframe).dismissChatModule()
             }
         }
@@ -105,15 +109,15 @@ class ChatPresenterSpec: QuickSpec {
                 stub(self.mockView) { mock in
                     when(mock).playMessageSuccessfullySentSound().thenDoNothing()
                 }
+
+                self.presenter.messageSuccessfullySent()
             }
 
             it("Finishes sending the message") {
-                self.presenter.messageSuccessfullySent()
                 verify(self.mockView).dofinishSendingMessage()
             }
 
             it("Plays a sent sound") {
-                self.presenter.messageSuccessfullySent()
                 verify(self.mockView).playMessageSuccessfullySentSound()
             }
         }

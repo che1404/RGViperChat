@@ -26,7 +26,7 @@ class ChatListPresenterSpec: QuickSpec {
             self.presenter.interactor = self.mockInteractor
         }
 
-        context("View loaded") {
+        context("When the view is loaded") {
             beforeEach {
                 stub(self.mockInteractor) { mock in
                     when(mock).startListeningForNewChats().thenDoNothing()
@@ -40,7 +40,7 @@ class ChatListPresenterSpec: QuickSpec {
             }
         }
 
-        context("Empty chat list fetched") {
+        context("When an empty chat list fetched") {
             beforeEach {
                 stub(self.mockView) { mock in
                     when(mock).showEmptyScreen().thenDoNothing()
@@ -54,7 +54,7 @@ class ChatListPresenterSpec: QuickSpec {
             }
         }
 
-        context("Non empty chat list fetched") {
+        context("When a non empty chat list fetched") {
             beforeEach {
                 stub(self.mockView) { mock in
                     when(mock).show(chats: any()).thenDoNothing()
@@ -68,7 +68,7 @@ class ChatListPresenterSpec: QuickSpec {
             }
         }
 
-        context("Create chat") {
+        context("When the create chat button is tapped") {
             beforeEach {
                 stub(self.mockWireframe) { mock in
                     when(mock).presentCreateChatModule().thenDoNothing()
@@ -81,7 +81,7 @@ class ChatListPresenterSpec: QuickSpec {
             }
         }
 
-        context("Logout") {
+        context("When the logout button is tapped") {
             beforeEach {
                 stub(self.mockInteractor) { mock in
                     when(mock).logout().thenReturn(true)
@@ -97,22 +97,28 @@ class ChatListPresenterSpec: QuickSpec {
                 verify(self.mockInteractor).logout()
             }
 
-            context("User successfully logged out") {
+            context("When the user successfully logs out") {
                 beforeEach {
+                    clearInvocations(self.mockWireframe)
+
                     stub(self.mockInteractor) { mock in
                         when(mock).logout().thenReturn(true)
+                    }
+
+                    stub(self.mockWireframe) { mock in
+                        when(mock).presentAuthorizationModule().thenDoNothing()
                     }
 
                     self.presenter.buttonLogoutTapped()
                 }
 
                 it("Launches the Authorization module") {
-                    verify(self.mockWireframe, atLeast(1)).presentAuthorizationModule()
+                    verify(self.mockWireframe).presentAuthorizationModule()
                 }
             }
         }
 
-        context("Chat selected") {
+        context("When a chat is selected") {
             let chatToBeLaunched = Chat(chatID: "chatID", displayName: "displayName", senderID: "senderID", senderDisplayName: "senderID", receiverID: "receiverID")
 
             beforeEach {
@@ -124,24 +130,22 @@ class ChatListPresenterSpec: QuickSpec {
             }
 
             it("Launches the chat module") {
-                verify(self.mockWireframe).presentChatModule(chat: equal(to: chatToBeLaunched, equalWhen: { (chat1, chat2) -> Bool in
-                    return chat1.chatID == chat2.chatID && chat1.displayName == chat2.displayName
-                }))
+                verify(self.mockWireframe).presentChatModule(chat: equal(to: chatToBeLaunched))
             }
         }
 
         context("When a chat is added") {
-            let chat = Chat(chatID: "chatID", displayName: "displayName", senderID: "senderID", senderDisplayName: "senderDisplayName", receiverID: "receiverID")
+            let chatAdded = Chat(chatID: "chatID", displayName: "displayName", senderID: "senderID", senderDisplayName: "senderDisplayName", receiverID: "receiverID")
 
             beforeEach {
                 stub(self.mockView) { mock in
                     when(mock).add(chat: any()).thenDoNothing()
                 }
-                self.presenter.chatAdded(chat: chat)
+                self.presenter.chatAdded(chat: chatAdded)
             }
 
             it("Adds the chat to the view") {
-                verify(self.mockView).add(chat: equal(to: chat))
+                verify(self.mockView).add(chat: equal(to: chatAdded))
             }
         }
 
