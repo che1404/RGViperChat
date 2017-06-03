@@ -205,21 +205,6 @@ extension ChatListView: UITableViewDataSource {
         return cell
     }
 
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-
-        let headerHeight: CGFloat
-
-        switch section {
-        case 0:
-            // hide the header
-            headerHeight = CGFloat.leastNonzeroMagnitude
-        default:
-            headerHeight = 21
-        }
-
-        return headerHeight
-    }
-
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 55
     }
