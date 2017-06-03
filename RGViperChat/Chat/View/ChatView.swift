@@ -40,6 +40,10 @@ class ChatView: JSQMessagesViewController, ChatViewProtocol {
         presenter?.viewWasLoaded()
     }
 
+    func showChatTitle(title: String) {
+        navigationItem.title = title
+    }
+
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         presenter?.didPressSend(withMessageText: text, date: date, senderID: senderId, senderDisplayName: senderDisplayName)
     }

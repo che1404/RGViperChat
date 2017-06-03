@@ -55,7 +55,7 @@ class ChatListPresenterSpec: QuickSpec {
                 stub(self.mockView) { mock in
                     when(mock).showEmptyScreen().thenDoNothing()
                 }
-                
+
                 self.presenter.chatsFetched(chats: [])
             }
 

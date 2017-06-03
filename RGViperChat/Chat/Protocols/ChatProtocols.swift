@@ -13,6 +13,7 @@ protocol ChatViewProtocol: class {
     func add(message: Message)
     func dofinishSendingMessage()
     func playMessageSuccessfullySentSound()
+    func showChatTitle(title: String)
 }
 
 protocol ChatWireframeProtocol: class {

@@ -57,7 +57,8 @@
 		D0542DFB1EDAD2D800B3046E /* UserDisplayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0542DFA1EDAD2D800B3046E /* UserDisplayItem.swift */; };
 		D0542DFD1EDAD61F00B3046E /* UsersDisplayDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0542DFC1EDAD61F00B3046E /* UsersDisplayDataMapper.swift */; };
 		D0542E001EDADAE200B3046E /* UsersDisplayDataMapperSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0542DFE1EDADADD00B3046E /* UsersDisplayDataMapperSpec.swift */; };
-		D055FBCC1EE2FFCC007E6964 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D055FBCB1EE2FFCC007E6964 /* LoadingView.xib */; };
+		D055FBCF1EE32F48007E6964 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D055FBCD1EE32F48007E6964 /* ChatTableViewCell.swift */; };
+		D055FBD01EE32F48007E6964 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D055FBCE1EE32F48007E6964 /* ChatTableViewCell.xib */; };
 		D0619DB91ED37EA8006C953A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0619DB81ED37EA8006C953A /* AppDelegate.swift */; };
 		D0619DC01ED37EA8006C953A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0619DBF1ED37EA8006C953A /* Assets.xcassets */; };
 		D0619DC31ED37EA8006C953A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0619DC11ED37EA8006C953A /* LaunchScreen.storyboard */; };
@@ -151,7 +152,8 @@
 		D0542DFA1EDAD2D800B3046E /* UserDisplayItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDisplayItem.swift; sourceTree = "<group>"; };
 		D0542DFC1EDAD61F00B3046E /* UsersDisplayDataMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersDisplayDataMapper.swift; sourceTree = "<group>"; };
 		D0542DFE1EDADADD00B3046E /* UsersDisplayDataMapperSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersDisplayDataMapperSpec.swift; sourceTree = "<group>"; };
-		D055FBCB1EE2FFCC007E6964 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		D055FBCD1EE32F48007E6964 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		D055FBCE1EE32F48007E6964 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
 		D0619DB51ED37EA8006C953A /* RGViperChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RGViperChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0619DB81ED37EA8006C953A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../AppDelegate.swift; sourceTree = "<group>"; };
 		D0619DBF1ED37EA8006C953A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -293,7 +295,8 @@
 			children = (
 				D004EF1F1ED4BFB100BA0D4C /* ChatListView.swift */,
 				D004EF2F1ED4CE7800BA0D4C /* ChatListView.storyboard */,
-				D055FBCB1EE2FFCC007E6964 /* LoadingView.xib */,
+				D055FBCD1EE32F48007E6964 /* ChatTableViewCell.swift */,
+				D055FBCE1EE32F48007E6964 /* ChatTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -890,7 +893,7 @@
 				D03BCDBC1ED620B000B2BF3B /* AuthorizationView.storyboard in Resources */,
 				D004EF301ED4CE7800BA0D4C /* ChatListView.storyboard in Resources */,
 				D041D3581EDF5AE7004E89D0 /* ChatView.storyboard in Resources */,
-				D055FBCC1EE2FFCC007E6964 /* LoadingView.xib in Resources */,
+				D055FBD01EE32F48007E6964 /* ChatTableViewCell.xib in Resources */,
 				D004EF381ED4D35300BA0D4C /* GoogleService-Info.plist in Resources */,
 				D0619DC01ED37EA8006C953A /* Assets.xcassets in Resources */,
 			);
@@ -1066,6 +1069,7 @@
 				D0619DEA1ED37EB9006C953A /* ChatAPIDataManager.swift in Sources */,
 				D0619DB91ED37EA8006C953A /* AppDelegate.swift in Sources */,
 				D027E3A91ED772FA00AD01B0 /* SignupLocalDataManager.swift in Sources */,
+				D055FBCF1EE32F48007E6964 /* ChatTableViewCell.swift in Sources */,
 				D0E3672A1ED9DC5C00D7EDFE /* RootWireframe.swift in Sources */,
 				D03BCDB61ED61ECC00B2BF3B /* AuthorizationProtocols.swift in Sources */,
 				D0619DF21ED37EB9006C953A /* ChatWireframe.swift in Sources */,

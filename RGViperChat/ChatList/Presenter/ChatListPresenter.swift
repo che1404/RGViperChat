@@ -20,7 +20,7 @@ class ChatListPresenter: ChatListPresenterProtocol, ChatListInteractorOutputProt
 
     func chatsFetched(chats: [Chat]) {
         interactor?.startListeningForNewChats()
-        
+
         if chats.isEmpty {
             view?.showEmptyScreen()
         } else {

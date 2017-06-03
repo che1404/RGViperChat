@@ -38,6 +38,27 @@ class ChatPresenterSpec: QuickSpec {
             self.message = Message(senderID: self.senderID, senderDisplayName: self.senderDisplayName, text: self.messageText, date: self.date)
         }
 
+        context("When the view gets loaded") {
+            beforeEach {
+                stub(self.mockInteractor) { mock in
+                    when(mock).startListeningIncomingMessages(fromChat: any()).thenDoNothing()
+                }
+                stub(self.mockView) { mock in
+                    when(mock).showChatTitle(title: any()).thenDoNothing()
+                }
+
+                self.presenter.viewWasLoaded()
+            }
+
+            it("Shows the receiver display name as title") {
+                verify(self.mockView).showChatTitle(title: equal(to: self.chat.displayName))
+            }
+
+            it("Selects the start listening incoming messages use case on the interactor") {
+                verify(self.mockInteractor).startListeningIncomingMessages(fromChat: equal(to: self.chat))
+            }
+        }
+
         context("When send button was tapped") {
             beforeEach {
                 stub(self.mockInteractor) { mock in
@@ -49,20 +70,6 @@ class ChatPresenterSpec: QuickSpec {
 
             it("Sends a message using the interactor") {
                 verify(self.mockInteractor).send(message: equal(to: self.message), toChat: any())
-            }
-        }
-
-        context("When the view gets loaded") {
-            beforeEach {
-                stub(self.mockInteractor) { mock in
-                    when(mock).startListeningIncomingMessages(fromChat: any()).thenDoNothing()
-                }
-
-                self.presenter.viewWasLoaded()
-            }
-
-            it("Selects the start listening incoming messages use case on the interactor") {
-                verify(self.mockInteractor).startListeningIncomingMessages(fromChat: equal(to: self.chat))
             }
         }
 

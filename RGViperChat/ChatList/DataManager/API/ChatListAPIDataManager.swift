@@ -52,8 +52,6 @@ class ChatListAPIDataManager: ChatListAPIDataManagerInputProtocol {
             }
         })
     }
-    
-
 
     func logout() -> Bool {
         do {

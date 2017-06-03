@@ -15,6 +15,10 @@ class ChatPresenter: ChatPresenterProtocol, ChatInteractorOutputProtocol {
     }
 
     func viewWasLoaded() {
+        guard let displayName = chat?.displayName else {
+            return
+        }
+        view?.showChatTitle(title: displayName)
         interactor?.startListeningIncomingMessages(fromChat: self.chat!)
     }
 

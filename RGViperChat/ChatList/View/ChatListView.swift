@@ -30,7 +30,9 @@ class ChatListView: UIViewController, ChatListViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView = UITableView(frame: CGRect.zero, style: .grouped)
+        self.edgesForExtendedLayout = UIRectEdge.init(rawValue: 0)
+
+        tableView = UITableView(frame: CGRect.zero, style: .plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         loadingView = UIView()
         loadingView.translatesAutoresizingMaskIntoConstraints = false
@@ -38,6 +40,8 @@ class ChatListView: UIViewController, ChatListViewProtocol {
         presenter?.viewWasLoaded()
 
         tableView.tableFooterView = UIView()
+
+        tableView.register(UINib(nibName: "ChatTableViewCell", bundle: nil), forCellReuseIdentifier: "ChatTableViewCell")
     }
 
     func addTableView() {
@@ -192,9 +196,12 @@ extension ChatListView: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChatTableViewCell") as? ChatTableViewCell else {
+            return UITableViewCell()
+        }
+
         let chat = chats[indexPath.row]
-        cell.textLabel?.text = chat.displayName
+        cell.labelContactName.text = chat.displayName
         return cell
     }
 
@@ -211,6 +218,10 @@ extension ChatListView: UITableViewDataSource {
         }
 
         return headerHeight
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 55
     }
 }
 
