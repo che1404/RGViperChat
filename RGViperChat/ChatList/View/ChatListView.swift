@@ -118,6 +118,11 @@ class ChatListView: UIViewController, ChatListViewProtocol {
     }
 
     func add(chat: Chat) {
+
+        if !chats.contains(chat) {
+            chats.append(chat)
+        }
+
         if state == .loadingChats {
             removeLoadingView()
             addTableView()
@@ -138,8 +143,6 @@ class ChatListView: UIViewController, ChatListViewProtocol {
 
         tableView.delegate = self
         tableView.dataSource = self
-
-        chats.append(chat)
 
         tableView.reloadData()
     }
