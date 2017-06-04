@@ -69,7 +69,7 @@ class ChatPresenterSpec: QuickSpec {
             }
 
             it("Sends a message using the interactor") {
-                verify(self.mockInteractor).send(message: equal(to: self.message), toChat: any())
+                verify(self.mockInteractor).send(message: equal(to: self.message), toChat: equal(to: self.chat))
             }
         }
 
