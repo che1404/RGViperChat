@@ -5,4 +5,4 @@
 # RGViperChat
 An iOS chat app written following a VIPER architecture and BDD
 
-<img src="https://robertogarrido.com/wp-content/uploads/2017/06/RGViperChat.png" alt="Drawing" style="width: 100px;"/>
+![RGViperChat](https://robertogarrido.com/wp-content/uploads/2017/06/RGViperChat_resized_2.png)
