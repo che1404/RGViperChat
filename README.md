@@ -25,3 +25,6 @@ Here you can find a list of interesting readings about VIPER and BDD:
 **IOS PROJECT ARCHITECTURE: USING VIPER:** https://cheesecakelabs.com/blog/ios-project-architecture-using-viper/
 
 **ENGINEERING THE ARCHITECTURE BEHIND UBER’S NEW RIDER APP:** https://eng.uber.com/new-rider-app/
+
+### Author
+I'm Roberto Garrido, a freelance iOS developer available for hire on my website: https://robertogarrido.com
