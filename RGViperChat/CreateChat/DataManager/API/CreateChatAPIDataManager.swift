@@ -58,13 +58,13 @@ class CreateChatAPIDataManager: CreateChatAPIDataManagerInputProtocol {
                     if error == nil {
 
                         // Add chat to current user
-                        let userChat = [chatID: Date().timeIntervalSince1970]
-                        self.root.child("User/\(currentUser.uid)/chats").setValue(userChat, withCompletionBlock: { error, reference in
+                        let chatJoinTimestamp = Date().timeIntervalSince1970
+                        self.root.child("User/\(currentUser.uid)/chats/\(chatID)").setValue(chatJoinTimestamp, withCompletionBlock: { error, reference in
                             if error != nil {
                                 completion(.failure(NSError(domain: "createChat", code: -1, userInfo: [NSLocalizedDescriptionKey: error!.localizedDescription])))
                             } else {
                                 // Add chat to the other participant user
-                                self.root.child("User/\(user.userID)/chats").setValue(userChat, withCompletionBlock: { error, reference in
+                                self.root.child("User/\(user.userID)/chats/\(chatID)").setValue(chatJoinTimestamp, withCompletionBlock: { error, reference in
                                     if error != nil {
                                         completion(.failure(NSError(domain: "createChat", code: -1, userInfo: [NSLocalizedDescriptionKey: error!.localizedDescription])))
                                     } else {
