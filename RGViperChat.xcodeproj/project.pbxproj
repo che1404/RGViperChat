@@ -62,7 +62,6 @@
 		D0619DB91ED37EA8006C953A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0619DB81ED37EA8006C953A /* AppDelegate.swift */; };
 		D0619DC01ED37EA8006C953A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0619DBF1ED37EA8006C953A /* Assets.xcassets */; };
 		D0619DC31ED37EA8006C953A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0619DC11ED37EA8006C953A /* LaunchScreen.storyboard */; };
-		D0619DCE1ED37EA8006C953A /* RGViperChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0619DCD1ED37EA8006C953A /* RGViperChatTests.swift */; };
 		D0619DEA1ED37EB9006C953A /* ChatAPIDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0619DDB1ED37EB9006C953A /* ChatAPIDataManager.swift */; };
 		D0619DEB1ED37EB9006C953A /* ChatLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0619DDD1ED37EB9006C953A /* ChatLocalDataManager.swift */; };
 		D0619DEC1ED37EB9006C953A /* ChatInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0619DDF1ED37EB9006C953A /* ChatInteractor.swift */; };
@@ -85,6 +84,8 @@
 		D0E367471ED9F73D00D7EDFE /* CreateChatWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3673E1ED9F73D00D7EDFE /* CreateChatWireframe.swift */; };
 		D0E367481ED9F74A00D7EDFE /* CreateChatInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E367351ED9F73D00D7EDFE /* CreateChatInteractorSpec.swift */; };
 		D0E367491ED9F75000D7EDFE /* CreateChatPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E367381ED9F73D00D7EDFE /* CreateChatPresenterSpec.swift */; };
+		D0ECB1761F5480C300137329 /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ECB1751F5480C200137329 /* TestingAppDelegate.swift */; };
+		D0ECB1781F5480F000137329 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ECB1771F5480F000137329 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,7 +161,6 @@
 		D0619DC21ED37EA8006C953A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0619DC41ED37EA8006C953A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0619DC91ED37EA8006C953A /* RGViperChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RGViperChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D0619DCD1ED37EA8006C953A /* RGViperChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGViperChatTests.swift; sourceTree = "<group>"; };
 		D0619DCF1ED37EA8006C953A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0619DDB1ED37EB9006C953A /* ChatAPIDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatAPIDataManager.swift; sourceTree = "<group>"; };
 		D0619DDD1ED37EB9006C953A /* ChatLocalDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLocalDataManager.swift; sourceTree = "<group>"; };
@@ -184,6 +184,8 @@
 		D0E3673A1ED9F73D00D7EDFE /* CreateChatProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChatProtocols.swift; sourceTree = "<group>"; };
 		D0E3673C1ED9F73D00D7EDFE /* CreateChatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChatView.swift; sourceTree = "<group>"; };
 		D0E3673E1ED9F73D00D7EDFE /* CreateChatWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChatWireframe.swift; sourceTree = "<group>"; };
+		D0ECB1751F5480C200137329 /* TestingAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingAppDelegate.swift; sourceTree = "<group>"; };
+		D0ECB1771F5480F000137329 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -558,6 +560,7 @@
 			isa = PBXGroup;
 			children = (
 				D0619DB81ED37EA8006C953A /* AppDelegate.swift */,
+				D0ECB1751F5480C200137329 /* TestingAppDelegate.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -605,6 +608,7 @@
 				D0619DC11ED37EA8006C953A /* LaunchScreen.storyboard */,
 				D0619DC41ED37EA8006C953A /* Info.plist */,
 				D004EF371ED4D35300BA0D4C /* GoogleService-Info.plist */,
+				D0ECB1771F5480F000137329 /* main.swift */,
 			);
 			path = RGViperChat;
 			sourceTree = "<group>";
@@ -613,7 +617,6 @@
 			isa = PBXGroup;
 			children = (
 				D004EEF21ED4BD8500BA0D4C /* GeneratedMocks.swift */,
-				D0619DCD1ED37EA8006C953A /* RGViperChatTests.swift */,
 				D0619DCF1ED37EA8006C953A /* Info.plist */,
 			);
 			path = RGViperChatTests;
@@ -1083,6 +1086,7 @@
 				D03BCDB01ED61ECC00B2BF3B /* AuthorizationAPIDataManager.swift in Sources */,
 				D027E3A81ED772FA00AD01B0 /* SignupAPIDataManager.swift in Sources */,
 				D027E3AA1ED772FA00AD01B0 /* SignupInteractor.swift in Sources */,
+				D0ECB1781F5480F000137329 /* main.swift in Sources */,
 				D004EF291ED4BFB100BA0D4C /* ChatListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1091,8 +1095,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0ECB1761F5480C300137329 /* TestingAppDelegate.swift in Sources */,
 				D03BCDB91ED61ED400B2BF3B /* AuthorizationInteractorSpec.swift in Sources */,
-				D0619DCE1ED37EA8006C953A /* RGViperChatTests.swift in Sources */,
 				D0542DF51EDAB8B000B3046E /* AppDelegateInteractorSpec.swift in Sources */,
 				D0E367481ED9F74A00D7EDFE /* CreateChatInteractorSpec.swift in Sources */,
 				D004EF2C1ED4BFC600BA0D4C /* ChatListPresenterSpec.swift in Sources */,
