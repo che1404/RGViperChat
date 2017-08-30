@@ -13,6 +13,7 @@ class ChatTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imageViewContact: UIImageView!
     @IBOutlet weak var labelContactName: UILabel!
+    @IBOutlet weak var labelLastMessage: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

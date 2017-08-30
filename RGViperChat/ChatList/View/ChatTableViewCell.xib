@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,22 +27,32 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rebeca Gil Álvaro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQN-UC-aR0">
-                        <rect key="frame" x="56" y="17" width="143" height="21"/>
+                        <rect key="frame" x="56" y="7" width="143" height="21"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last message in chat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bD-K5-GHQ">
+                        <rect key="frame" x="56" y="30" width="137" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.28232499960000002" green="0.28237074610000001" blue="0.28231495620000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="HQN-UC-aR0" firstAttribute="leading" secondItem="uN2-LI-Vqr" secondAttribute="trailing" constant="8" id="1UU-vG-8Zh"/>
+                    <constraint firstItem="0bD-K5-GHQ" firstAttribute="leading" secondItem="HQN-UC-aR0" secondAttribute="leading" id="74R-ED-e4w"/>
                     <constraint firstAttribute="leadingMargin" secondItem="uN2-LI-Vqr" secondAttribute="leading" id="Ag2-Pt-WXt"/>
-                    <constraint firstItem="HQN-UC-aR0" firstAttribute="centerY" secondItem="uN2-LI-Vqr" secondAttribute="centerY" id="BWh-F0-sPc"/>
                     <constraint firstItem="uN2-LI-Vqr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="FlX-bR-a3L"/>
                     <constraint firstItem="HQN-UC-aR0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="48" id="KZY-WM-7V5"/>
+                    <constraint firstItem="HQN-UC-aR0" firstAttribute="top" secondItem="uN2-LI-Vqr" secondAttribute="top" id="mCN-ng-CT3"/>
+                    <constraint firstItem="0bD-K5-GHQ" firstAttribute="bottom" secondItem="uN2-LI-Vqr" secondAttribute="bottom" id="zsw-Lp-Xa5"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="imageViewContact" destination="uN2-LI-Vqr" id="BvC-GK-M1D"/>
                 <outlet property="labelContactName" destination="HQN-UC-aR0" id="6r9-8f-plU"/>
+                <outlet property="labelLastMessage" destination="0bD-K5-GHQ" id="tjg-d3-lnk"/>
             </connections>
             <point key="canvasLocation" x="34" y="59.5"/>
         </tableViewCell>

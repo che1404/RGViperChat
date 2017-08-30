@@ -15,16 +15,23 @@ class ChatListInteractorSpec: QuickSpec {
     var mockPresenter: MockChatListInteractorOutputProtocol!
     var mockAPIDataManager: MockChatListAPIDataManagerInputProtocol!
     var mockLocalDataManager: MockChatListLocalDataManagerInputProtocol!
+    var mockEncryptionService: MockEncryptionServiceProtocol!
 
     override func spec() {
         beforeEach {
             self.mockPresenter = MockChatListInteractorOutputProtocol()
             self.mockAPIDataManager = MockChatListAPIDataManagerInputProtocol()
             self.mockLocalDataManager = MockChatListLocalDataManagerInputProtocol()
+            self.mockEncryptionService = MockEncryptionServiceProtocol()
             self.interactor = ChatListInteractor()
             self.interactor.presenter = self.mockPresenter
             self.interactor.APIDataManager = self.mockAPIDataManager
             self.interactor.localDataManager = self.mockLocalDataManager
+            self.interactor.encryptionService = self.mockEncryptionService
+
+            stub(self.mockEncryptionService) { mock in
+                when(mock).decrypt(text: any()).thenReturn(.success("asdf"))
+            }
         }
 
         context("When the Logout use case is selected") {
@@ -78,10 +85,15 @@ class ChatListInteractorSpec: QuickSpec {
             }
 
             context("When fech was correct") {
+                let messageText = "aeiou"
+                var expectedChatList: [Chat]!
+
                 beforeEach {
+                    expectedChatList = [Chat(chatID: "chatID", displayName: "displayName", senderID: "senderID", senderDisplayName: "senderDisplayName", receiverID: "receiverID", lastMessage: "asdf")]
+
                     stub(self.mockAPIDataManager) { mock in
                         when(mock).fetchChats(completion: anyClosure()).then { completion in
-                            completion(.success([]))
+                            completion(.success([Chat(chatID: "chatID", displayName: "displayName", senderID: "senderID", senderDisplayName: "senderDisplayName", receiverID: "receiverID", lastMessage: messageText)]))
                         }
                     }
                     stub(self.mockPresenter) { mock in
@@ -91,8 +103,14 @@ class ChatListInteractorSpec: QuickSpec {
                     self.interactor.fetchChats()
                 }
 
+                it("Encrypts the lastMessage text using the encryption service") {
+                    verify(self.mockEncryptionService).decrypt(text: messageText)
+                }
+
                 it("Responds the presenter with the fetched chats") {
-                    verify(self.mockPresenter).chatsFetched(chats: any())
+                    verify(self.mockPresenter).chatsFetched(chats: equal(to: expectedChatList, equalWhen: { chatList1, chatList2 -> Bool in
+                        return chatList1[0] == chatList2[0]
+                    }))
                 }
             }
         }
@@ -112,9 +130,11 @@ class ChatListInteractorSpec: QuickSpec {
         }
 
         context("When a chat is added") {
-            let chatAdded = Chat(chatID: "a", displayName: "b", senderID: "c", senderDisplayName: "d", receiverID: "e")
+            let chatAdded = Chat(chatID: "a", displayName: "b", senderID: "c", senderDisplayName: "d", receiverID: "e", lastMessage: "last message")
+            let decryptedChat = Chat(chatID: "a", displayName: "b", senderID: "c", senderDisplayName: "d", receiverID: "e", lastMessage: "asdf")
 
             beforeEach {
+
                 stub(self.mockPresenter) { mock in
                     when(mock).chatAdded(chat: any()).thenDoNothing()
                 }
@@ -122,8 +142,12 @@ class ChatListInteractorSpec: QuickSpec {
                 self.interactor.chatAdded(chat: chatAdded)
             }
 
+            it("Decrypts the last message") {
+                verify(self.mockEncryptionService).decrypt(text: "last message")
+            }
+
             it("Lets the presenter now about the new chat") {
-                verify(self.mockPresenter).chatAdded(chat: equal(to: chatAdded))
+                verify(self.mockPresenter).chatAdded(chat: equal(to: decryptedChat, equalWhen: ==))
             }
         }
 

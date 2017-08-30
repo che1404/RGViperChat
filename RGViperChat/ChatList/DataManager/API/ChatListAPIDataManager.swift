@@ -27,13 +27,20 @@ class ChatListAPIDataManager: ChatListAPIDataManagerInputProtocol {
                     // Get the chat info
                     dispatchGroup.enter()
                     self.rootRef.child("Chat/\(chatKey)").observeSingleEvent(of: .value, with: { snapshot in
-                        var chat = Chat(chatID: chatKey, displayName: "", senderID: firebaseUser.uid, senderDisplayName: senderDisplayName, receiverID: "")
+                        let chat = Chat(chatID: chatKey, displayName: "", senderID: firebaseUser.uid, senderDisplayName: senderDisplayName, receiverID: "", lastMessage: "")
                         chat.senderID = firebaseUser.uid
-                        if let usersDictionary = snapshot.value as? [String: Any], let users = usersDictionary["users"] as? [String: Any] {
+                        if let chatDictionary = snapshot.value as? [String: Any], let users = chatDictionary["users"] as? [String: Any] {
+
+                            var lastMessage = ""
+                            if let message = chatDictionary["lastMessage"] as? String {
+                                lastMessage = message
+                            }
+
                             for user in users where user.key != firebaseUser.uid {
                                 if let userDisplayName = user.value as? String {
                                     chat.displayName = userDisplayName
                                     chat.receiverID = user.key
+                                    chat.lastMessage = lastMessage
                                     chats.append(chat)
                                     break
                                 }
@@ -95,8 +102,15 @@ class ChatListAPIDataManager: ChatListAPIDataManagerInputProtocol {
                             return
                         }
 
-                        let chat = Chat(chatID: chatID, displayName: receiverName, senderID: senderID, senderDisplayName: senderName, receiverID: receiverID)
-                        self?.newChatListener?.chatAdded(chat: chat)
+                        self?.rootRef.child("Chat/\(chatID)/lastMessge").observeSingleEvent(of: .value, with: { snapshot in
+                            var lastMessage = ""
+                            if let message = snapshot.value as? String {
+                                lastMessage = message
+                            }
+
+                            let chat = Chat(chatID: chatID, displayName: receiverName, senderID: senderID, senderDisplayName: senderName, receiverID: receiverID, lastMessage: lastMessage)
+                            self?.newChatListener?.chatAdded(chat: chat)
+                        })
                     })
 
                 })

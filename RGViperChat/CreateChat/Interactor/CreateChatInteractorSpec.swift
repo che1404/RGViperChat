@@ -84,7 +84,7 @@ class CreateChatInteractorSpec: QuickSpec {
                 beforeEach {
                     stub(self.mockAPIDataManager) { mock in
                         when(mock).createChat(withUser: any(), completion: anyClosure()).then { _, completion in
-                            completion(.success(Chat(chatID: "chatID", displayName: "displayName", senderID: "senderID", senderDisplayName: "senderDisplayName", receiverID: "receiverID")))
+                            completion(.success(Chat(chatID: "chatID", displayName: "displayName", senderID: "senderID", senderDisplayName: "senderDisplayName", receiverID: "receiverID", lastMessage: "last message")))
                         }
                     }
                     stub(self.mockPresenter) { mock in

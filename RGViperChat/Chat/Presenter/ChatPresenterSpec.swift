@@ -29,7 +29,7 @@ class ChatPresenterSpec: QuickSpec {
             self.mockView = MockChatViewProtocol()
             self.mockWireframe = MockChatWireframeProtocol()
             self.presenter = ChatPresenter()
-            self.chat = Chat(chatID: "chatID", displayName: "displayName", senderID: "senderID", senderDisplayName: "senderDisplayName", receiverID: "receiverID")
+            self.chat = Chat(chatID: "chatID", displayName: "displayName", senderID: "senderID", senderDisplayName: "senderDisplayName", receiverID: "receiverID", lastMessage: "last message")
             self.presenter.chat = self.chat
             self.presenter.view = self.mockView
             self.presenter.wireframe = self.mockWireframe
@@ -55,7 +55,7 @@ class ChatPresenterSpec: QuickSpec {
             }
 
             it("Selects the start listening incoming messages use case on the interactor") {
-                verify(self.mockInteractor).startListeningIncomingMessages(fromChat: equal(to: self.chat))
+                verify(self.mockInteractor).startListeningIncomingMessages(fromChat: equal(to: self.chat, equalWhen: ==))
             }
         }
 
@@ -69,7 +69,7 @@ class ChatPresenterSpec: QuickSpec {
             }
 
             it("Sends a message using the interactor") {
-                verify(self.mockInteractor).send(message: equal(to: self.message), toChat: equal(to: self.chat))
+                verify(self.mockInteractor).send(message: equal(to: self.message), toChat: equal(to: self.chat, equalWhen: ==))
             }
         }
 

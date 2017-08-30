@@ -9,6 +9,7 @@ class ChatListInteractor: ChatListInteractorInputProtocol, NewChatListenerProtoc
     weak var presenter: ChatListInteractorOutputProtocol?
     var APIDataManager: ChatListAPIDataManagerInputProtocol?
     var localDataManager: ChatListLocalDataManagerInputProtocol?
+    var encryptionService: EncryptionServiceProtocol?
 
     init() {
     }
@@ -21,6 +22,13 @@ class ChatListInteractor: ChatListInteractorInputProtocol, NewChatListenerProtoc
 
             switch result {
             case .success(let chats):
+                for chat in chats! {
+                    guard let decryptionResult = welf.encryptionService?.decrypt(text: chat.lastMessage) else { return }
+                    if case let .success(decryptedText) = decryptionResult, let decryptedTextUnwrapped = decryptedText {
+                        chat.lastMessage = decryptedTextUnwrapped
+                    }
+                }
+
                 welf.presenter?.chatsFetched(chats: chats!)
             default:
                 break
@@ -41,6 +49,9 @@ class ChatListInteractor: ChatListInteractorInputProtocol, NewChatListenerProtoc
     }
 
     func chatAdded(chat: Chat) {
+        guard let decryptionResult = encryptionService?.decrypt(text: chat.lastMessage) else { return }
+        guard case let .success(decryptedText) = decryptionResult, let decryptedTextUnwrapped = decryptedText else { return }
+        chat.lastMessage = decryptedTextUnwrapped
         presenter?.chatAdded(chat: chat)
     }
 }

@@ -85,7 +85,7 @@ class ChatListPresenterSpec: QuickSpec {
                         when(mock).show(chats: any()).thenDoNothing()
                     }
 
-                    self.presenter.chatsFetched(chats: [Chat(chatID: "chatID", displayName: "displayName", senderID: "senderID", senderDisplayName: "senderDisplayName", receiverID: "receiverID")])
+                    self.presenter.chatsFetched(chats: [Chat(chatID: "chatID", displayName: "displayName", senderID: "senderID", senderDisplayName: "senderDisplayName", receiverID: "receiverID", lastMessage: "last message")])
                 }
 
                 it("Shows the chats") {
@@ -145,7 +145,7 @@ class ChatListPresenterSpec: QuickSpec {
         }
 
         context("When a chat is selected") {
-            let chatToBeLaunched = Chat(chatID: "chatID", displayName: "displayName", senderID: "senderID", senderDisplayName: "senderID", receiverID: "receiverID")
+            let chatToBeLaunched = Chat(chatID: "chatID", displayName: "displayName", senderID: "senderID", senderDisplayName: "senderID", receiverID: "receiverID", lastMessage: "last message")
 
             beforeEach {
                 stub(self.mockWireframe) { mock in
@@ -156,12 +156,12 @@ class ChatListPresenterSpec: QuickSpec {
             }
 
             it("Launches the chat module") {
-                verify(self.mockWireframe).presentChatModule(chat: equal(to: chatToBeLaunched))
+                verify(self.mockWireframe).presentChatModule(chat: equal(to: chatToBeLaunched, equalWhen: ==))
             }
         }
 
         context("When a chat is added") {
-            let chatAdded = Chat(chatID: "chatID", displayName: "displayName", senderID: "senderID", senderDisplayName: "senderDisplayName", receiverID: "receiverID")
+            let chatAdded = Chat(chatID: "chatID", displayName: "displayName", senderID: "senderID", senderDisplayName: "senderDisplayName", receiverID: "receiverID", lastMessage: "last message")
 
             beforeEach {
                 stub(self.mockView) { mock in
@@ -171,7 +171,7 @@ class ChatListPresenterSpec: QuickSpec {
             }
 
             it("Adds the chat to the view") {
-                verify(self.mockView).add(chat: equal(to: chatAdded))
+                verify(self.mockView).add(chat: equal(to: chatAdded, equalWhen: ==))
             }
         }
 

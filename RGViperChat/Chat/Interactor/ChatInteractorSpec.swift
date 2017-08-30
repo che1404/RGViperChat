@@ -18,7 +18,7 @@ class ChatInteractorSpec: QuickSpec {
     var mockEncryptionService: MockEncryptionServiceProtocol!
 
     let testMessage = Message(senderID: "senderID", senderDisplayName: "senderDisplayName", text: "message", date: Date())
-    let testChat = Chat(chatID: "chatID", displayName: "displayName", senderID: "senderID", senderDisplayName: "senderDisplayName", receiverID: "receiverID")
+    let testChat = Chat(chatID: "chatID", displayName: "displayName", senderID: "senderID", senderDisplayName: "senderDisplayName", receiverID: "receiverID", lastMessage: "last message")
     var testEncryptedMessage: Message!
 
     override func spec() {
@@ -61,7 +61,7 @@ class ChatInteractorSpec: QuickSpec {
                     }
 
                     it("Sends the message using the API data manager, and message has the ecrypted text") {
-                        verify(self.mockAPIDataManager).send(message: equal(to: self.testEncryptedMessage), toChat: equal(to: self.testChat), completion: anyClosure())
+                        verify(self.mockAPIDataManager).send(message: equal(to: self.testEncryptedMessage), toChat: equal(to: self.testChat, equalWhen: ==), completion: anyClosure())
                     }
 
                     context("When the message was successfully sent") {
@@ -101,7 +101,7 @@ class ChatInteractorSpec: QuickSpec {
             }
 
             it("Starts listening incomming messages on the API data manager") {
-                verify(self.mockAPIDataManager).startListeningIncommingMesages(fromChat: equal(to: self.testChat), incommingMessagesListener: any())
+                verify(self.mockAPIDataManager).startListeningIncommingMesages(fromChat: equal(to: self.testChat, equalWhen: ==), incommingMessagesListener: any())
             }
         }
 

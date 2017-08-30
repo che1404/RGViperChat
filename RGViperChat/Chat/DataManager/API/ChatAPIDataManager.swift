@@ -43,6 +43,8 @@ class ChatAPIDataManager: ChatAPIDataManagerInputProtocol {
             "date": message.date.timeIntervalSince1970
         ] as [String : Any]
 
+        self.root.child("Chat/\(chat.chatID)/lastMessage").setValue(message.text)
+
         messageFirebaseNode.setValue(messageDictionary, withCompletionBlock: { error, _ in
             if let err = error {
                 completion(.failure(err))

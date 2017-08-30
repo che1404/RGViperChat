@@ -10,20 +10,26 @@
 
 import Foundation
 
-struct Chat {
+class Chat {
     var chatID: String
     var displayName: String
     var senderID: String
     var senderDisplayName: String
     var receiverID: String
+    var lastMessage: String
+
+    init(chatID: String, displayName: String, senderID: String, senderDisplayName: String, receiverID: String, lastMessage: String) {
+        self.chatID = chatID
+        self.displayName = displayName
+        self.senderID = senderID
+        self.senderDisplayName = senderDisplayName
+        self.receiverID = receiverID
+        self.lastMessage = lastMessage
+    }
 }
 
 extension Chat: Equatable {
     static func == (lhs: Chat, rhs: Chat) -> Bool {
-        return lhs.chatID == rhs.chatID &&
-            lhs.displayName == rhs.displayName &&
-            lhs.senderID == rhs.senderID &&
-            lhs.senderDisplayName == rhs.senderDisplayName &&
-            lhs.receiverID == rhs.receiverID
+        return lhs.chatID == rhs.chatID
     }
 }

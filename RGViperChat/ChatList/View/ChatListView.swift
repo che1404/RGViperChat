@@ -202,6 +202,7 @@ extension ChatListView: UITableViewDataSource {
 
         let chat = chats[indexPath.row]
         cell.labelContactName.text = chat.displayName
+        cell.labelLastMessage.text = chat.lastMessage
         return cell
     }
 

@@ -68,7 +68,7 @@ class CreateChatAPIDataManager: CreateChatAPIDataManagerInputProtocol {
                                     if error != nil {
                                         completion(.failure(NSError(domain: "createChat", code: -1, userInfo: [NSLocalizedDescriptionKey: error!.localizedDescription])))
                                     } else {
-                                        completion(.success(Chat(chatID: reference.key, displayName: user.username, senderID: currentUser.uid, senderDisplayName: currentUsername, receiverID: user.userID)))
+                                        completion(.success(Chat(chatID: reference.key, displayName: user.username, senderID: currentUser.uid, senderDisplayName: currentUsername, receiverID: user.userID, lastMessage: "")))
                                     }
                                 })
                             }
