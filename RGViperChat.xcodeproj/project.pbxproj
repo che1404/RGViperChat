@@ -22,6 +22,9 @@
 		D004EF301ED4CE7800BA0D4C /* ChatListView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D004EF2F1ED4CE7800BA0D4C /* ChatListView.storyboard */; };
 		D004EF331ED4D1BA00BA0D4C /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = D004EF321ED4D1BA00BA0D4C /* Result.swift */; };
 		D004EF381ED4D35300BA0D4C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D004EF371ED4D35300BA0D4C /* GoogleService-Info.plist */; };
+		D026E0DB1F697A900098756F /* EncryptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D026E0DA1F697A900098756F /* EncryptionService.swift */; };
+		D026E0DD1F697ABF0098756F /* EncryptionServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D026E0DC1F697ABF0098756F /* EncryptionServiceProtocol.swift */; };
+		D026E0DF1F697B3C0098756F /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D026E0DE1F697B3C0098756F /* ServiceFactory.swift */; };
 		D027E3A81ED772FA00AD01B0 /* SignupAPIDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027E3991ED772FA00AD01B0 /* SignupAPIDataManager.swift */; };
 		D027E3A91ED772FA00AD01B0 /* SignupLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027E39B1ED772FA00AD01B0 /* SignupLocalDataManager.swift */; };
 		D027E3AA1ED772FA00AD01B0 /* SignupInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027E39D1ED772FA00AD01B0 /* SignupInteractor.swift */; };
@@ -72,7 +75,6 @@
 		D0619DF31ED37EC1006C953A /* ChatInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0619DE01ED37EB9006C953A /* ChatInteractorSpec.swift */; };
 		D0619DF41ED37EC3006C953A /* ChatPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0619DE31ED37EB9006C953A /* ChatPresenterSpec.swift */; };
 		D0DAB8621EDCAEF500D3099E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAB8611EDCAEF500D3099E /* Message.swift */; };
-		D0DAB8651EDCBDD800D3099E /* EncryptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAB8641EDCBDD800D3099E /* EncryptionService.swift */; };
 		D0E3672A1ED9DC5C00D7EDFE /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E367291ED9DC5C00D7EDFE /* RootWireframe.swift */; };
 		D0E3672C1ED9EE0800D7EDFE /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3672B1ED9EE0800D7EDFE /* Chat.swift */; };
 		D0E3673F1ED9F73D00D7EDFE /* CreateChatAPIDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E367301ED9F73D00D7EDFE /* CreateChatAPIDataManager.swift */; };
@@ -118,6 +120,9 @@
 		D004EF2F1ED4CE7800BA0D4C /* ChatListView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChatListView.storyboard; sourceTree = "<group>"; };
 		D004EF321ED4D1BA00BA0D4C /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Common/Result.swift; sourceTree = "<group>"; };
 		D004EF371ED4D35300BA0D4C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D026E0DA1F697A900098756F /* EncryptionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EncryptionService.swift; path = Services/EncryptionService.swift; sourceTree = "<group>"; };
+		D026E0DC1F697ABF0098756F /* EncryptionServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EncryptionServiceProtocol.swift; path = Services/EncryptionServiceProtocol.swift; sourceTree = "<group>"; };
+		D026E0DE1F697B3C0098756F /* ServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServiceFactory.swift; path = Services/ServiceFactory.swift; sourceTree = "<group>"; };
 		D027E3991ED772FA00AD01B0 /* SignupAPIDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupAPIDataManager.swift; sourceTree = "<group>"; };
 		D027E39B1ED772FA00AD01B0 /* SignupLocalDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupLocalDataManager.swift; sourceTree = "<group>"; };
 		D027E39D1ED772FA00AD01B0 /* SignupInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupInteractor.swift; sourceTree = "<group>"; };
@@ -172,7 +177,6 @@
 		D0619DE71ED37EB9006C953A /* ChatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		D0619DE91ED37EB9006C953A /* ChatWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatWireframe.swift; sourceTree = "<group>"; };
 		D0DAB8611EDCAEF500D3099E /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Model/Message.swift; sourceTree = "<group>"; };
-		D0DAB8641EDCBDD800D3099E /* EncryptionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EncryptionService.swift; path = Services/EncryptionService.swift; sourceTree = "<group>"; };
 		D0E367291ED9DC5C00D7EDFE /* RootWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootWireframe.swift; path = Common/RootWireframe.swift; sourceTree = "<group>"; };
 		D0E3672B1ED9EE0800D7EDFE /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Chat.swift; path = Model/Chat.swift; sourceTree = "<group>"; };
 		D0E367301ED9F73D00D7EDFE /* CreateChatAPIDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChatAPIDataManager.swift; sourceTree = "<group>"; };
@@ -328,6 +332,16 @@
 				D0DAB8611EDCAEF500D3099E /* Message.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		D026E0D91F697A740098756F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D026E0DA1F697A900098756F /* EncryptionService.swift */,
+				D026E0DC1F697ABF0098756F /* EncryptionServiceProtocol.swift */,
+				D026E0DE1F697B3C0098756F /* ServiceFactory.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		D027E3961ED772FA00AD01B0 /* Signup */ = {
@@ -596,6 +610,7 @@
 		D0619DB71ED37EA8006C953A /* RGViperChat */ = {
 			isa = PBXGroup;
 			children = (
+				D026E0D91F697A740098756F /* Services */,
 				D004EF341ED4D22500BA0D4C /* Model */,
 				D004EF311ED4D1A900BA0D4C /* Common */,
 				D0542DD91EDAB64A00B3046E /* AppDelegate */,
@@ -625,7 +640,6 @@
 		D0619DD81ED37EB9006C953A /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				D0DAB8631EDCBDC500D3099E /* Services */,
 				D0619DD91ED37EB9006C953A /* DataManager */,
 				D0619DDE1ED37EB9006C953A /* Interactor */,
 				D0619DE11ED37EB9006C953A /* Presenter */,
@@ -702,14 +716,6 @@
 				D0619DE91ED37EB9006C953A /* ChatWireframe.swift */,
 			);
 			path = Wireframe;
-			sourceTree = "<group>";
-		};
-		D0DAB8631EDCBDC500D3099E /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				D0DAB8641EDCBDD800D3099E /* EncryptionService.swift */,
-			);
-			name = Services;
 			sourceTree = "<group>";
 		};
 		D0E3672D1ED9F73D00D7EDFE /* CreateChat */ = {
@@ -998,7 +1004,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Define output file. Change \"$PROJECT_DIR/Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"$PROJECT_DIR/RGViperChatTests/GeneratedMocks.swift\"\necho \"Generated Mocks File = $OUTPUT_FILE\"\n\n# Define input directory. Change \"$PROJECT_DIR\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"$PROJECT_DIR\"\necho \"Mocks Input Directory = $INPUT_DIR\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n${PODS_ROOT}/Cuckoo/run generate --testable \"$PROJECT_NAME\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"$INPUT_DIR/RGViperChat/Chat/Protocols/ChatProtocols.swift\" \\\n\"$INPUT_DIR/RGViperChat/ChatList/Protocols/ChatListProtocols.swift\" \\\n\"$INPUT_DIR/RGViperChat/Authorization/Protocols/AuthorizationProtocols.swift\" \\\n\"$INPUT_DIR/RGViperChat/Signup/Protocols/SignupProtocols.swift\" \\\n\"$INPUT_DIR/RGViperChat/CreateChat/Protocols/CreateChatProtocols.swift\" \\\n\"$INPUT_DIR/RGViperChat/AppDelegate/Protocols/AppDelegateProtocols.swift\" \\\n\"$INPUT_DIR/RGViperChat/CreateChat/Presenter/UsersDisplayDataMapper.swift\"\n# ... and so forth\n\n# After running once, locate `GeneratedMocks.swift` and drag it into your Xcode test target group.";
+			shellScript = "# Define output file. Change \"$PROJECT_DIR/Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"$PROJECT_DIR/RGViperChatTests/GeneratedMocks.swift\"\necho \"Generated Mocks File = $OUTPUT_FILE\"\n\n# Define input directory. Change \"$PROJECT_DIR\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"$PROJECT_DIR\"\necho \"Mocks Input Directory = $INPUT_DIR\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n${PODS_ROOT}/Cuckoo/run generate --testable \"$PROJECT_NAME\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"$INPUT_DIR/RGViperChat/Chat/Protocols/ChatProtocols.swift\" \\\n\"$INPUT_DIR/RGViperChat/ChatList/Protocols/ChatListProtocols.swift\" \\\n\"$INPUT_DIR/RGViperChat/Authorization/Protocols/AuthorizationProtocols.swift\" \\\n\"$INPUT_DIR/RGViperChat/Signup/Protocols/SignupProtocols.swift\" \\\n\"$INPUT_DIR/RGViperChat/CreateChat/Protocols/CreateChatProtocols.swift\" \\\n\"$INPUT_DIR/RGViperChat/AppDelegate/Protocols/AppDelegateProtocols.swift\" \\\n\"$INPUT_DIR/RGViperChat/Services/EncryptionServiceProtocol.swift\" \\\n\"$INPUT_DIR/RGViperChat/CreateChat/Presenter/UsersDisplayDataMapper.swift\"\n# ... and so forth\n\n# After running once, locate `GeneratedMocks.swift` and drag it into your Xcode test target group.";
 		};
 		D004EEF41ED4BE7900BA0D4C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1050,6 +1056,7 @@
 				D027E3AF1ED772FA00AD01B0 /* SignupView.swift in Sources */,
 				D0542DEF1EDAB64A00B3046E /* AppDelegatePresenter.swift in Sources */,
 				D0542DED1EDAB64A00B3046E /* AppDelegateInteractor.swift in Sources */,
+				D026E0DF1F697B3C0098756F /* ServiceFactory.swift in Sources */,
 				D0542DEC1EDAB64A00B3046E /* AppDelegateLocalDataManager.swift in Sources */,
 				D004EF2A1ED4BFB100BA0D4C /* ChatListWireframe.swift in Sources */,
 				D0542DF91EDAD1C900B3046E /* UsersDisplayData.swift in Sources */,
@@ -1058,10 +1065,10 @@
 				D027E3AE1ED772FA00AD01B0 /* SignupProtocols.swift in Sources */,
 				D0619DF11ED37EB9006C953A /* ChatView.swift in Sources */,
 				D03BCDB21ED61ECC00B2BF3B /* AuthorizationInteractor.swift in Sources */,
-				D0DAB8651EDCBDD800D3099E /* EncryptionService.swift in Sources */,
 				D0E367451ED9F73D00D7EDFE /* CreateChatProtocols.swift in Sources */,
 				D0619DEB1ED37EB9006C953A /* ChatLocalDataManager.swift in Sources */,
 				D0E3673F1ED9F73D00D7EDFE /* CreateChatAPIDataManager.swift in Sources */,
+				D026E0DD1F697ABF0098756F /* EncryptionServiceProtocol.swift in Sources */,
 				D0542DF71EDACAE300B3046E /* User.swift in Sources */,
 				D004EF231ED4BFB100BA0D4C /* ChatListLocalDataManager.swift in Sources */,
 				D0619DEC1ED37EB9006C953A /* ChatInteractor.swift in Sources */,
@@ -1069,6 +1076,7 @@
 				D0E367431ED9F73D00D7EDFE /* CreateChatPresenter.swift in Sources */,
 				D0E367471ED9F73D00D7EDFE /* CreateChatWireframe.swift in Sources */,
 				D027E3AC1ED772FA00AD01B0 /* SignupPresenter.swift in Sources */,
+				D026E0DB1F697A900098756F /* EncryptionService.swift in Sources */,
 				D0619DEA1ED37EB9006C953A /* ChatAPIDataManager.swift in Sources */,
 				D0619DB91ED37EA8006C953A /* AppDelegate.swift in Sources */,
 				D027E3A91ED772FA00AD01B0 /* SignupLocalDataManager.swift in Sources */,

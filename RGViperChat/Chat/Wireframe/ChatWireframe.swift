@@ -34,7 +34,7 @@ class ChatWireframe: ChatWireframeProtocol {
         presenter.interactor = interactor
         presenter.chat = chat
         interactor.presenter = presenter
-        interactor.encryptionService = EncryptionService()
+        interactor.encryptionService = ServiceFactory.encriptionService
         interactor.APIDataManager = APIDataManager
         interactor.localDataManager = localDataManager
 

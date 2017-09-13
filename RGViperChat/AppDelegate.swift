@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UIApplication.shared.statusBarStyle = .lightContent
 
+        ServiceFactory.encriptionService = EncryptionService()
+
         // Root wireframe
         let rootWireframe = RootWireframe()
         rootWireframe.window = window

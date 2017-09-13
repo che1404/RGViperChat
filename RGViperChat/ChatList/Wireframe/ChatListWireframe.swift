@@ -41,7 +41,7 @@ class ChatListWireframe: ChatListWireframeProtocol {
         interactor.presenter = presenter
         interactor.APIDataManager = APIDataManager
         interactor.localDataManager = localDataManager
-        interactor.encryptionService = EncryptionService()
+        interactor.encryptionService = ServiceFactory.encriptionService
 
         rootWireframe?.transitionToViewController(viewController: navigationController)
     }

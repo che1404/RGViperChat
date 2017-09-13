@@ -80,8 +80,3 @@ protocol ChatLocalDataManagerInputProtocol: class {
     * Add here your methods for communication INTERACTOR -> LOCALDATAMANAGER
     */
 }
-
-protocol EncryptionServiceProtocol: class {
-    func encrypt(text: String) -> Result<String>
-    func decrypt(text: String) -> Result<String>
-}
