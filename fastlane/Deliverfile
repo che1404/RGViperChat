@@ -1,0 +1,34 @@
+###################### More Options ######################
+# If you want to have even more control, check out the documentation
+# https://github.com/fastlane/fastlane/blob/master/deliver/Deliverfile.md
+
+
+###################### Automatically generated ######################
+# Feel free to remove the following line if you use fastlane (which you should)
+
+app_identifier "com.robertogarrido.rgviperchat" # The bundle identifier of your app
+
+username "robertogarridomartin@gmail.com" # your Apple ID user
+
+force true
+
+price_tier 0
+
+app_icon './fastlane/metadata/AppIcon.png'
+
+app_review_information(
+  first_name: "Roberto",
+  last_name: "Garrido",
+  phone_number: "+34 652766885",
+  email_address: "robertogarridomartin@gmail.com",
+  notes: "No demo account needed"
+)
+
+submission_information(   
+    export_compliance_encryption_updated: false,
+    export_compliance_uses_encryption: false,
+    content_rights_contains_third_party_content: false,
+    add_id_info_uses_idfa: false
+)
+
+app_rating_config_path "./fastlane/metadata/itunes_rating_config.json"

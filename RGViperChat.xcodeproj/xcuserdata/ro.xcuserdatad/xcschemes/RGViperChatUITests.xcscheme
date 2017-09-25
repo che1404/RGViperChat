@@ -9,14 +9,14 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D0619DB41ED37EA8006C953A"
-               BuildableName = "RGViperChat.app"
-               BlueprintName = "RGViperChat"
+               BlueprintIdentifier = "D09995AC1F77C50E004622CD"
+               BuildableName = "RGViperChatUITests.xctest"
+               BlueprintName = "RGViperChatUITests"
                ReferencedContainer = "container:RGViperChat.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,16 +32,6 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D0619DC81ED37EA8006C953A"
-               BuildableName = "RGViperChatTests.xctest"
-               BlueprintName = "RGViperChatTests"
-               ReferencedContainer = "container:RGViperChat.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "D09995AC1F77C50E004622CD"
                BuildableName = "RGViperChatUITests.xctest"
                BlueprintName = "RGViperChatUITests"
@@ -49,15 +39,6 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D0619DB41ED37EA8006C953A"
-            BuildableName = "RGViperChat.app"
-            BlueprintName = "RGViperChat"
-            ReferencedContainer = "container:RGViperChat.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -71,16 +52,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D0619DB41ED37EA8006C953A"
-            BuildableName = "RGViperChat.app"
-            BlueprintName = "RGViperChat"
+            BlueprintIdentifier = "D09995AC1F77C50E004622CD"
+            BuildableName = "RGViperChatUITests.xctest"
+            BlueprintName = "RGViperChatUITests"
             ReferencedContainer = "container:RGViperChat.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -90,16 +70,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D0619DB41ED37EA8006C953A"
-            BuildableName = "RGViperChat.app"
-            BlueprintName = "RGViperChat"
+            BlueprintIdentifier = "D09995AC1F77C50E004622CD"
+            BuildableName = "RGViperChatUITests.xctest"
+            BlueprintName = "RGViperChatUITests"
             ReferencedContainer = "container:RGViperChat.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

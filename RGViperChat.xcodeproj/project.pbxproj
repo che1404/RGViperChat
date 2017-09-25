@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B2DDC712A3FBC12C795E49E /* Pods_RGViperChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A71D29EC5409F3C484FC0F86 /* Pods_RGViperChatTests.framework */; };
-		C3DB3EC9542785DFD36377A4 /* Pods_RGViperChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B91B5E8135202D018090A1 /* Pods_RGViperChat.framework */; };
+		3A532CEA68F6C72AA5A999E5 /* Pods_RGViperChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E83618BC3E784617002FB88 /* Pods_RGViperChatTests.framework */; };
 		D004EEF31ED4BD8500BA0D4C /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D004EEF21ED4BD8500BA0D4C /* GeneratedMocks.swift */; };
 		D004EF221ED4BFB100BA0D4C /* ChatListAPIDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D004EF131ED4BFB100BA0D4C /* ChatListAPIDataManager.swift */; };
 		D004EF231ED4BFB100BA0D4C /* ChatListLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D004EF151ED4BFB100BA0D4C /* ChatListLocalDataManager.swift */; };
@@ -74,6 +73,8 @@
 		D0619DF21ED37EB9006C953A /* ChatWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0619DE91ED37EB9006C953A /* ChatWireframe.swift */; };
 		D0619DF31ED37EC1006C953A /* ChatInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0619DE01ED37EB9006C953A /* ChatInteractorSpec.swift */; };
 		D0619DF41ED37EC3006C953A /* ChatPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0619DE31ED37EB9006C953A /* ChatPresenterSpec.swift */; };
+		D09995B01F77C50E004622CD /* RGViperChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09995AF1F77C50E004622CD /* RGViperChatUITests.swift */; };
+		D09995B81F77C525004622CD /* SnapshotHelperXcode8.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09995B71F77C525004622CD /* SnapshotHelperXcode8.swift */; };
 		D0DAB8621EDCAEF500D3099E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DAB8611EDCAEF500D3099E /* Message.swift */; };
 		D0E3672A1ED9DC5C00D7EDFE /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E367291ED9DC5C00D7EDFE /* RootWireframe.swift */; };
 		D0E3672C1ED9EE0800D7EDFE /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3672B1ED9EE0800D7EDFE /* Chat.swift */; };
@@ -88,6 +89,8 @@
 		D0E367491ED9F75000D7EDFE /* CreateChatPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E367381ED9F73D00D7EDFE /* CreateChatPresenterSpec.swift */; };
 		D0ECB1761F5480C300137329 /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ECB1751F5480C200137329 /* TestingAppDelegate.swift */; };
 		D0ECB1781F5480F000137329 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ECB1771F5480F000137329 /* main.swift */; };
+		E21132BA96BF1FF6A0B0AB56 /* Pods_RGViperChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFEC7D0F0F497DC4027C93F2 /* Pods_RGViperChat.framework */; };
+		FDA1B95DE0C3928578F0BDBF /* Pods_RGViperChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE4A361E32101B8C86C92AD4 /* Pods_RGViperChatUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,15 +101,23 @@
 			remoteGlobalIDString = D0619DB41ED37EA8006C953A;
 			remoteInfo = RGViperChat;
 		};
+		D09995B21F77C50E004622CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D0619DAD1ED37EA8006C953A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0619DB41ED37EA8006C953A;
+			remoteInfo = RGViperChat;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		61CC7FDFF6462BDE9DBBA481 /* Pods-RGViperChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RGViperChatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RGViperChatTests/Pods-RGViperChatTests.release.xcconfig"; sourceTree = "<group>"; };
-		A5AD91C76D18D709ABB0BACC /* Pods-RGViperChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RGViperChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RGViperChatTests/Pods-RGViperChatTests.debug.xcconfig"; sourceTree = "<group>"; };
-		A71D29EC5409F3C484FC0F86 /* Pods_RGViperChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RGViperChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3B91B5E8135202D018090A1 /* Pods_RGViperChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RGViperChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5D76C41EF8E0354A94F810E /* Pods-RGViperChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RGViperChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-RGViperChat/Pods-RGViperChat.release.xcconfig"; sourceTree = "<group>"; };
-		BCEA72FB67755D84EC859928 /* Pods-RGViperChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RGViperChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RGViperChat/Pods-RGViperChat.debug.xcconfig"; sourceTree = "<group>"; };
+		09E24229771308CDCEAD8636 /* Pods-RGViperChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RGViperChatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RGViperChatTests/Pods-RGViperChatTests.release.xcconfig"; sourceTree = "<group>"; };
+		19169FAE89D78DBADFDDDD90 /* Pods-RGViperChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RGViperChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RGViperChatUITests/Pods-RGViperChatUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3251E409231CB7B7DDA8083F /* Pods-RGViperChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RGViperChatUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RGViperChatUITests/Pods-RGViperChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3E83618BC3E784617002FB88 /* Pods_RGViperChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RGViperChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5294ED411581A1C932965FF0 /* Pods-RGViperChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RGViperChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-RGViperChat/Pods-RGViperChat.release.xcconfig"; sourceTree = "<group>"; };
+		C26DC44915B4FBB09ACF5DDB /* Pods-RGViperChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RGViperChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RGViperChat/Pods-RGViperChat.debug.xcconfig"; sourceTree = "<group>"; };
+		C56980AC2A1E42682DEFFA1E /* Pods-RGViperChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RGViperChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RGViperChatTests/Pods-RGViperChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D004EEF21ED4BD8500BA0D4C /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
 		D004EF131ED4BFB100BA0D4C /* ChatListAPIDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListAPIDataManager.swift; sourceTree = "<group>"; };
 		D004EF151ED4BFB100BA0D4C /* ChatListLocalDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListLocalDataManager.swift; sourceTree = "<group>"; };
@@ -176,6 +187,10 @@
 		D0619DE51ED37EB9006C953A /* ChatProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatProtocols.swift; sourceTree = "<group>"; };
 		D0619DE71ED37EB9006C953A /* ChatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		D0619DE91ED37EB9006C953A /* ChatWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatWireframe.swift; sourceTree = "<group>"; };
+		D09995AD1F77C50E004622CD /* RGViperChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RGViperChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D09995AF1F77C50E004622CD /* RGViperChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGViperChatUITests.swift; sourceTree = "<group>"; };
+		D09995B11F77C50E004622CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D09995B71F77C525004622CD /* SnapshotHelperXcode8.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelperXcode8.swift; path = fastlane/SnapshotHelperXcode8.swift; sourceTree = SOURCE_ROOT; };
 		D0DAB8611EDCAEF500D3099E /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Model/Message.swift; sourceTree = "<group>"; };
 		D0E367291ED9DC5C00D7EDFE /* RootWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootWireframe.swift; path = Common/RootWireframe.swift; sourceTree = "<group>"; };
 		D0E3672B1ED9EE0800D7EDFE /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Chat.swift; path = Model/Chat.swift; sourceTree = "<group>"; };
@@ -190,6 +205,8 @@
 		D0E3673E1ED9F73D00D7EDFE /* CreateChatWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChatWireframe.swift; sourceTree = "<group>"; };
 		D0ECB1751F5480C200137329 /* TestingAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingAppDelegate.swift; sourceTree = "<group>"; };
 		D0ECB1771F5480F000137329 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		DE4A361E32101B8C86C92AD4 /* Pods_RGViperChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RGViperChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFEC7D0F0F497DC4027C93F2 /* Pods_RGViperChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RGViperChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,7 +214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3DB3EC9542785DFD36377A4 /* Pods_RGViperChat.framework in Frameworks */,
+				E21132BA96BF1FF6A0B0AB56 /* Pods_RGViperChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,31 +222,42 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B2DDC712A3FBC12C795E49E /* Pods_RGViperChatTests.framework in Frameworks */,
+				3A532CEA68F6C72AA5A999E5 /* Pods_RGViperChatTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D09995AA1F77C50E004622CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDA1B95DE0C3928578F0BDBF /* Pods_RGViperChatUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8E3DB1545578F919F7FE7CEE /* Pods */ = {
+		9BC1EB79677A03BB2200613B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BCEA72FB67755D84EC859928 /* Pods-RGViperChat.debug.xcconfig */,
-				B5D76C41EF8E0354A94F810E /* Pods-RGViperChat.release.xcconfig */,
-				A5AD91C76D18D709ABB0BACC /* Pods-RGViperChatTests.debug.xcconfig */,
-				61CC7FDFF6462BDE9DBBA481 /* Pods-RGViperChatTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		8F7671CED294C2553907104E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B3B91B5E8135202D018090A1 /* Pods_RGViperChat.framework */,
-				A71D29EC5409F3C484FC0F86 /* Pods_RGViperChatTests.framework */,
+				FFEC7D0F0F497DC4027C93F2 /* Pods_RGViperChat.framework */,
+				3E83618BC3E784617002FB88 /* Pods_RGViperChatTests.framework */,
+				DE4A361E32101B8C86C92AD4 /* Pods_RGViperChatUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CA8E0E714F882FD5153013EC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C26DC44915B4FBB09ACF5DDB /* Pods-RGViperChat.debug.xcconfig */,
+				5294ED411581A1C932965FF0 /* Pods-RGViperChat.release.xcconfig */,
+				C56980AC2A1E42682DEFFA1E /* Pods-RGViperChatTests.debug.xcconfig */,
+				09E24229771308CDCEAD8636 /* Pods-RGViperChatTests.release.xcconfig */,
+				3251E409231CB7B7DDA8083F /* Pods-RGViperChatUITests.debug.xcconfig */,
+				19169FAE89D78DBADFDDDD90 /* Pods-RGViperChatUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		D004EF101ED4BFB100BA0D4C /* ChatList */ = {
@@ -592,9 +620,10 @@
 			children = (
 				D0619DB71ED37EA8006C953A /* RGViperChat */,
 				D0619DCC1ED37EA8006C953A /* RGViperChatTests */,
+				D09995AE1F77C50E004622CD /* RGViperChatUITests */,
 				D0619DB61ED37EA8006C953A /* Products */,
-				8E3DB1545578F919F7FE7CEE /* Pods */,
-				8F7671CED294C2553907104E /* Frameworks */,
+				CA8E0E714F882FD5153013EC /* Pods */,
+				9BC1EB79677A03BB2200613B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -603,6 +632,7 @@
 			children = (
 				D0619DB51ED37EA8006C953A /* RGViperChat.app */,
 				D0619DC91ED37EA8006C953A /* RGViperChatTests.xctest */,
+				D09995AD1F77C50E004622CD /* RGViperChatUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -718,6 +748,16 @@
 			path = Wireframe;
 			sourceTree = "<group>";
 		};
+		D09995AE1F77C50E004622CD /* RGViperChatUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D09995B71F77C525004622CD /* SnapshotHelperXcode8.swift */,
+				D09995AF1F77C50E004622CD /* RGViperChatUITests.swift */,
+				D09995B11F77C50E004622CD /* Info.plist */,
+			);
+			path = RGViperChatUITests;
+			sourceTree = "<group>";
+		};
 		D0E3672D1ED9F73D00D7EDFE /* CreateChat */ = {
 			isa = PBXGroup;
 			children = (
@@ -810,14 +850,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0619DD21ED37EA8006C953A /* Build configuration list for PBXNativeTarget "RGViperChat" */;
 			buildPhases = (
-				344A09F31186300E30AE817C /* [CP] Check Pods Manifest.lock */,
+				59D1599CA4F48A9B9E382242 /* [CP] Check Pods Manifest.lock */,
 				D0619DB11ED37EA8006C953A /* Sources */,
 				D0619DB21ED37EA8006C953A /* Frameworks */,
 				D0619DB31ED37EA8006C953A /* Resources */,
-				E8616FA1861840B3DD2ABA3A /* [CP] Embed Pods Frameworks */,
-				C752E4BCCED7E91ADC3DB982 /* [CP] Copy Pods Resources */,
 				D004EEF11ED4BCBD00BA0D4C /* ShellScript */,
 				D004EEF41ED4BE7900BA0D4C /* ShellScript */,
+				52791791C37683B8CDB65BE8 /* [CP] Embed Pods Frameworks */,
+				A6BF5A3BDF0A80D9321E0013 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -832,12 +872,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0619DD51ED37EA8006C953A /* Build configuration list for PBXNativeTarget "RGViperChatTests" */;
 			buildPhases = (
-				753EABDDF8BBEB61E4F368DB /* [CP] Check Pods Manifest.lock */,
+				CE72D25C87996325C97EB021 /* [CP] Check Pods Manifest.lock */,
 				D0619DC51ED37EA8006C953A /* Sources */,
 				D0619DC61ED37EA8006C953A /* Frameworks */,
 				D0619DC71ED37EA8006C953A /* Resources */,
-				BE40347CD20C270EBDF75399 /* [CP] Embed Pods Frameworks */,
-				56AB9F2CE4E0D587D30FE8B8 /* [CP] Copy Pods Resources */,
+				A270F6B169A0410280B37E6C /* [CP] Embed Pods Frameworks */,
+				02A8E1A8D7BA0EA87AAC85D7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -848,6 +888,27 @@
 			productName = RGViperChatTests;
 			productReference = D0619DC91ED37EA8006C953A /* RGViperChatTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D09995AC1F77C50E004622CD /* RGViperChatUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D09995B61F77C50E004622CD /* Build configuration list for PBXNativeTarget "RGViperChatUITests" */;
+			buildPhases = (
+				AD93C468D9C0D6AEDF93D713 /* [CP] Check Pods Manifest.lock */,
+				D09995A91F77C50E004622CD /* Sources */,
+				D09995AA1F77C50E004622CD /* Frameworks */,
+				D09995AB1F77C50E004622CD /* Resources */,
+				4F99489651838E16FA4FA939 /* [CP] Embed Pods Frameworks */,
+				7224892B96B29CA3057989F9 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D09995B31F77C50E004622CD /* PBXTargetDependency */,
+			);
+			name = RGViperChatUITests;
+			productName = RGViperChatUITests;
+			productReference = D09995AD1F77C50E004622CD /* RGViperChatUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -870,6 +931,12 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = D0619DB41ED37EA8006C953A;
 					};
+					D09995AC1F77C50E004622CD = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 6PBG234246;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D0619DB41ED37EA8006C953A;
+					};
 				};
 			};
 			buildConfigurationList = D0619DB01ED37EA8006C953A /* Build configuration list for PBXProject "RGViperChat" */;
@@ -887,6 +954,7 @@
 			targets = (
 				D0619DB41ED37EA8006C953A /* RGViperChat */,
 				D0619DC81ED37EA8006C953A /* RGViperChatTests */,
+				D09995AC1F77C50E004622CD /* RGViperChatUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -915,25 +983,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		344A09F31186300E30AE817C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
+		D09995AB1F77C50E004622CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
 		};
-		56AB9F2CE4E0D587D30FE8B8 /* [CP] Copy Pods Resources */ = {
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		02A8E1A8D7BA0EA87AAC85D7 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -948,22 +1008,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RGViperChatTests/Pods-RGViperChatTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		753EABDDF8BBEB61E4F368DB /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		BE40347CD20C270EBDF75399 /* [CP] Embed Pods Frameworks */ = {
+		4F99489651838E16FA4FA939 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -975,10 +1020,97 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RGViperChatUITests/Pods-RGViperChatUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		52791791C37683B8CDB65BE8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RGViperChat/Pods-RGViperChat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DGActivityIndicatorView/DGActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/FontAwesome.swift/FontAwesome_swift.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac-f0850809/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DGActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesome_swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RGViperChat/Pods-RGViperChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		59D1599CA4F48A9B9E382242 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RGViperChat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7224892B96B29CA3057989F9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RGViperChatUITests/Pods-RGViperChatUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A270F6B169A0410280B37E6C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RGViperChatTests/Pods-RGViperChatTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac-Defines-NSData+zlib/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Cuckoo/Cuckoo.framework",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cuckoo.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RGViperChatTests/Pods-RGViperChatTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C752E4BCCED7E91ADC3DB982 /* [CP] Copy Pods Resources */ = {
+		A6BF5A3BDF0A80D9321E0013 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -991,6 +1123,42 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RGViperChat/Pods-RGViperChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD93C468D9C0D6AEDF93D713 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RGViperChatUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CE72D25C87996325C97EB021 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RGViperChatTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D004EEF11ED4BCBD00BA0D4C /* ShellScript */ = {
@@ -1018,21 +1186,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
-		};
-		E8616FA1861840B3DD2ABA3A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RGViperChat/Pods-RGViperChat-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1121,6 +1274,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D09995A91F77C50E004622CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D09995B81F77C525004622CD /* SnapshotHelperXcode8.swift in Sources */,
+				D09995B01F77C50E004622CD /* RGViperChatUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1128,6 +1290,11 @@
 			isa = PBXTargetDependency;
 			target = D0619DB41ED37EA8006C953A /* RGViperChat */;
 			targetProxy = D0619DCA1ED37EA8006C953A /* PBXContainerItemProxy */;
+		};
+		D09995B31F77C50E004622CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0619DB41ED37EA8006C953A /* RGViperChat */;
+			targetProxy = D09995B21F77C50E004622CD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1238,9 +1405,10 @@
 		};
 		D0619DD31ED37EA8006C953A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BCEA72FB67755D84EC859928 /* Pods-RGViperChat.debug.xcconfig */;
+			baseConfigurationReference = C26DC44915B4FBB09ACF5DDB /* Pods-RGViperChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6PBG234246;
 				INFOPLIST_FILE = RGViperChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1253,9 +1421,10 @@
 		};
 		D0619DD41ED37EA8006C953A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5D76C41EF8E0354A94F810E /* Pods-RGViperChat.release.xcconfig */;
+			baseConfigurationReference = 5294ED411581A1C932965FF0 /* Pods-RGViperChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6PBG234246;
 				INFOPLIST_FILE = RGViperChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1268,7 +1437,7 @@
 		};
 		D0619DD61ED37EA8006C953A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A5AD91C76D18D709ABB0BACC /* Pods-RGViperChatTests.debug.xcconfig */;
+			baseConfigurationReference = C56980AC2A1E42682DEFFA1E /* Pods-RGViperChatTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1284,7 +1453,7 @@
 		};
 		D0619DD71ED37EA8006C953A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 61CC7FDFF6462BDE9DBBA481 /* Pods-RGViperChatTests.release.xcconfig */;
+			baseConfigurationReference = 09E24229771308CDCEAD8636 /* Pods-RGViperChatTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1295,6 +1464,34 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RGViperChat.app/RGViperChat";
+			};
+			name = Release;
+		};
+		D09995B41F77C50E004622CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3251E409231CB7B7DDA8083F /* Pods-RGViperChatUITests.debug.xcconfig */;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 6PBG234246;
+				INFOPLIST_FILE = RGViperChatUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.robertogarrido.RGViperChatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = RGViperChat;
+			};
+			name = Debug;
+		};
+		D09995B51F77C50E004622CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19169FAE89D78DBADFDDDD90 /* Pods-RGViperChatUITests.release.xcconfig */;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 6PBG234246;
+				INFOPLIST_FILE = RGViperChatUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.robertogarrido.RGViperChatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = RGViperChat;
 			};
 			name = Release;
 		};
@@ -1324,6 +1521,15 @@
 			buildConfigurations = (
 				D0619DD61ED37EA8006C953A /* Debug */,
 				D0619DD71ED37EA8006C953A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D09995B61F77C50E004622CD /* Build configuration list for PBXNativeTarget "RGViperChatUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D09995B41F77C50E004622CD /* Debug */,
+				D09995B51F77C50E004622CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

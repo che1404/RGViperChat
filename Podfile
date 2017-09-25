@@ -24,5 +24,10 @@ target 'RGViperChat' do
     pod 'Nimble'
     pod 'Cuckoo'
   end
+  
+  target 'RGViperChatUITests' do
+    inherit! :search_paths
+    # Pods for UI testing
+  end
 
 end
