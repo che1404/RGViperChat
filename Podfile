@@ -1,4 +1,4 @@
-platform :ios, '10.0'
+platform :ios, '12.0'
 
 # ignore all warnings from all pods
 inhibit_all_warnings!
@@ -15,6 +15,10 @@ target 'RGViperChat' do
   pod 'FontAwesome.swift'
   pod 'DZNEmptyDataSet'
   pod 'DGActivityIndicatorView'
+
+  # MVVM + Reactive bindings
+  pod 'ReactiveSwift', '~> 7.1'
+  pod 'ReactiveCocoa', '~> 12.0'
   
   target 'RGViperChatTests' do
     inherit! :search_paths
